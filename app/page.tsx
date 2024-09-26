@@ -1,63 +1,33 @@
 "use client";
-// import { loadStripe } from "@stripe/stripe-js";
 
-import { useEffect } from "react";
+import Image from "next/image";
 
-// // Make sure to call `loadStripe` outside of a component’s render to avoid
-// // recreating the `Stripe` object on every render.
-// const stripePromise = loadStripe(
-//   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-// );
-
-export default function PreviewPage() {
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-    if (query.get("success")) {
-      console.log("Order placed! You will receive an email confirmation.");
-    }
-
-    if (query.get("canceled")) {
-      console.log(
-        "Order canceled -- continue to shop around and checkout when you’re ready."
-      );
-    }
-  }, []);
-
+export default function HomePage() {
   return (
-    <form action="/api/checkout-sessions" method="POST">
-      <section>
-        <button type="submit" role="link">
-          Checkout
-        </button>
-      </section>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
-    </form>
+    <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
+      <div className="w-1/2">
+        <Image src={"assets/images/neel_book.png"} alt={""} />
+      </div>
+
+      <div className="w-1/2 pr-24 overflow-hidden space-y-4">
+        <h1 className="text-4xl font-semibold break-words">
+          Puls 4, Grundbog,<br></br> 1. udgave
+        </h1>
+        <h2 className="text-2xl">
+          En del af serien <span className="underline text-blue-600">Puls</span>
+        </h2>
+        <span className="text-sm text-slate-600 items-center align-middle justify-center">
+          <span className="bg-blue-400 w-3 h-3 inline-block mr-1 rounded-full"></span>
+          Af{" "}
+          <span className="underline text-slate-500">Neel Jersild Moreira</span>{" "}
+          & <span className="underline text-slate-500">Fanny Slotorub</span>
+        </span>
+        <p className="font-light leading-5">
+          Puls 4 er et grundbogsmateriale til kursister, som deltager i
+          arbejdsmarkedsrettet danskundervisning eller går på Danskuddannelse 3,
+          modul 2. Denne reviderede udgave af Puls 4 har i særlig... (læs mere)
+        </p>
+      </div>
+    </div>
   );
 }

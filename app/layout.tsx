@@ -1,18 +1,8 @@
+import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import Link from "next/link";
+import { kanit } from "./fonts/fonts";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,20 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${kanit.className} flex flex-col antialiased h-screen w-screen `}
       >
-        <nav className="w-full h-10 bg-teal-400 px-10 flex items-center justify-between">
-          <div className="flex items-center gap-12">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-          </div>
-          <div className="flex items-center gap-12">
-            <Link href="/blog">Blog</Link>
-            <Link href="/projects">Projects</Link>
-          </div>
-        </nav>
-
-        {children}
+        <NavBar />
+        <main className="flex flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
