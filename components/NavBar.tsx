@@ -17,7 +17,9 @@ export default function NavBar() {
         {/* <Link href="/contact">Kontakt</Link> */}
       </div>
       <div>
-        <ShoppingBasket />
+        <Link href={"/shop/cart"}>
+          <ShoppingBasket />
+        </Link>
       </div>
     </nav>
   );

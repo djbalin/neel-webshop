@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 
+import BookCover from "@/app/assets/images/neel_book.png";
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
       <div className="w-1/2">
-        <Image src={"assets/images/neel_book.png"} alt={""} />
+        <Image className="w-full" src={BookCover} alt={""} />
       </div>
 
       <div className="w-1/2 pr-24 overflow-hidden space-y-4">
@@ -28,6 +31,9 @@ export default function HomePage() {
           modul 2. Denne reviderede udgave af Puls 4 har i særlig... (læs mere)
         </p>
       </div>
+      <Link href={"/shop/checkout/?paymentId=4bce88efb44140ca873587b3151820b6"}>
+        GÅ DEHREN
+      </Link>
     </div>
   );
 }
