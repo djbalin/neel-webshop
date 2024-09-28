@@ -3,15 +3,18 @@
 export default function Checkout() {
   const handleCheckout = async () => {
     try {
-      const response = await fetch("/api/create-payment"); // Assuming you have an API route set up in Next.js
+      const response = await fetch("/api/create-payment-nets"); // Assuming you have an API route set up in Next.js
       const data = await response.json();
 
       if (!data.paymentId) {
         console.error("Error: Check output from create-payment");
         return;
       }
+      console.log(data);
 
-      // Redirect to checkout page with paymentId
+      //   redirect(`/shop/checkout/?paymentId=${data.paymentId}`);
+
+      //   // Redirect to checkout page with paymentId
       window.location.href = `/shop/checkout/?paymentId=${data.paymentId}`;
     } catch (error) {
       console.error("Connection error:", error);

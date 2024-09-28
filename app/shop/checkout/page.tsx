@@ -1,10 +1,10 @@
 "use client";
 import { redirect, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Checkout() {
   const params = useSearchParams();
-  const [isInitialized, setIsInitialized] = useState(false);
+  const hasRun = useRef(false);
 
   useEffect(() => {
     console.log("USE");
@@ -17,14 +17,14 @@ export default function Checkout() {
       typeof window !== "undefined" &&
       window.Dibs &&
       paymentId &&
-      !isInitialized
+      hasRun.current === false
     ) {
       // Function to initialize checkout after the container is rendered
       const initCheckout = () => {
         // Check if the container is available in the DOM
         const container = document.getElementById("checkout-container-div");
         if (container) {
-          setIsInitialized(true);
+          hasRun.current = true;
           console.log("Ok we in");
 
           // Define your checkout options
@@ -36,7 +36,6 @@ export default function Checkout() {
 
           console.log(checkoutOptions);
 
-          // Initialize the Dibs checkout object
           const checkout = new window.Dibs.Checkout(checkoutOptions);
           console.log(checkout);
 
@@ -54,17 +53,16 @@ export default function Checkout() {
       initCheckout(); // Call the init function
     } else {
       console.log("Expected a paymentId"); // No paymentId provided
-      // window.location = "cart.html"; // go back to cart.html
     }
   }, [params]);
 
   return (
     <section>
-      <div id="checkout-container-div"></div>
       <div>
         <h3>Stubborn Attachments</h3>
         <h5>$20.00</h5>
       </div>
+      <div className="bg-red-50" id="checkout-container-div"></div>
     </section>
   );
 }

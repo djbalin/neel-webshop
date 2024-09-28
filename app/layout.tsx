@@ -20,10 +20,6 @@ export default function RootLayout({
         className={`${kanit.className} flex flex-col antialiased h-screen w-screen `}
       >
         <script src="https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"></script>
-        {/* <Script
-          src="https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"
-          strategy="lazyOnload" // You can also use 'beforeInteractive', 'afterInteractive', etc.
-        ></Script> */}
         <NavBar />
         <main className="flex flex-grow">{children}</main>
         <Footer />

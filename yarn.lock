@@ -291,6 +291,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stripe/react-stripe-js@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "@stripe/react-stripe-js@npm:2.8.0"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    "@stripe/stripe-js": ^1.44.1 || ^2.0.0 || ^3.0.0 || ^4.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 8b3c62ff3924c729124ecb86cd90d59ecc3392e0d113481ff884df864d7ac6a65dfe4c3fb3ef1e2e49d02ba562e919dc582a2b67b4b2bc51d7719587bba72557
+  languageName: node
+  linkType: hard
+
+"@stripe/stripe-js@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "@stripe/stripe-js@npm:4.5.0"
+  checksum: 489e678faccd65b30cfcceb0b96814d0e3b7736e15869dfbdcc0fae125d949ff0b57a94a2f3cfe1a710285f9d1bdcf684fc227f68c0d9f721ddc8147d5809082
+  languageName: node
+  linkType: hard
+
 "@swc/counter@npm:^0.1.3":
   version: 0.1.3
   resolution: "@swc/counter@npm:0.1.3"
@@ -2821,6 +2841,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "neel-webshop@workspace:."
   dependencies:
+    "@stripe/react-stripe-js": ^2.8.0
+    "@stripe/stripe-js": ^4.5.0
     "@types/node": ^20
     "@types/react": ^18
     "@types/react-dom": ^18
@@ -3297,7 +3319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
