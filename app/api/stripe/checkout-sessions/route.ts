@@ -1,4 +1,6 @@
 import { stripe } from "@/app/stripe";
+import console from "console";
+import { NextRequest } from "next/server";
 
 export async function POST(req: Request) {
   console.log("REQ:________________");
@@ -17,7 +19,7 @@ export async function POST(req: Request) {
         },
       ],
       mode: "payment",
-      return_url: `http://localhost:3000/shop/return?session_id={{CHECKOUT_SESSION_ID}}`,
+      return_url: `http://localhost:3000/shop/return?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     return new Response(
@@ -36,23 +38,31 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET(req: Request) {
+export async function GET(request: NextRequest) {
   console.log("GET REQ:____________");
+  try {
+    const searchParams = request.nextUrl.searchParams;
+    const sessionId = searchParams.get("session_id");
 
-  console.log(req);
+    console.log(searchParams);
+    console.log(sessionId);
 
-  return new Response("Get req", { status: 200 });
-  //   try {
-  //     const session = await stripe.checkout.sessions.retrieve(
-  //       req.query.session_id
-  //     );
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-  //     res.send({
-  //       status: session.status,
-  //       customer_email: session.customer_details.email,
-  //     });
-  //   } catch (err) {
-  //     res.status(err.statusCode || 500).json(err.message);
-  //   }
-  //   break;
+    return new Response(
+      JSON.stringify({
+        status: session.status,
+        customer_email: session.customer_details.email,
+      }),
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+
+    return new Response(JSON.stringify({ message: "ERROR" }), {
+      status: 500,
+    });
+  }
 }

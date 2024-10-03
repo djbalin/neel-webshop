@@ -1,3 +1,4 @@
+"use client";
 import { redirect, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,7 +14,7 @@ export default function ReturnPage() {
       return;
     }
 
-    fetch(`/api/checkout_sessions?session_id=${sessionId}`, {
+    fetch(`/api/stripe/checkout-sessions?session_id=${sessionId}`, {
       method: "GET",
     })
       .then((res) => res.json())

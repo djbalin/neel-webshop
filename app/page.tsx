@@ -2,14 +2,13 @@
 
 import Image from "next/image";
 
-import BookCover from "@/app/assets/images/neel_book.png";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
       <div className="w-1/2">
-        <Image className="w-full" src={BookCover} alt={""} />
+        <Image className="w-full" src={"/images/neel_book.png"} alt={""} />
       </div>
 
       <div className="w-1/2 pr-24 overflow-hidden space-y-4">

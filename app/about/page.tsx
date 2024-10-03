@@ -1,8 +1,5 @@
 import Image from "next/image";
 
-import Persons from "@/app/assets/images/neel_persons.png";
-import Books from "@/app/assets/images/stack_of_books.png";
-
 export default function About() {
   return (
     <div className="grid grid-cols-1 px-6 py-16  items-center justify-center md:grid-cols-2 gap-8 lg:px-40">
@@ -29,12 +26,20 @@ export default function About() {
         </div>
       </div>
       <div className="flex justify-center items-center p-4">
-        <Image src={Persons} alt={""} className="w-full max-w-sm h-auto" />
+        <Image
+          src={"/images/neel_persons.png"}
+          alt={""}
+          className="w-full max-w-sm h-auto"
+        />
       </div>
 
       {/* Row 2: Image | Text */}
       <div className="flex justify-center items-center p-4">
-        <Image src={Books} alt={""} className="w-full max-w-sm h-auto" />
+        <Image
+          src={"/public/images/neel_book.png"}
+          alt={""}
+          className="w-full max-w-sm h-auto"
+        />
       </div>
       <div className="flex items-center p-4">
         <div className="flex flex-col">
