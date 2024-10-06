@@ -1,38 +1,38 @@
-"use client";
-
 import Image from "next/image";
-
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
-      <div className="w-1/2">
-        <Image className="w-full" src={"/images/neel_book.png"} alt={""} />
-      </div>
-
-      <div className="w-1/2 pr-24 overflow-hidden space-y-4">
-        <h1 className="text-4xl font-semibold break-words">
-          Puls 4, Grundbog,<br></br> 1. udgave
-        </h1>
-        <h2 className="text-2xl">
-          En del af serien <span className="underline text-blue-600">Puls</span>
-        </h2>
-        <span className="text-sm text-slate-600 items-center align-middle justify-center">
-          <span className="bg-blue-400 w-3 h-3 inline-block mr-1 rounded-full"></span>
-          Af{" "}
-          <span className="underline text-slate-500">Neel Jersild Moreira</span>{" "}
-          & <span className="underline text-slate-500">Fanny Slotorub</span>
+    <section className="flex w-full flex-grow items-center justify-center space-x-8 bg-[#A9DBFF] rounded-b-[300px] mb-16">
+      <div className="max-w-[500px] gap-y-2 flex-col flex-grow justify-center flex">
+        <span className="flex flex-row tracking-tight items-baseline gap-x-4">
+          <h1 className="text-6xl font-bold">Puls 4</h1>
+          <h3 className="text-xl font-semibold">fra Ordstrøm</h3>
         </span>
-        <p className="font-light leading-5">
-          Puls 4 er et grundbogsmateriale til kursister, som deltager i
-          arbejdsmarkedsrettet danskundervisning eller går på Danskuddannelse 3,
-          modul 2. Denne reviderede udgave af Puls 4 har i særlig... (læs mere)
-        </p>
+        <span className="text-2xl font-light tracking-tighter">
+          Få mere ud af din undervisning med vores nye læremateriale
+        </span>
+        <span>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et facere
+          rerum iusto blanditiis
+        </span>
+        <Link
+          className="bg-[#38B822] text-base justify-center flex font-semibold py-1 text-white rounded-md max-w-[200px]"
+          href={"/books"}
+        >
+          Forudbestil Nu
+        </Link>
       </div>
-      <Link href={"/shop/checkout/?paymentId=4bce88efb44140ca873587b3151820b6"}>
-        GÅ DEHREN
-      </Link>
-    </div>
+      <div className="max-w-[400px] flex-grow items-center justify-center flex">
+        <div className="absolute h-[350px] w-[350px] z-5 flex flex-grow bg-[#F59E0B] rounded-t-[400px] rounded-b-[400px]"></div>
+        <Image
+          className="z-10"
+          src={"/images/neel_book.png"}
+          alt={""}
+          width={1000}
+          height={1000}
+        />
+      </div>
+    </section>
   );
 }

@@ -25,19 +25,21 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="flex justify-center items-center p-4">
+      <div className="flex w-full relative justify-center items-center p-4">
         <Image
           src={"/images/neel_persons.png"}
           alt={""}
+          fill
           className="w-full max-w-sm h-auto"
         />
       </div>
 
       {/* Row 2: Image | Text */}
-      <div className="flex justify-center items-center p-4">
+      <div className="flex relative w-full justify-center items-center p-4">
         <Image
           src={"/public/images/neel_book.png"}
           alt={""}
+          fill
           className="w-full max-w-sm h-auto"
         />
       </div>

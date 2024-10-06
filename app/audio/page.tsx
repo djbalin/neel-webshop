@@ -32,6 +32,7 @@ export default function SoundFilesPage() {
           className="w-full"
           width={1000}
           height={1000}
+          // fill
           src={"/images/neel_book.png"}
           alt={""}
         />
