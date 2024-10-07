@@ -3,7 +3,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import AudioPlayer from "./AudioPlayer";
 
 const PAGE_SIZE = 5;
 
@@ -32,7 +31,6 @@ export default function SoundFilesPage() {
           className="w-full"
           width={1000}
           height={1000}
-          // fill
           src={"/images/neel_book.png"}
           alt={""}
         />
@@ -69,16 +67,16 @@ export default function SoundFilesPage() {
               </button>
             </span>
           </div>
-          <div className="xl:max-h-[400px] xl:min-w-[600px] space-y-2 scrollable p-4 pb-8">
-            <div>
+          <div className="xl:max-h-[450px] xl:min-w-[600px] space-y-2 scrollable p-4 pt-2 pb-8">
+            {/* <div>
               <AudioPlayer src={AUDIO_FILE_PATHS[0]} />
-            </div>
+            </div> */}
             {AUDIO_FILE_PATHS.slice(
               currentPage * PAGE_SIZE,
               currentPage * PAGE_SIZE + PAGE_SIZE
             ).map((audioFilePath, idx) => {
               return (
-                <div key={idx}>
+                <div className="gap-y-1 flex flex-col" key={idx}>
                   <span>Øvelse {currentPage * PAGE_SIZE + (idx + 1)}</span>
                   <audio controls src={audioFilePath} />
                 </div>

@@ -10,11 +10,9 @@ export default function NavBar() {
       <div className="flex items-center gap-12">
         <Link href="/">Forside</Link>
         <Link href="/books">Bøger</Link>
-        <Link href="/order">Bestilling</Link>
         <Link href="/audio">Lydfiler</Link>
-        <Link href="/teacher">Lærervejledning</Link>
+        <Link href="/guide">Lærervejledning</Link>
         <Link href="/about">Om forlaget</Link>
-        {/* <Link href="/contact">Kontakt</Link> */}
       </div>
       <div>
         <Link href={"/shop/cart"}>

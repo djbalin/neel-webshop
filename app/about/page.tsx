@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="grid grid-cols-1 px-6 py-16  items-center justify-center md:grid-cols-2 gap-8 lg:px-40">
+    <div className="grid grid-cols-1 px-4 py-16  items-center justify-center md:grid-cols-2 gap-8 gap-y-16 xl:px-32">
       {/* Row 1: Text | Image */}
-      <div className="flex items-center p-4">
+      <div className="flex items-center">
         <div className="flex flex-col">
           <h1 className="text-4xl font-bold">Om os</h1>
           <h2 className="text-xl font-bold">Integer egestas ultrices euis</h2>
           <br></br>
-          <p className="text-sm lg:text-base">
+          <p className="text-sm font-light lg:text-base">
             Etiam id risus ante. Morbi laoreet, quam vel placerat ullamcorper,
             nulla tortor faucibus neque, non egestas massa turpis et nisi.
             Quisque sollicitudin laoreet risus, at imperdiet nulla luctus quis.
@@ -25,29 +25,30 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="flex w-full relative justify-center items-center p-4">
+      <div className="flex w-full relative justify-center items-center">
         <Image
           src={"/images/neel_persons.png"}
           alt={""}
-          fill
-          className="w-full max-w-sm h-auto"
+          width={1000}
+          height={1000}
         />
       </div>
 
       {/* Row 2: Image | Text */}
       <div className="flex relative w-full justify-center items-center p-4">
         <Image
-          src={"/public/images/neel_book.png"}
+          src={"/images/neel_book.png"}
           alt={""}
-          fill
-          className="w-full max-w-sm h-auto"
+          width={1000}
+          height={1000}
         />
       </div>
       <div className="flex items-center p-4">
         <div className="flex flex-col">
           <h1 className="text-4xl font-bold">Serien Puls</h1>
           <h2 className="text-xl font-bold">Maecenas vel lacinia massa</h2>
-          <p className="text-sm lg:text-base">
+          <br></br>
+          <p className="text-sm lg:text-base font-light">
             Ut placerat hendrerit turpis, id imperdiet massa volutpat
             vestibulum. Nullam imperdiet eleifend justo, ut rhoncus ante sodales
             at. Suspendisse dictum elit quis leo imperdiet, sed tincidunt tellus
@@ -57,7 +58,7 @@ export default function About() {
             pellentesque est vel tempor.
           </p>
           <br></br>
-          <p className="text-sm lg:text-base">
+          <p className="text-sm lg:text-base font-light">
             Nunc vel aliquam tortor, egestas lacinia nunc. Curabitur in tempor
             metus. Etiam sit amet justo eu elit elementum tempus et id dui. Sed
             pharetra lacinia velit nec varius. Nullam condimentum in velit
