@@ -23,8 +23,6 @@ export default function CartContextProvider({
 }
 
 export function useCartContext() {
-  console.log("Hello");
-
   const context = useContext(CartContext);
   if (context === null) {
     throw new Error("useCartContext must be used within a CartContextProvider");

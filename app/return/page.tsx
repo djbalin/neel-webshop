@@ -32,8 +32,7 @@ const CheckoutReturn = () => {
               Ordre annulleret
             </h2>
             <p className="text-gray-600 mb-6">
-              Din ordre blev ikke fuldført, da du afbrød betalingen, eller noget
-              andet gik galt. Prøv venligst igen.
+              Betalingen blev afbrudt, prøv venligst igen.
             </p>
             <a
               href="/"
