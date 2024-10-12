@@ -39,10 +39,7 @@ export default function PurchaseBook() {
           </button>
         </div>
         {isItemsAdded ? (
-          <button
-            // onClick={() => setAmount(purchaseAmount)}
-            className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-brandOrange text-white font-bold"
-          >
+          <button className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-brandOrange text-white font-bold">
             <Check /> Kurv opdateret!
           </button>
         ) : (

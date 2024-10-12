@@ -1,13 +1,14 @@
 "use client";
 import { useCartContext } from "@/contexts/CartContext";
-import { ShoppingBasket } from "lucide-react";
+import { ShoppingBasket, XCircleIcon } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CartButton = () => {
   const { amount, setAmount } = useCartContext();
   const [isBouncing, setIsBouncing] = useState(false);
   const [isCartVisible, setIsCartVisible] = useState(false); // State to control cart visibility
+  const cartRef = useRef<HTMLDivElement>(null);
 
   function format(num: number) {
     return num.toFixed(2).replace(".", ",");
@@ -28,11 +29,29 @@ const CartButton = () => {
     return () => clearTimeout(timeout); // Clean up to avoid memory leaks
   }, [amount]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      cartRef.current?.childNodes;
+      if (
+        cartRef.current &&
+        event.target !== null &&
+        !Array.from(cartRef.current.children).includes(event.target as Element)
+      ) {
+        setIsCartVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const increaseAmount = () => setAmount(amount + 1);
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
   return (
-    <div className="relative">
+    <div className="relative font-sans">
       {/* Basket Icon */}
       <div
         className={`relative cursor-pointer ${
@@ -50,8 +69,18 @@ const CartButton = () => {
 
       {/* Cart Contents Dropdown */}
       {isCartVisible && (
-        <div className="absolute right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4 z-20">
-          <h3 className="text-2xl font-semibold mb-4">Din kurv</h3>
+        <div
+          ref={cartRef}
+          className="absolute right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4 z-20"
+        >
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-2xl font-semibold">Din kurv</h3>
+            <XCircleIcon
+              size={30}
+              className="cursor-pointer"
+              onClick={() => setIsCartVisible(false)}
+            />
+          </div>
 
           <div className="flex items-center mb-4">
             <Image
@@ -101,17 +130,20 @@ const CartButton = () => {
 
           <hr className="my-4 border-gray-200" />
 
-          <div className="flex justify-between font-bold mb-4">
+          <div className="flex  justify-between font-bold mb-4">
             <span>Total inkl. moms og levering:</span>
             <span>{format(totalPrice)} DKK</span>
           </div>
 
-          <button
-            // onClick={() => router.push("/shop")}
-            className="w-full py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
-          >
-            Betaling (åbner i ny fane)
-          </button>
+          <form action="/api/stripe/checkout-sessions" method="POST">
+            <button
+              type="submit"
+              role="link"
+              className="w-full font-bold items-center text-center py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
+            >
+              Betaling (åbner i ny fane)
+            </button>
+          </form>
         </div>
       )}
     </div>
