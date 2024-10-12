@@ -1,5 +1,6 @@
 "use client";
 
+import PurchaseBook from "@/components/PurchaseBook";
 import Image from "next/image";
 
 export default function HomePage() {
@@ -32,6 +33,7 @@ export default function HomePage() {
           arbejdsmarkedsrettet danskundervisning eller går på Danskuddannelse 3,
           modul 2. Denne reviderede udgave af Puls 4 har i særlig... (læs mere)
         </p>
+        <PurchaseBook />
       </div>
       {/* <Link href={"/shop/checkout/?paymentId=4bce88efb44140ca873587b3151820b6"}>
         GÅ DEHREN

@@ -1,7 +1,11 @@
-import { ShoppingBasket } from "lucide-react";
+"use client";
+import { useCartContext } from "@/contexts/CartContext";
 import Link from "next/link";
+import CartButton from "./CartButton";
 
 export default function NavBar() {
+  const { amount } = useCartContext();
+
   return (
     <nav className="w-full sticky bg-orange-50 top-0 z-10 min-h-14 px-20 flex items-center justify-between">
       <div>
@@ -15,9 +19,7 @@ export default function NavBar() {
         <Link href="/about">Om forlaget</Link>
       </div>
       <div>
-        <Link href={"/shop/cart"}>
-          <ShoppingBasket />
-        </Link>
+        <CartButton />
       </div>
     </nav>
   );

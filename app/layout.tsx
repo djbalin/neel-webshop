@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
+import CartContextProvider from "@/contexts/CartContext";
 import type { Metadata } from "next";
 import { kanit } from "./fonts/fonts";
 import "./globals.css";
@@ -19,10 +20,11 @@ export default function RootLayout({
       <body
         className={`${kanit.className} flex flex-col antialiased h-screen w-screen `}
       >
-        <script src="https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"></script>
-        <NavBar />
-        <main className="flex flex-grow">{children}</main>
-        <Footer />
+        <CartContextProvider>
+          <NavBar />
+          <main className="flex flex-grow">{children}</main>
+          <Footer />
+        </CartContextProvider>
       </body>
     </html>
   );
