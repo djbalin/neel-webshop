@@ -24,9 +24,8 @@ export default function PurchaseBook() {
   return (
     <div className="bg-brandLightBlue mx-4 rounded-xl p-4 flex flex-col gap-y-2 w-full">
       <span className="gap-x-1 flex flex-row items-baseline">
-        <span className="text-2xl font-semibold">275</span>
-        <span className="text-xl font-semibold">DKK</span>
-        excl. moms
+        <span className="text-2xl font-semibold">200</span>
+        <span className="text-xl font-semibold">DKK</span>excl. moms
       </span>
       <div className="flex gap-2 flex-col lg:flex-row w-full justify-between">
         <div className="bg-white justify-between w-24 px-2 flex flex-row items-center rounded-xl border-2 border-black">

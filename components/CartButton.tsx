@@ -2,7 +2,7 @@
 import { useCartContext } from "@/contexts/CartContext";
 import { ShoppingBasket, XCircleIcon } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export type CheckoutData = {
   quantity: number;
@@ -11,7 +11,6 @@ export type CheckoutData = {
 
 const CartButton = () => {
   const { amount, setAmount } = useCartContext();
-  const [isBouncing, setIsBouncing] = useState(false);
   const [isCartVisible, setIsCartVisible] = useState(false); // State to control cart visibility
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,15 +24,6 @@ const CartButton = () => {
   const momsPrice = grossPrice * 0.25;
   const totalPrice = grossPrice + momsPrice + deliveryPrice;
 
-  useEffect(() => {
-    if (amount === 0) return;
-    setIsBouncing(true);
-    const timeout = setTimeout(() => {
-      setIsBouncing(false);
-    }, 1000);
-    return () => clearTimeout(timeout); // Clean up to avoid memory leaks
-  }, [amount]);
-
   const increaseAmount = () => setAmount(amount + 1);
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
@@ -41,9 +31,7 @@ const CartButton = () => {
     <div className="relative font-sans">
       {/* Basket Icon */}
       <div
-        className={`relative cursor-pointer ${
-          isBouncing ? "animate-customBounce" : ""
-        }`}
+        className="relative cursor-pointer"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
         <ShoppingBasket size={40} />
@@ -56,7 +44,7 @@ const CartButton = () => {
 
       {/* Cart Contents Dropdown */}
       {isCartVisible && (
-        <div className="absolute right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4 z-20">
+        <div className="absolute z-10 right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-2xl font-semibold">Din kurv</h3>
             <XCircleIcon

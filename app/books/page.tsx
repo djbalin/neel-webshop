@@ -31,13 +31,10 @@ export default function HomePage() {
         <p className="font-light text-sm leading-5">
           Puls 4 er et grundbogsmateriale til kursister, som deltager i
           arbejdsmarkedsrettet danskundervisning eller går på Danskuddannelse 3,
-          modul 2. Denne reviderede udgave af Puls 4 har i særlig... (læs mere)
+          modul 2. Denne reviderede udgave af Puls 4 har i særlig ...
         </p>
         <PurchaseBook />
       </div>
-      {/* <Link href={"/shop/checkout/?paymentId=4bce88efb44140ca873587b3151820b6"}>
-        GÅ DEHREN
-      </Link> */}
     </div>
   );
 }
