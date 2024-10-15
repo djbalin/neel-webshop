@@ -101,19 +101,12 @@ const CartButton = () => {
           </div>
           <form action="/api/stripe/checkout-sessions" method="POST">
             <button
-              onClick={() => {
-                setTimeout(() => {
-                  setIsSubmitting(true);
-                }, 3000);
-              }}
               disabled={amount === 0 || isSubmitting}
               type="submit"
               role="link"
               className="w-full font-bold items-center text-center py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
             >
-              {isSubmitting
-                ? "Du videresendes..."
-                : "Betaling (åbner i ny fane)"}
+              {isSubmitting ? "Du videresendes..." : "Gå til betaling"}
             </button>
             <input type="hidden" name="quantity" value={amount} />
             <input type="hidden" name="locale" value="da" />
