@@ -2,7 +2,7 @@
 import { useCartContext } from "@/contexts/CartContext";
 import { ShoppingBasket, XCircleIcon } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export type CheckoutData = {
   quantity: number;
@@ -11,8 +11,8 @@ export type CheckoutData = {
 
 const CartButton = () => {
   const { amount, setAmount } = useCartContext();
-  const [isBouncing, setIsBouncing] = useState(false);
   const [isCartVisible, setIsCartVisible] = useState(false); // State to control cart visibility
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function format(num: number) {
     return num.toFixed(2).replace(".", ",");
@@ -24,15 +24,6 @@ const CartButton = () => {
   const momsPrice = grossPrice * 0.25;
   const totalPrice = grossPrice + momsPrice + deliveryPrice;
 
-  useEffect(() => {
-    if (amount === 0) return;
-    setIsBouncing(true);
-    const timeout = setTimeout(() => {
-      setIsBouncing(false);
-    }, 1000);
-    return () => clearTimeout(timeout); // Clean up to avoid memory leaks
-  }, [amount]);
-
   const increaseAmount = () => setAmount(amount + 1);
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
@@ -40,9 +31,7 @@ const CartButton = () => {
     <div className="relative font-sans">
       {/* Basket Icon */}
       <div
-        className={`relative cursor-pointer ${
-          isBouncing ? "animate-customBounce" : ""
-        }`}
+        className="relative cursor-pointer"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
         <ShoppingBasket size={40} />
@@ -55,7 +44,7 @@ const CartButton = () => {
 
       {/* Cart Contents Dropdown */}
       {isCartVisible && (
-        <div className="absolute right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4 z-20">
+        <div className="absolute z-10 right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-2xl font-semibold">Din kurv</h3>
             <XCircleIcon
@@ -64,7 +53,6 @@ const CartButton = () => {
               onClick={() => setIsCartVisible(false)}
             />
           </div>
-
           <div className="flex items-center mb-4">
             <Image
               src={"/images/neel_book.png"}
@@ -75,7 +63,6 @@ const CartButton = () => {
             />
             <span className="font-medium">Puls 4, Grundbog</span>
           </div>
-
           <div className="flex justify-between items-center mb-4">
             <span className="text-lg font-semibold">Antal</span>
             <span className="text-lg font-semibold">Pris</span>
@@ -98,33 +85,35 @@ const CartButton = () => {
             </div>
             <span>{format(grossPrice)} DKK</span>
           </div>
-
           <hr className="my-4" />
-
           <div className="flex justify-between mb-2">
             <span>Levering:</span>
             <span>{format(deliveryPrice)} DKK</span>
           </div>
-
           <div className="flex justify-between mb-2">
             <span>Moms (25%):</span>
             <span>{format(momsPrice)} DKK</span>
           </div>
-
           <hr className="my-4 border-gray-200" />
-
           <div className="flex  justify-between font-bold mb-4">
             <span>Total inkl. moms og levering:</span>
             <span>{format(totalPrice)} DKK</span>
           </div>
-
           <form action="/api/stripe/checkout-sessions" method="POST">
             <button
+              onClick={() => {
+                setTimeout(() => {
+                  setIsSubmitting(true);
+                }, 3000);
+              }}
+              disabled={amount === 0 || isSubmitting}
               type="submit"
               role="link"
               className="w-full font-bold items-center text-center py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
             >
-              Betaling (åbner i ny fane)
+              {isSubmitting
+                ? "Du videresendes..."
+                : "Betaling (åbner i ny fane)"}
             </button>
             <input type="hidden" name="quantity" value={amount} />
             <input type="hidden" name="locale" value="da" />

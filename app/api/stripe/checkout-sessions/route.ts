@@ -1,5 +1,4 @@
 import { stripe } from "@/app/stripe";
-import console from "console";
 import { NextResponse } from "next/server";
 
 const YOUR_DOMAIN = "http://localhost:3000";
@@ -24,12 +23,22 @@ export async function POST(req: Request) {
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: "price_1Pz1I7RrN8SMS2hT6dKlBeLi",
+          price: "price_1Q0TPxRrN8SMS2hTt9PfT7Mc",
           quantity: quantity,
         },
       ],
+      custom_text: {
+        // shipping_address: { message: "Leveringsadresse" },
+        // submit: { message: "Betal" },
+        after_submit: {
+          message: "Du modtager en ordrebekræftelse via e-mail.",
+        },
+      },
       phone_number_collection: {
         enabled: true,
+      },
+      shipping_address_collection: {
+        allowed_countries: ["DK"],
       },
 
       mode: "payment",

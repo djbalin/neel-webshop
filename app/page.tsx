@@ -24,9 +24,9 @@ export default function HomePage() {
         </Link>
       </div>
       <div className="max-w-[400px] flex-grow items-center justify-center flex">
-        <div className="absolute h-[350px] w-[350px] z-5 flex flex-grow bg-brandOrange rounded-t-[400px] rounded-b-[400px]"></div>
+        <div className="absolute h-[350px] w-[350px] z-0 flex flex-grow bg-brandOrange rounded-t-[400px] rounded-b-[400px]"></div>
         <Image
-          className="z-10"
+          className="z-0"
           src={"/images/neel_book.png"}
           alt={""}
           width={1000}
