@@ -12,6 +12,7 @@ export default function PurchaseBook() {
     setAmount(purchaseAmount);
     setIsItemsAdded(true);
   }
+
   function handleChangeAmount(button: "p" | "m") {
     setIsItemsAdded(false);
     if (button === "p") {
@@ -21,6 +22,7 @@ export default function PurchaseBook() {
       setPurchaseAmount((prev) => prev - 1);
     }
   }
+
   return (
     <div className="bg-brandLightBlue mx-4 rounded-xl p-4 flex flex-col gap-y-2 w-full">
       <span className="gap-x-1 flex flex-row items-baseline">
@@ -38,13 +40,13 @@ export default function PurchaseBook() {
           </button>
         </div>
         {isItemsAdded ? (
-          <button className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-brandOrange text-white font-bold">
+          <button className="rounded-lg justify-center items-center px-2 text-lg flex flex-row gap-x-2 bg-brandOrange text-white font-medium">
             <Check /> Kurv opdateret!
           </button>
         ) : (
           <button
             onClick={handleAddToCart}
-            className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-brandGreen text-white font-bold"
+            className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-brandGreen text-white font-medium"
           >
             <ShoppingBasket /> Føj til kurv
           </button>
