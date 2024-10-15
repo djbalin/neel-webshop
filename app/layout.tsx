@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${kanit.className} flex flex-col antialiased h-screen w-screen `}
+        className={`${kanit.className} flex flex-col antialiased min-h-screen w-full`}
       >
         <CartContextProvider>
           <NavBar />
