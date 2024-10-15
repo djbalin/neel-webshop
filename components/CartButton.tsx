@@ -12,7 +12,6 @@ export type CheckoutData = {
 const CartButton = () => {
   const { amount, setAmount } = useCartContext();
   const [isCartVisible, setIsCartVisible] = useState(false); // State to control cart visibility
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function format(num: number) {
     return num.toFixed(2).replace(".", ",");
@@ -101,12 +100,12 @@ const CartButton = () => {
           </div>
           <form action="/api/stripe/checkout-sessions" method="POST">
             <button
-              disabled={amount === 0 || isSubmitting}
+              disabled={amount === 0}
               type="submit"
               role="link"
               className="w-full font-bold items-center text-center py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
             >
-              {isSubmitting ? "Du videresendes..." : "Gå til betaling"}
+              Gå til betaling
             </button>
             <input type="hidden" name="quantity" value={amount} />
             <input type="hidden" name="locale" value="da" />
