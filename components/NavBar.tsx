@@ -15,7 +15,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full sticky top-0 z-10 min-h-14 px-8 xl:px-20 flex items-center justify-between">
+    <nav className="w-full top-0 z-10 min-h-14 px-8 xl:px-20 flex items-center justify-between">
       <div>
         <span className="font-extrabold text-xl">Ordstrøm</span>
       </div>

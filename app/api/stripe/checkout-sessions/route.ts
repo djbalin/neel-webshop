@@ -1,5 +1,4 @@
 import { stripe } from "@/app/stripe";
-import console from "console";
 import { NextResponse } from "next/server";
 
 const YOUR_DOMAIN = "http://localhost:3000";
@@ -29,8 +28,8 @@ export async function POST(req: Request) {
         },
       ],
       custom_text: {
-        shipping_address: { message: "Leveringsadresse" },
-        submit: { message: "Betal" },
+        // shipping_address: { message: "Leveringsadresse" },
+        // submit: { message: "Betal" },
         after_submit: {
           message: "Du modtager en ordrebekræftelse via e-mail.",
         },
