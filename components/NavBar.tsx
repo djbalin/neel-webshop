@@ -1,25 +1,47 @@
 "use client";
+
+import { useDictionary } from "@/contexts/DictionaryProvider";
+import { Locale } from "@/i18n-config";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import CartButton from "./CartButton";
 
-const links = {
-  Forside: "/",
-  Bøger: "/books",
-  Lydfiler: "/audio",
-  Lærervejledning: "/guide",
-  "Om forlaget": "/about",
-};
-
 export default function NavBar() {
   const pathname = usePathname();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dict = useDictionary();
+
+  const redirectedPathname = (locale: Locale) => {
+    if (!pathname) return "/";
+    const segments = pathname.split("/");
+    segments[1] = locale;
+    return segments.join("/");
+  };
+
+  const links = {
+    "/": dict.NavBar.menu.home,
+    "/books": dict.NavBar.menu.books,
+    "/audio": dict.NavBar.menu.audio,
+    "/guide": dict.NavBar.menu.guide,
+    "/about": dict.NavBar.menu.about,
+  };
+
+  // const currentLocale = pathname?.split("/")[1];
+  // const links = {
+  //   [`${currentLocale}/`]: dict.NavBar.menu.home,
+  //   [`${currentLocale}/books`]: dict.NavBar.menu.books,
+  //   [`${currentLocale}/audio`]: dict.NavBar.menu.audio,
+  //   [`${currentLocale}/guide`]: dict.NavBar.menu.guide,
+  //   [`${currentLocale}/about`]: dict.NavBar.menu.about,
+  // };
 
   return (
     <nav className="w-full  top-0 z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap">
       <div className="flex items-center flex-shrink-0 mr-6">
-        <span className="font-extrabold text-xl">Ordstrøm</span>
+        <span className="font-extrabold text-xl">{dict.NavBar.title}</span>
       </div>
       <div className="block lg:hidden">
         <button
@@ -41,10 +63,44 @@ export default function NavBar() {
           isMenuOpen ? "block" : "hidden"
         }`}
       >
-        {Object.entries(links).map(([key, value]) => (
-          <NavItem key={key} href={value} text={key} pathname={pathname} />
+        {Object.entries(links).map(([path, message]) => (
+          <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
       </div>
+
+      <Link href={redirectedPathname("da")}>
+        <Image
+          src={"/images/flags/dk_flag.svg"}
+          alt="Danish flag"
+          width={30}
+          height={30}
+        />
+      </Link>
+      <Link href={redirectedPathname("en")}>
+        <Image
+          src={"/images/flags/uk_flag.svg"}
+          alt="UK Flag"
+          width={30}
+          height={30}
+        />
+      </Link>
+      {/* <button onClick={async () => await setUserLocale("da")}>
+        <Image
+          src={"/images/flags/dk_flag.svg"}
+          alt="Danish Flag"
+          width={30}
+          height={30}
+        />
+      </button>
+      <button onClick={async () => await setUserLocale("en")}>
+        <Image
+          src={"/images/flags/uk_flag.svg"}
+          alt="UK Flag"
+          width={30}
+          height={30}
+        />
+      </button> */}
+
       <CartButton />
     </nav>
   );

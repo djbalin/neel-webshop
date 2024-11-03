@@ -1,12 +1,23 @@
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/services/get-dictionary";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HomePage() {
+export default async function HomePage({
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
+  const dictionary = await getDictionary(lang);
+
   return (
     <section className="flex flex-col md:flex-row w-full px-4 md:px-8 lg:px-16 py-8 md:py-16 items-center justify-center space-y-8 md:space-y-0 md:space-x-8 bg-brandLightBlue2 rounded-b-[150px] md:rounded-b-[300px] mb-8 md:mb-16">
       <div className="w-full md:max-w-[500px] gap-y-2 flex-col flex-grow justify-center flex text-center md:text-left">
         <span className="flex flex-col md:flex-row tracking-tight items-center md:items-baseline gap-y-2 md:gap-x-4">
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">Puls 4</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+            {dictionary.HomePage.title}
+          </h1>
           <h3 className="text-lg md:text-xl font-semibold">fra Ordstrøm</h3>
         </span>
         <span className="text-xl md:text-2xl font-light tracking-tighter mt-2 md:mt-0">

@@ -1,0 +1,15 @@
+{
+  "HomePage": {
+    "title": "HEJ!"
+  },
+  "NavBar": {
+    "title": "Ordstrøm",
+    "menu": {
+      "home": "Forside",
+      "books": "Bøger",
+      "audio": "Lydfiler",
+      "guide": "Lærervejledning",
+      "about": "Om forlaget"
+    }
+  }
+}
