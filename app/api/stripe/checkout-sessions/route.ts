@@ -1,7 +1,10 @@
 import { stripe } from "@/app/stripe";
 import { NextResponse } from "next/server";
 
-const YOUR_DOMAIN = "http://localhost:3000";
+const DEV_DOMAIN = "http://localhost:3000";
+const PROD_DOMAIN = "https://www.forlagetdit.dk";
+
+const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
 
 export async function POST(req: Request) {
   try {
@@ -42,8 +45,8 @@ export async function POST(req: Request) {
       },
 
       mode: "payment",
-      success_url: `${YOUR_DOMAIN}/return/?success=true`,
-      cancel_url: `${YOUR_DOMAIN}/return/?canceled=true`,
+      success_url: `${URL}/return/?success=true`,
+      cancel_url: `${URL}/return/?canceled=true`,
     });
 
     return Response.redirect(session.url, 303);
