@@ -1,10 +1,10 @@
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
-import DictionaryProvider from "@/contexts/DictionaryProvider";
-import { i18n, Locale } from "@/i18n-config";
-import { getDictionary } from "@/services/get-dictionary";
+import { i18n } from "@/i18n/config";
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { kanit } from "./fonts/fonts";
 import "./globals.css";
 
@@ -19,26 +19,23 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale };
 }>) {
-  const dictionary = await getDictionary(params.lang);
+  const messages = await getMessages();
 
   return (
-    <html lang={params.lang}>
+    <html>
       <body
         className={`${kanit.className} flex flex-col antialiased min-h-screen w-full`}
       >
-        {/* <NextIntlClientProvider messages={messages}> */}
-        <DictionaryProvider dictionary={dictionary}>
+        <NextIntlClientProvider messages={messages}>
           <CartContextProvider>
             <NavBar />
             <main className="flex flex-grow">{children}</main>
             <Footer />
           </CartContextProvider>
-        </DictionaryProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

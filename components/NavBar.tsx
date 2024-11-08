@@ -1,10 +1,8 @@
 "use client";
 
-import { useDictionary } from "@/contexts/DictionaryProvider";
-import { Locale } from "@/i18n-config";
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import CartButton from "./CartButton";
 
@@ -12,36 +10,21 @@ export default function NavBar() {
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const dict = useDictionary();
 
-  const redirectedPathname = (locale: Locale) => {
-    if (!pathname) return "/";
-    const segments = pathname.split("/");
-    segments[1] = locale;
-    return segments.join("/");
-  };
+  const t = useTranslations("NavBar");
 
   const links = {
-    "/": dict.NavBar.menu.home,
-    "/books": dict.NavBar.menu.books,
-    "/audio": dict.NavBar.menu.audio,
-    "/guide": dict.NavBar.menu.guide,
-    "/about": dict.NavBar.menu.about,
+    "/": t("menu.home"),
+    "/books": t("menu.books"),
+    "/audio": t("menu.audio"),
+    "/guide": t("menu.guide"),
+    "/about": t("menu.about"),
   };
-
-  // const currentLocale = pathname?.split("/")[1];
-  // const links = {
-  //   [`${currentLocale}/`]: dict.NavBar.menu.home,
-  //   [`${currentLocale}/books`]: dict.NavBar.menu.books,
-  //   [`${currentLocale}/audio`]: dict.NavBar.menu.audio,
-  //   [`${currentLocale}/guide`]: dict.NavBar.menu.guide,
-  //   [`${currentLocale}/about`]: dict.NavBar.menu.about,
-  // };
 
   return (
     <nav className="w-full  top-0 z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap">
       <div className="flex items-center flex-shrink-0 mr-6">
-        <span className="font-extrabold text-xl">{dict.NavBar.title}</span>
+        <span className="font-extrabold text-xl">{t("title")}</span>
       </div>
       <div className="block lg:hidden">
         <button
@@ -68,7 +51,7 @@ export default function NavBar() {
         ))}
       </div>
 
-      <Link href={redirectedPathname("da")}>
+      <Link href="/" locale="da">
         <Image
           src={"/images/flags/dk_flag.svg"}
           alt="Danish flag"
@@ -76,7 +59,7 @@ export default function NavBar() {
           height={30}
         />
       </Link>
-      <Link href={redirectedPathname("en")}>
+      <Link href="/" locale="en">
         <Image
           src={"/images/flags/uk_flag.svg"}
           alt="UK Flag"
