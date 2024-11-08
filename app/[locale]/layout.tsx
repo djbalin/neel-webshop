@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
 import { routing } from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/next";
+import { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
@@ -20,15 +21,12 @@ export function generateStaticParams() {
 export async function generateMetadata(locale: string) {
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
+  const md: Metadata = {
     title: t("title"),
+    description: t("description"),
   };
+  return md;
 }
-
-// export const metadata: Metadata = {
-//   title: "Forlaget DIT",
-//   description: "Forlaget Dansk I Tiden (DIT)",
-// };
 
 type LocaleLayoutProps = {
   children: React.ReactNode;

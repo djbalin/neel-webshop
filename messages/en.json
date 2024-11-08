@@ -15,6 +15,10 @@
       "contact": "CONTACT"
     }
   },
+  "Metadata": {
+    "title": "Forlaget DIT",
+    "description": "Forlaget Dansk I Tiden (DIT)"
+  },
   "Return": {
     "success": "Ordre bekræftet!",
     "canceled": "Bestilling ikke gennemført"
