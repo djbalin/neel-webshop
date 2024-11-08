@@ -1,15 +1,15 @@
-const nodeLocale = Intl.DateTimeFormat().resolvedOptions().locale.split("-")[0];
+// const nodeLocale = Intl.DateTimeFormat().resolvedOptions().locale.split("-")[0];
 
 const locales = ["en", "da"] as const;
 export type Locale = (typeof locales)[number];
 
-const defaultLocale: Locale = (locales as readonly string[]).includes(
-  nodeLocale
-)
-  ? (nodeLocale as Locale)
-  : "da";
+// const defaultLocale: Locale = (locales as readonly string[]).includes(
+//   nodeLocale
+// )
+//   ? (nodeLocale as Locale)
+//   : "da";
 
 export const i18n = {
-  defaultLocale,
+  defaultLocale: "da",
   locales,
 } as const;
