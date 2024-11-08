@@ -1,3 +1,4 @@
+"use client";
 import { useCartContext } from "@/contexts/CartContext";
 import { Check, Minus, Plus, ShoppingBasket } from "lucide-react";
 import { useState } from "react";
@@ -47,7 +48,7 @@ export default function PurchaseBook() {
         ) : (
           <button
             onClick={handleAddToCart}
-            className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-blue text-white font-medium"
+            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-2 bg-blue text-white text-sm md:text-base font-medium"
           >
             <ShoppingBasket /> Føj til kurv
           </button>

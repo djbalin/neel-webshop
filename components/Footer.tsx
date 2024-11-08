@@ -12,7 +12,7 @@ export default function Footer() {
       </span>
       <Image
         className="inline "
-        src={"/images/logo.svg"}
+        src={"/images/logo_white.svg"}
         alt="logo"
         width={30}
         height={30}

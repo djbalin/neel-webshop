@@ -16,8 +16,7 @@ export default function NavBar() {
 
   const links = {
     "/": t("menu.home"),
-    "/books1": "BØGER1",
-    "/books2": "BØGER2",
+    "/books": t("menu.books"),
     "/guide": t("menu.guide"),
     "/about": t("menu.about"),
     "/contact": t("menu.contact"),

@@ -1,5 +1,6 @@
 import { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import console from "console";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -9,6 +10,7 @@ export default async function HomePage({
   params: { lang: Locale };
 }) {
   const t = await getTranslations({ locale: lang, namespace: "HomePage" });
+  console.log(t);
 
   return (
     <>
@@ -31,8 +33,8 @@ export default async function HomePage({
             <Link href={"/books"}>Læs mere</Link>
           </button>
         </div>
-        <div className=" h-[260px] z-10 w-full bg-orange-50">
-          <figure className="absolute z-20 w-full bg-orange-50 -bottom-20 ">
+        <div className=" h-[260px]  w-full bg-orange-50">
+          <figure className="absolute w-full bg-orange-50 -bottom-20 ">
             <Image
               // className="absolute z-20 left-1/2 transform -translate-x-1/2  shadow-lg max-w-xs lg:max-w-md"
               className="mx-auto drop-shadow-2xl max-w-xs lg:max-w-md shadow-gray-600"

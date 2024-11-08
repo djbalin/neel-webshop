@@ -28,7 +28,6 @@ const CartButton = () => {
 
   return (
     <div className="relative font-sans">
-      {/* Basket Icon */}
       <div
         className="relative cursor-pointer"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
@@ -43,7 +42,7 @@ const CartButton = () => {
 
       {/* Cart Contents Dropdown */}
       {isCartVisible && (
-        <div className="absolute z-10 right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4">
+        <div className="absolute z-50 right-0 mt-2 w-80 text-black bg-white shadow-lg border border-gray-300 rounded-lg p-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-2xl font-semibold">Din kurv</h3>
             <XCircleIcon
