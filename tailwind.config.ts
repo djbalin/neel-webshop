@@ -12,6 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         green: "#449965",
+        greenContrast: "#214A31",
         orange: "#F86624",
         greenPale: "#B5D4C1",
         greenBlue: "#43BCCD",

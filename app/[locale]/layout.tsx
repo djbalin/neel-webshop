@@ -52,7 +52,7 @@ export default async function LocaleLayout({
   await generateMetadata(locale);
 
   return (
-    <html>
+    <html lang={locale}>
       <body
         className={`${openSans.className} flex flex-col antialiased min-h-screen w-full`}
       >
