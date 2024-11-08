@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
+// import { Suspense } from "react";
 
 export default async function CheckoutReturn({
   params: { locale },
@@ -19,7 +20,7 @@ export default async function CheckoutReturn({
   return (
     <div className="flex items-center justify-center min-h-screen w-full bg-gray-100 px-4 py-8">
       <div className="bg-white p-6 md:p-8 rounded-lg shadow-md max-w-md w-full">
-        <Suspense fallback={<div>Loading...</div>}>
+        {/* <Suspense fallback={<div>Loading...</div>}> */}
           {success && (
             <div className="text-center">
               <h2 className="text-xl md:text-2xl font-bold mb-4">
