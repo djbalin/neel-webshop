@@ -5,6 +5,7 @@ import { i18n } from "@/i18n/config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import Head from "next/head";
 import { openSans } from "../../fonts/fonts";
 import "./globals.css";
 
@@ -29,6 +30,15 @@ export default async function RootLayout({
       <body
         className={`${openSans.className} flex flex-col antialiased min-h-screen w-full`}
       >
+        <Head>
+          <link
+            rel="icon"
+            href="/icon?<generated>"
+            type="image/png"
+            sizes="32x32"
+          />
+        </Head>
+
         <NextIntlClientProvider messages={messages}>
           <CartContextProvider>
             <NavBar />

@@ -33,15 +33,16 @@ export default async function HomePage({
             <Link href={"/books"}>Læs mere</Link>
           </button>
         </div>
-        <div className=" h-[260px]  w-full bg-orange-50">
-          <figure className="absolute w-full bg-orange-50 -bottom-20 ">
+        <div className="h-[260px]  w-full bg-orange-50">
+          <figure className="absolute  w-full bg-orange-50 -bottom-16 ">
             <Image
               // className="absolute z-20 left-1/2 transform -translate-x-1/2  shadow-lg max-w-xs lg:max-w-md"
-              className="mx-auto drop-shadow-2xl max-w-xs lg:max-w-md shadow-gray-600"
+              className="mx-auto  drop-shadow-2xl max-w-xs lg:max-w-md shadow-gray-600"
               src={"/images/book_facet5.png"}
               alt={"Facet 5 book cover"}
-              width={400}
-              height={400}
+              width={600}
+              height={600}
+              priority
             />
           </figure>
         </div>
