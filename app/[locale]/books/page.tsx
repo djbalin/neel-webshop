@@ -2,6 +2,7 @@
 import Book1 from "@/components/Book1";
 import Book2 from "@/components/Book2";
 import BookHeroSection from "@/components/BookHeroSection";
+import { setRequestLocale } from "next-intl/server";
 import { useState } from "react";
 
 export default function BooksPage({
@@ -10,7 +11,7 @@ export default function BooksPage({
   params: { locale: string };
 }) {
   const [activeBook, setActiveBook] = useState<"book1" | "book2">("book1");
-  // setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <>

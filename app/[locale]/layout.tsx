@@ -5,13 +5,25 @@ import { routing } from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { notFound } from "next/navigation";
 import { openSans } from "../../fonts/fonts";
 import "./globals.css";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata(locale: string) {
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("title"),
+  };
 }
 
 export const metadata: Metadata = {
@@ -39,6 +51,8 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
+
+  await generateMetadata(locale);
 
   return (
     <html>
