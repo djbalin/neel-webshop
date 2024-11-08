@@ -35,7 +35,7 @@ const CartButton = () => {
       >
         <ShoppingBasket size={40} />
         <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2">
-          <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 bg-black text-white rounded-full px-2 py-[0.15rem] text-xs font-bold">
+          <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2  rounded-full px-2 py-[0.15rem] text-lg font-bold">
             {amount}
           </span>
         </span>
@@ -43,7 +43,7 @@ const CartButton = () => {
 
       {/* Cart Contents Dropdown */}
       {isCartVisible && (
-        <div className="absolute z-10 right-0 mt-2 w-80 bg-white shadow-lg border border-gray-300 rounded-lg p-4">
+        <div className="absolute z-50 right-0 mt-2 w-80 text-black bg-white shadow-lg border border-gray-300 rounded-lg p-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-2xl font-semibold">Din kurv</h3>
             <XCircleIcon

@@ -1,5 +1,8 @@
+import da from "./messages/da.json";
+
+type Messages = typeof da;
+
 declare global {
-  interface Window {
-    Dibs; // You can further type this if you know the exact structure of `Dibs`
-  }
+  // Use type safe message keys with `next-intl`
+  interface IntlMessages extends Messages {}
 }

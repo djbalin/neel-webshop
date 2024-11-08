@@ -1,3 +1,4 @@
+"use client";
 import { useCartContext } from "@/contexts/CartContext";
 import { Check, Minus, Plus, ShoppingBasket } from "lucide-react";
 import { useState } from "react";
@@ -24,12 +25,13 @@ export default function PurchaseBook() {
   }
 
   return (
-    <div className="bg-brandLightBlue mx-4 rounded-xl p-4 flex flex-col gap-y-2 w-full">
-      <span className="gap-x-1 flex flex-row items-baseline">
-        <span className="text-2xl font-semibold">200</span>
-        <span className="text-xl font-semibold">DKK</span>excl. moms
-      </span>
-      <div className="flex gap-2 flex-col lg:flex-row w-full justify-between">
+    <div className=" rounded-xl  flex flex-col gap-y-2 w-full">
+      <p className="gap-x-1 flex flex-row items-baseline">
+        <span className="text-4xl font-semibold">200</span>
+        <span className="text-2xl font-semibold">DKK</span>
+        <span>excl. moms</span>
+      </p>
+      <div className="flex gap-2 flex-col lg:flex-row w-full gap-x-8">
         <div className="bg-white justify-between w-24 px-2 flex flex-row items-center rounded-xl border-2 border-black">
           <button onClick={() => handleChangeAmount("m")} className="text-3xl">
             <Minus />
@@ -46,7 +48,7 @@ export default function PurchaseBook() {
         ) : (
           <button
             onClick={handleAddToCart}
-            className="rounded-lg justify-center items-center px-3 text-lg flex flex-row gap-x-2 bg-brandGreen text-white font-medium"
+            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-2 bg-blue text-white text-sm md:text-base font-medium"
           >
             <ShoppingBasket /> Føj til kurv
           </button>
