@@ -15,7 +15,7 @@
 } */
 
 html {
-  font-size: 22px;
+  font-size: 18px;
   max-width: 100%;
 }
 
@@ -25,6 +25,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 100%;
   letter-spacing: -0.05em;
+}
+
+p {
+  font-weight: 400;
+  /* font-size: 1.5em; */
+  line-height: 1.375em;
 }
 
 @layer utilities {
@@ -56,4 +62,16 @@ body {
 
 .scrollable {
   overflow: auto;
+}
+
+.paragraph {
+  margin-bottom: 1em;
+}
+
+.personArticle {
+  @apply flex space-x-10 flex-row justify-between;
+}
+
+.h3 {
+  @apply text-2xl font-extrabold mb-2;
 }

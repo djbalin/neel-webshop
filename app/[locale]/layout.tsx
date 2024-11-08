@@ -5,7 +5,7 @@ import { i18n } from "@/i18n/config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { kanit } from "./fonts/fonts";
+import { openSans } from "../../fonts/fonts";
 import "./globals.css";
 
 export async function generateStaticParams() {
@@ -27,12 +27,12 @@ export default async function RootLayout({
   return (
     <html>
       <body
-        className={`${kanit.className} flex flex-col antialiased min-h-screen w-full`}
+        className={`${openSans.className} flex flex-col antialiased min-h-screen w-full`}
       >
         <NextIntlClientProvider messages={messages}>
           <CartContextProvider>
             <NavBar />
-            <main className="flex flex-grow">{children}</main>
+            <main className="flex flex-grow flex-col ">{children}</main>
             <Footer />
           </CartContextProvider>
         </NextIntlClientProvider>

@@ -11,39 +11,79 @@ export default async function HomePage({
   const t = await getTranslations({ locale: lang, namespace: "HomePage" });
 
   return (
-    <section className="flex flex-col md:flex-row w-full px-4 md:px-8 lg:px-16 py-8 md:py-16 items-center justify-center space-y-8 md:space-y-0 md:space-x-8 bg-brandLightBlue2 rounded-b-[150px] md:rounded-b-[300px] mb-8 md:mb-16">
-      <div className="w-full md:max-w-[500px] gap-y-2 flex-col flex-grow justify-center flex text-center md:text-left">
-        <span className="flex flex-col md:flex-row tracking-tight items-center md:items-baseline gap-y-2 md:gap-x-4">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">Puls 4</h1>
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-            {t("title")}
+    <>
+      <section className="relative bg-green place-items-center  justify-between  text-center pt-20 px-6">
+        <div className="w-[70%] space-y-4">
+          <h1 className="text-6xl  md:text-4xl lg:text-6xl font-extrabold tracking-tighter">
+            Facet 5
           </h1>
-          <h3 className="text-lg md:text-xl font-semibold">fra Ordstrøm</h3>
-        </span>
-        <span className="text-xl md:text-2xl font-light tracking-tighter mt-2 md:mt-0">
-          Få mere ud af din undervisning med vores nye læremateriale
-        </span>
-        <span className="mt-2 md:mt-0">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et facere
-          rerum iusto blanditiis
-        </span>
-        <Link
-          className="bg-brandGreen text-base justify-center flex font-semibold py-2 px-4 text-white rounded-md max-w-[200px] mx-auto md:mx-0 mt-4 md:mt-2"
-          href={"/books"}
-        >
-          Forudbestil Nu
-        </Link>
-      </div>
-      <div className="w-full md:max-w-[400px] flex-grow items-center justify-center flex relative">
-        <div className="absolute h-[250px] w-[250px] md:h-[350px] md:w-[350px] z-0 flex flex-grow bg-brandOrange rounded-t-[300px] rounded-b-[300px] md:rounded-t-[400px] md:rounded-b-[400px]"></div>
-        <Image
-          className="z-10 w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-contain"
-          src={"/images/neel_book.png"}
-          alt={"Puls 4 book cover"}
-          width={400}
-          height={400}
-        />
-      </div>
-    </section>
+          <h2 className="text-2xl text-white font-bold  ">
+            Ny grundbog til modul 5 på Danskuddannelse 3
+          </h2>
+          <p className="paragraph text-white font-normal  text-sm text-center">
+            Facet 5 er en ny grundbog til modul 5 på Danskuddannelse 3.
+            Materialet skaber en aktiv og dynamisk undervisning, hvor sprogets
+            mange facetter kommer i spil, når kursisterne skal diskutere og
+            argumentere, samtidig med at den forbereder kursisterne optimalt til
+            Prøve i dansk 3 med PD3-lignende øvelser og opgaver.
+          </p>
+          <button className="bg-white rounded-md border-orange border-2 px-8 text-lg font-bold">
+            <Link href={"/books"}>Læs mere</Link>
+          </button>
+        </div>
+        <div className=" h-[260px] z-10 w-full bg-orange-50">
+          <figure className="absolute z-20 w-full bg-orange-50 -bottom-20 ">
+            <Image
+              // className="absolute z-20 left-1/2 transform -translate-x-1/2  shadow-lg max-w-xs lg:max-w-md"
+              className="mx-auto drop-shadow-2xl max-w-xs lg:max-w-md shadow-gray-600"
+              src={"/images/book_facet5.png"}
+              alt={"Facet 5 book cover"}
+              width={400}
+              height={400}
+            />
+          </figure>
+        </div>
+      </section>
+
+      {/* <section className="place-items-center pt-20  w-full">
+        <div className="w-1/2 bg-green place-items-center space-y-4">
+          <h1 className="text-6xl md:text-4xl lg:text-6xl font-extrabold tracking-tighter">
+            Facet 5
+          </h1>
+          <h2 className="text-2xl font-bold text-white ">
+            Ny grundbog til modul 5 på Danskuddannelse 3
+          </h2>
+          <p className="paragraph font-normal text-white text-sm text-center">
+            Facet 5 er en ny grundbog til modul 5 på Danskuddannelse 3.
+            Materialet skaber en aktiv og dynamisk undervisning, hvor sprogets
+            mange facetter kommer i spil, når kursisterne skal diskutere og
+            argumentere, samtidig med at den forbereder kursisterne optimalt til
+            Prøve i dansk 3 med PD3-lignende øvelser og opgaver.
+          </p>
+          <button className="bg-white rounded-md border-orange border-2 px-8 text-lg font-bold">
+            <Link href={"/books"}>Læs mere</Link>
+          </button>
+        </div>
+        <div className="relative z-10 height-[100px] bg-red-50">
+          <figure className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+            <Image
+              className="z-10 mx-auto w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-contain"
+              src={"/images/book_facet5.png"}
+              alt={"Facet 5 book cover"}
+              width={400}
+              height={400}
+            />
+          </figure>
+        </div>
+      </section> */}
+      <section className="h-[800px] w-full px-24 space-y-6 text-center place-items-center pt-32">
+        <h2 className="text-2xl  font-bold  ">Mød forfatterne</h2>
+        <p>
+          Facet 5 er skrevet af de to erfarne og anerkendte lærebogsforfattere
+          Fanny Slotorub og Neel Jersild Moreira, der hver har en lang række
+          udgivelser til DU2 og DU3 bag sig.
+        </p>
+      </section>
+    </>
   );
 }

@@ -1,15 +1,46 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "title": "Hello!"
   },
   "NavBar": {
-    "title": "Ordstrøm",
+    "title": "Forlaget DIT",
     "menu": {
-      "home": "Home",
-      "books": "Books",
-      "audio": "Audio",
-      "guide": "Guide",
-      "about": "About"
+      "home": "HOME",
+      "books": "BOOKS",
+      "guide": "MATERIALS",
+      "about": "ABOUT THE AUTHORS",
+      "contact": "CONTACT"
+    }
+  },
+  "About": {
+    "title": "Om forfatterne",
+    "person1": {
+      "title": "Fanny Slotorub",
+      "p1": "Cand.mag. og uddannet som underviser i dansk som andetsprog.",
+      "p2": "Ansat på Københavns Sprogcenter i mere end 20 år med undervisning på alle niveauer på Danskuddannelse 2 og 3. Beskikket censor ved Prøve i Dansk 3.",
+      "p3": "Forfatter til en lang række populære lærebøger inden for dansk som andetsprog, herunder <b>Grammatik i brug</b>, <b>At skrive</b> samt <b>Puls-</b> og <b>Fokusserien</b> (Forlaget Praxis). ",
+      "p4": "Ansat som pædagogisk konsulent for Styrelsen for International Rekruttering og Integration (SIRI) siden 2018 med flg. arbejdsområder:",
+      "li1": "Udvikling og revision af SIRI’s visitationsmateriale",
+      "li2": "Beskikket som opgaveforfatter ved Prøve i Dansk 2",
+      "li3": "Beskikket censor ved Prøve i Dansk 2",
+      "li4": "Fagkonsulent ved Prøve i Dansk 2",
+      "li5": "Opgaveforfatter og ansvarlig for udvikling af alle nye mundtlige og skriftlige modultestopgaver til Danskuddannelse 2 og 3.",
+      "li6": "Udvikling af materiale til digital bedømmertræningssite til modultestbedømmelse",
+
+      "p5": "Læs mere om Fanny på LinkedIn. (et link her)"
+    },
+    "person2": {
+      "title": "Neel Jersild Moreira",
+      "p1": "Cand.mag. og uddannet som underviser i dansk som andetsprog.",
+      "p2": "Forfatter til en lang række populære lærebøger inden for dansk som andetsprog, nemlig <b>Puls- og Fokusserien</b> (Forlaget Praxis) samt <b>10 Danskere</b> og frilæsningsbogen <b>Det er dit valg, Ahmed</b> (Forlaget Gyldendal).",
+      "p3": "Ansat på Københavns Sprogcenter i en længere årrække med undervisning på alle niveauer på DU2 og DU3. Siden 2018 ansat på CSI Sprogcenter / Jobcenter København. Endvidere varetaget flg. opgaver:",
+      "p4": "Endvidere varetaget flg. opgaver:",
+      "li1": "Beskikket som opgaveforfatter ved Prøve i Dansk 2",
+      "li2": "Medlem af opgavekommissionen Prøve i Dansk 2",
+      "li3": "Beskikket censor ved Prøve i Dansk 2",
+      "li4": "Opgaveforfatter til nye mundtlige og skriftlige modultestopgaver til Danskuddannelse 2 og 3.",
+      "li5": "Udarbejdelse af to praktikbøger for CSI / Jobcenter København, et udviklingsprojekt som blev støttet af SIRI.",
+      "p5": "Læs mere om Neel på LinkedIn. (et link her)"
     }
   }
 }

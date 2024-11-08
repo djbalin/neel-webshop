@@ -1,9 +1,10 @@
 "use client";
 
+import { anton } from "@/fonts/fonts";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import CartButton from "./CartButton";
 
 export default function NavBar() {
@@ -15,16 +16,42 @@ export default function NavBar() {
 
   const links = {
     "/": t("menu.home"),
-    "/books": t("menu.books"),
-    "/audio": t("menu.audio"),
+    "/books1": "BØGER1",
+    "/books2": "BØGER2",
     "/guide": t("menu.guide"),
     "/about": t("menu.about"),
+    "/contact": t("menu.contact"),
   };
 
+  const isBgGreen = useMemo(() => {
+    return pathname === "/" || pathname.includes("books");
+  }, [pathname]);
+
   return (
-    <nav className="w-full  top-0 z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap">
+    <nav
+      className={`${anton.className} ${
+        isBgGreen && "text-white"
+      } absolute top-0 w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-8`}
+    >
       <div className="flex items-center flex-shrink-0 mr-6">
-        <span className="font-extrabold text-xl">{t("title")}</span>
+        {isBgGreen ? (
+          <Image
+            className="inline "
+            src={"/images/logo_white.svg"}
+            alt="logo"
+            color="black"
+            width={50}
+            height={50}
+          />
+        ) : (
+          <Image
+            className="inline "
+            src={"/images/logo_black.svg"}
+            alt="logo"
+            width={50}
+            height={50}
+          />
+        )}
       </div>
       <div className="block lg:hidden">
         <button
@@ -67,23 +94,6 @@ export default function NavBar() {
           height={30}
         />
       </Link>
-      {/* <button onClick={async () => await setUserLocale("da")}>
-        <Image
-          src={"/images/flags/dk_flag.svg"}
-          alt="Danish Flag"
-          width={30}
-          height={30}
-        />
-      </button>
-      <button onClick={async () => await setUserLocale("en")}>
-        <Image
-          src={"/images/flags/uk_flag.svg"}
-          alt="UK Flag"
-          width={30}
-          height={30}
-        />
-      </button> */}
-
       <CartButton />
     </nav>
   );
@@ -100,8 +110,8 @@ function NavItem({
 }) {
   return (
     <Link
-      className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${
-        pathname === href ? "font-bold" : ""
+      className={`block mt-4  lg:inline-block lg:mt-0 mr-4 ${
+        pathname === href ? "underline" : ""
       }`}
       href={{ pathname: href }}
     >

@@ -1,72 +1,83 @@
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default function About() {
-  return (
-    <div className="grid grid-cols-1 px-4 py-16  items-center justify-center md:grid-cols-2 gap-8 gap-y-16 xl:px-32">
-      {/* Row 1: Text | Image */}
-      <div className="flex items-center">
-        <div className="flex flex-col">
-          <h1 className="text-4xl font-bold">Om os</h1>
-          <h2 className="text-xl font-bold">Integer egestas ultrices euis</h2>
-          <br></br>
-          <p className="text-sm font-light lg:text-base">
-            Etiam id risus ante. Morbi laoreet, quam vel placerat ullamcorper,
-            nulla tortor faucibus neque, non egestas massa turpis et nisi.
-            Quisque sollicitudin laoreet risus, at imperdiet nulla luctus quis.
-            Nam ut egestas lorem, ac aliquam odio. In bibendum sapien vel risus
-            pulvinar ultricies. Interdum et malesuada fames ac ante ipsum primis
-            in faucibus. In et sem id dui dignissim placerat. Duis dapibus a
-            nibh ac dignissim. Praesent et odio vel dolor egestas rutrum.
-            Aliquam magna quam, vestibulum nec turpis ut, sollicitudin tristique
-            dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus a tortor sit amet dolor tincidunt aliquam. Curabitur eu
-            nibh quis lectus tincidunt semper nec feugiat lacus. Proin sagittis
-            sagittis fermentum.
-          </p>
-        </div>
-      </div>
-      <div className="flex w-full relative justify-center items-center">
-        <Image
-          src={"/images/neel_persons.png"}
-          alt={""}
-          width={1000}
-          height={1000}
-        />
-      </div>
+export default async function About() {
+  const t = await getTranslations("About");
 
-      {/* Row 2: Image | Text */}
-      <div className="flex relative w-full justify-center items-center p-4">
-        <Image
-          src={"/images/neel_book.png"}
-          alt={""}
-          width={1000}
-          height={1000}
-        />
-      </div>
-      <div className="flex items-center p-4">
-        <div className="flex flex-col">
-          <h1 className="text-4xl font-bold">Serien Puls</h1>
-          <h2 className="text-xl font-bold">Maecenas vel lacinia massa</h2>
-          <br></br>
-          <p className="text-sm lg:text-base font-light">
-            Ut placerat hendrerit turpis, id imperdiet massa volutpat
-            vestibulum. Nullam imperdiet eleifend justo, ut rhoncus ante sodales
-            at. Suspendisse dictum elit quis leo imperdiet, sed tincidunt tellus
-            interdum. Praesent non magna eget odio lobortis dapibus quis ornare
-            erat. Fusce mollis odio nisi, eu rhoncus tellus euismod porttitor.
-            Nullam commodo elementum felis euismod lacinia. Maecenas eleifend
-            pellentesque est vel tempor.
+  return (
+    <section className="flex lg:px-10 flex-col items-center justify-center space-y-14 py-10">
+      <header className="w-full ">
+        <h1 className="text-7xl font-extrabold text-left tracking-[-0.05em]">
+          {t("title")}
+        </h1>
+      </header>
+      <article className="personArticle">
+        <div className="w-1/2">
+          <h2 className="text-4xl mb-8 font-extrabold">{t("person1.title")}</h2>
+
+          <p className="paragraph">{t("person1.p1")}</p>
+          <p className="paragraph">{t("person1.p2")}</p>
+
+          <p className="paragraph">
+            {t.rich("person1.p3", {
+              b: (chunks) => <b>{chunks}</b>,
+            })}
           </p>
-          <br></br>
-          <p className="text-sm lg:text-base font-light">
-            Nunc vel aliquam tortor, egestas lacinia nunc. Curabitur in tempor
-            metus. Etiam sit amet justo eu elit elementum tempus et id dui. Sed
-            pharetra lacinia velit nec varius. Nullam condimentum in velit
-            iaculis mattis. Nam eget luctus magna. Nulla quam metus, euismod ut
-            porta sed, laoreet vitae urna.
-          </p>
+
+          <p className="paragraph">{t("person1.p4")}</p>
+
+          <ul className="paragraph list-disc list-inside">
+            <li>{t("person1.li1")}</li>
+            <li>{t("person1.li2")}</li>
+            <li>{t("person1.li3")}</li>
+            <li>{t("person1.li4")}</li>
+            <li>{t("person1.li5")}</li>
+            <li>{t("person1.li6")}</li>
+          </ul>
+          <p>{t("person1.p5")}</p>
         </div>
-      </div>
-    </div>
+        <figure className="w-1/2">
+          <Image
+            src={"/images/neel_persons.png"}
+            alt={""}
+            width={1000}
+            height={1000}
+          />
+        </figure>
+      </article>
+
+      <article className="personArticle">
+        <figure className="w-1/2">
+          <Image
+            src={"/images/neel_persons.png"}
+            alt={""}
+            width={1000}
+            height={1000}
+          />
+        </figure>
+        <div className="w-1/2">
+          <h2 className="text-4xl mb-8 font-extrabold">{t("person2.title")}</h2>
+
+          <p className="paragraph">{t("person2.p1")}</p>
+          <p className="paragraph">
+            {t.rich("person2.p2", {
+              b: (chunks) => <b>{chunks}</b>,
+            })}
+          </p>
+          <p className="paragraph">{t("person2.p3")}</p>
+
+          <p className="paragraph">{t("person2.p4")}</p>
+
+          <ul className="paragraph list-disc list-inside">
+            <li>{t("person2.li1")}</li>
+            <li>{t("person2.li2")}</li>
+            <li>{t("person2.li3")}</li>
+            <li>{t("person2.li4")}</li>
+            <li>{t("person2.li5")}</li>
+          </ul>
+          <p>{t("person2.p5")}</p>
+        </div>
+      </article>
+    </section>
   );
 }
