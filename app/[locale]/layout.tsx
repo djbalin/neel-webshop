@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
 import { i18n } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -46,7 +47,11 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <CartContextProvider>
             <NavBar />
-            <main className="flex flex-grow flex-col ">{children}</main>
+            <main className="flex flex-grow flex-col ">
+              {children}
+
+              <Analytics />
+            </main>
             <Footer />
           </CartContextProvider>
         </NextIntlClientProvider>
