@@ -75,25 +75,27 @@ export default function NavBar() {
         {Object.entries(links).map(([path, message]) => (
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
+        <CartButton />
       </div>
 
-      <Link href="/" locale="da">
-        <Image
-          src={"/images/flags/dk_flag.svg"}
-          alt="Danish flag"
-          width={30}
-          height={30}
-        />
-      </Link>
-      <Link href="/" locale="en">
-        <Image
-          src={"/images/flags/uk_flag.svg"}
-          alt="UK Flag"
-          width={30}
-          height={30}
-        />
-      </Link>
-      <CartButton />
+      <div className="flex flex-row gap-x-4 items-center">
+        <Link href={pathname} locale="da">
+          <Image
+            src={"/images/flags/dk_flag.svg"}
+            alt="Danish flag"
+            width={40}
+            height={40}
+          />
+        </Link>
+        <Link href={pathname} locale="en">
+          <Image
+            src={"/images/flags/uk_flag.svg"}
+            alt="UK Flag"
+            width={40}
+            height={40}
+          />
+        </Link>
+      </div>
     </nav>
   );
 }

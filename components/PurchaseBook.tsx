@@ -25,7 +25,7 @@ export default function PurchaseBook() {
   }
 
   return (
-    <div className=" rounded-xl p-4 flex flex-col gap-y-2 w-full">
+    <div className=" rounded-xl  flex flex-col gap-y-2 w-full">
       <p className="gap-x-1 flex flex-row items-baseline">
         <span className="text-4xl font-semibold">200</span>
         <span className="text-2xl font-semibold">DKK</span>
