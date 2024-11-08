@@ -30,7 +30,7 @@ export default function NavBar() {
     <nav
       className={`${anton.className} ${
         isBgGreen && "text-white"
-      } absolute top-0 w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-8`}
+      } absolute top-0 w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
     >
       <div className="flex items-center flex-shrink-0 mr-6">
         {isBgGreen ? (
@@ -39,16 +39,16 @@ export default function NavBar() {
             src={"/images/logo_white.svg"}
             alt="logo"
             color="black"
-            width={50}
-            height={50}
+            width={100}
+            height={100}
           />
         ) : (
           <Image
             className="inline "
             src={"/images/logo_black.svg"}
             alt="logo"
-            width={50}
-            height={50}
+            width={100}
+            height={100}
           />
         )}
       </div>

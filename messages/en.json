@@ -2,6 +2,9 @@
   "HomePage": {
     "title": "Hello!"
   },
+  "Guide": {
+    "title": "Heyy"
+  },
   "NavBar": {
     "title": "Forlaget DIT",
     "menu": {
@@ -11,6 +14,10 @@
       "about": "ABOUT THE AUTHORS",
       "contact": "CONTACT"
     }
+  },
+  "Return": {
+    "success": "Ordre bekræftet!",
+    "canceled": "Bestilling ikke gennemført"
   },
   "About": {
     "title": "Om forfatterne",

@@ -1,23 +1,34 @@
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
-import { i18n } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
-import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { notFound } from "next/navigation";
 import { openSans } from "../../fonts/fonts";
 import "./globals.css";
 
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: "Forlaget DIT",
-  description: "Forlaget Dansk I Tiden (DIT)",
-};
+export async function generateMetadata(locale: string) {
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("title"),
+  };
+}
+
+// export const metadata: Metadata = {
+//   title: "Forlaget DIT",
+//   description: "Forlaget Dansk I Tiden (DIT)",
+// };
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -32,11 +43,15 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
   const messages = await getMessages();
 
-  if (!routing.locales.includes(locale)) {
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (!routing.locales.includes(locale as any)) {
     notFound();
   }
 
   setRequestLocale(locale);
+
+  await generateMetadata(locale);
 
   return (
     <html>
@@ -46,7 +61,11 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <CartContextProvider>
             <NavBar />
-            <main className="flex flex-grow flex-col ">{children}</main>
+            <main className="flex flex-grow flex-col ">
+              {children}
+
+              <Analytics />
+            </main>
             <Footer />
           </CartContextProvider>
         </NextIntlClientProvider>

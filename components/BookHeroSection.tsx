@@ -1,7 +1,10 @@
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import PurchaseBook from "./PurchaseBook";
 
-export default function BookHeroSection() {
+export default function BookHeroSection({ locale }: { locale: string }) {
+  setRequestLocale(locale);
+
   return (
     <section className=" place-items-center pt-36 pb-20 bg-green  gap-y-8 md:gap-x-12 w-full">
       <div className="w-3/5 flex flex-row justify-between space-x-8 ">

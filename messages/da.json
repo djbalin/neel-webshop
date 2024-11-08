@@ -1,6 +1,17 @@
 {
+  "Metadata": {
+    "title": "Forlaget DIT",
+    "description": "Forlaget Dansk I Tiden (DIT)"
+  },
   "HomePage": {
     "title": "HEJ!"
+  },
+  "Guide": {
+    "title": "Heyy"
+  },
+  "Return": {
+    "success": "Ordre bekræftet!",
+    "canceled": "Bestilling ikke gennemført"
   },
   "NavBar": {
     "title": "Ordstrøm",
