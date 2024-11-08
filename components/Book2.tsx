@@ -1,7 +1,9 @@
 import { Link } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
-export default function Book2() {
+export default function Book2({ locale }: { locale: string }) {
+  setRequestLocale(locale);
   return (
     <section className="place-items-center pt-12 space-y-4 w-3/4 mx-auto pb-32">
       <h2 className="text-4xl font-extrabold text-orange">Om bogen</h2>

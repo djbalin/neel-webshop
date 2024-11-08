@@ -4,12 +4,17 @@ import Book2 from "@/components/Book2";
 import BookHeroSection from "@/components/BookHeroSection";
 import { useState } from "react";
 
-export default function BooksPage() {
+export default function BooksPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [activeBook, setActiveBook] = useState<"book1" | "book2">("book1");
+  // setRequestLocale(locale);
 
   return (
     <>
-      <BookHeroSection />
+      <BookHeroSection locale={locale} />
 
       <div className="fixed bottom-20 flex flex-col right-10 ">
         <button
@@ -30,7 +35,11 @@ export default function BooksPage() {
         </button>
       </div>
 
-      {activeBook === "book1" ? <Book1 /> : <Book2 />}
+      {activeBook === "book1" ? (
+        <Book1 locale={locale} />
+      ) : (
+        <Book2 locale={locale} />
+      )}
     </>
   );
 }

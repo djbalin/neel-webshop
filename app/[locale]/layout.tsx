@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
-import { i18n } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
@@ -11,8 +10,8 @@ import { notFound } from "next/navigation";
 import { openSans } from "../../fonts/fonts";
 import "./globals.css";
 
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export const metadata: Metadata = {
@@ -33,7 +32,9 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
   const messages = await getMessages();
 
-  if (!routing.locales.includes(locale)) {
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (!routing.locales.includes(locale as any)) {
     notFound();
   }
 
