@@ -1,14 +1,20 @@
-"use client";
-import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 
-export default function CheckoutReturn() {
-  const searchParams = useSearchParams();
-  const success = searchParams.get("success");
-  const canceled = searchParams.get("canceled");
+export default async function CheckoutReturn({
+  params: { locale },
+  searchParams,
+}: {
+  params: { locale: string };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  setRequestLocale(locale);
 
-  const t = useTranslations("Return");
+  const t = await getTranslations("Return");
+
+  const searchP = await searchParams;
+  const success = searchP.success;
+  const canceled = searchP.canceled;
 
   return (
     <div className="flex items-center justify-center min-h-screen w-full bg-gray-100 px-4 py-8">
