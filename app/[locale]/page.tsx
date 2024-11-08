@@ -1,13 +1,13 @@
 import { Link } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
-export default async function HomePage({}: // params: { lang },
-{
-  // params: { lang: Locale };
+export default async function HomePage({
+  params,
+}: {
+  params: { locale: string };
 }) {
-  // const t = await getTranslations({ locale: lang, namespace: "HomePage" });
-  // console.log(t);
-
+  setRequestLocale(params.locale);
   return (
     <>
       <section className="relative bg-green place-items-center  justify-between  text-center pt-20 px-6">
