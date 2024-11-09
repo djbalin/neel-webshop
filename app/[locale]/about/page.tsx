@@ -10,7 +10,7 @@ export default async function About({
   const t = await getTranslations("About");
 
   return (
-    <section className="flex w-3/4 mx-auto pt-36 flex-col items-center justify-center space-y-14 py-10">
+    <section className="flex w-3/4 mx-auto  flex-col items-center justify-center space-y-14 py-10">
       <header className="w-full ">
         <h1 className="text-7xl font-extrabold text-left tracking-[-0.05em]">
           {t("title")}
@@ -41,25 +41,27 @@ export default async function About({
           </ul>
           <p>{t("person1.p5")}</p>
         </div>
-        <figure className="w-1/2">
+        <div className="relative items-start w-1/2">
           <Image
             src={"/images/neel_persons.png"}
             alt={""}
-            width={1000}
-            height={1000}
+            fill
+            className="object-contain object-top"
+            sizes="(max-width: 768px) 80vw, 33vw"
           />
-        </figure>
+        </div>
       </article>
 
       <article className="personArticle">
-        <figure className="w-1/2">
+        <div className="relative w-1/2 ">
           <Image
             src={"/images/neel_persons.png"}
             alt={""}
-            width={1000}
-            height={1000}
+            fill
+            className="object-contain object-top"
+            sizes="(max-width: 768px) 80vw, 33vw"
           />
-        </figure>
+        </div>
         <div className="w-1/2">
           <h2 className="text-4xl mb-8 font-extrabold">{t("person2.title")}</h2>
 

@@ -7,7 +7,7 @@
     "title": "HEJ!"
   },
   "Guide": {
-    "title": "Heyy"
+    "title": "Læringsmateriale"
   },
   "Return": {
     "success": "Ordre bekræftet!",
@@ -18,7 +18,7 @@
     "menu": {
       "home": "FORSIDE",
       "books": "BØGER",
-      "guide": "LÆRINGSMATERIALE",
+      "materials": "LÆRINGSMATERIALE",
       "about": "OM FORFATTERNE",
       "contact": "KONTAKT"
     }

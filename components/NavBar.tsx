@@ -17,7 +17,7 @@ export default function NavBar() {
   const links = {
     "/": t("menu.home"),
     "/books": t("menu.books"),
-    "/guide": t("menu.guide"),
+    "/materials": t("menu.materials"),
     "/about": t("menu.about"),
     "/contact": t("menu.contact"),
   };
@@ -29,26 +29,23 @@ export default function NavBar() {
   return (
     <nav
       className={`${anton.className} ${
-        isBgGreen && "text-white"
-      } absolute top-0 w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
+        isBgGreen && "text-white bg-green"
+      }  space-x-8  w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
     >
-      <div className="flex items-center flex-shrink-0 mr-6">
+      <div className=" flex items-center  relative w-[75px] h-[75px]">
         {isBgGreen ? (
           <Image
-            className="inline "
             src={"/images/logo_white.svg"}
             alt="logo"
-            color="black"
-            width={100}
-            height={100}
+            className="object-contain"
+            fill
           />
         ) : (
           <Image
-            className="inline "
             src={"/images/logo_black.svg"}
             alt="logo"
-            width={100}
-            height={100}
+            className="object-contain"
+            fill
           />
         )}
       </div>

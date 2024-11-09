@@ -10,7 +10,7 @@
     "menu": {
       "home": "HOME",
       "books": "BOOKS",
-      "guide": "MATERIALS",
+      "materials": "MATERIALS",
       "about": "ABOUT THE AUTHORS",
       "contact": "CONTACT"
     }
