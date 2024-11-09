@@ -11,10 +11,10 @@ export default async function HomePage({
   setRequestLocale(params.locale);
   return (
     <>
-      <section className="relative bg-green place-items-center pt-10  text-center ">
-        <div className="w-1/2 space-y-6">
+      <section className="relative bg-green place-items-center pt-10 text-center ">
+        <div className="w-2/3 space-y-10">
           <header className="space-y-2">
-            <h1 className="text-6xl  md:text-4xl lg:text-8xl font-extrabold tracking-tighter">
+            <h1 className="text-6xl lg:text-8xl font-extrabold tracking-tighter">
               Facet 5
             </h1>
             <h2 className="text-2xl text-white font-bold  ">
@@ -32,6 +32,7 @@ export default async function HomePage({
             <Link href={"/books"}>Læs mere</Link>
           </button>
         </div>
+
         <div className="h-[400px]  w-full">
           <div className="absolute h-[400px]  w-full -bottom-16 ">
             <Image
@@ -45,10 +46,10 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className=" w-2/3 mx-auto space-y-16 place-items-center pt-36">
-        <header className="place-items-center space-y-8">
-          <h2 className="text-6xl  font-extrabold  ">Mød forfatterne</h2>
-          <p className="text-lg text-center mx-20">
+      <section className="w-full mx-auto space-y-16 place-items-center pt-36">
+        <header className="w-4/5 place-items-center text-center space-y-8">
+          <h2 className="text-5xl font-extrabold  ">Mød forfatterne</h2>
+          <p className="text-lg ">
             Facet 5 er skrevet af de to erfarne og anerkendte lærebogsforfattere
             Fanny Slotorub og Neel Jersild Moreira, der hver har en lang række
             udgivelser til DU2 og DU3 bag sig.
@@ -57,15 +58,14 @@ export default async function HomePage({
 
         {/* A row */}
         <article className="landing-article">
-          <figure className=" w-1/2">
+          <div className="relative w-1/2">
             <Image
               src={"/images/neel_persons.png"}
               alt={""}
-              layout="responsive"
-              width={1}
-              height={1}
+              fill
+              className="object-contain object-top"
             />
-          </figure>
+          </div>
           <div className="landing-article-text ">
             <h3 className="landing-h3">Fanny Slotorub</h3>
             <p className="paragraph">
@@ -79,12 +79,10 @@ export default async function HomePage({
               Fokusserien (Forlaget Praxis). 
             </p>
             {/* A footer of the article */}
-            <footer className="place-items-center font-bold w-full space-x-10 flex justify-end items-center">
-              <p className="text-center   place-items-center font-bold">
-                Læs mere om Fanny her
-              </p>
+            <footer className="flex flex-row w-full items-center justify-evenly">
+              <p className="font-bold">Læs mere om Fanny her</p>
               <Link
-                className={`${anton.className} tracking-wider bg-greenBlue   text-white py-1 px-4 rounded-md`}
+                className={`${anton.className} tracking-wider bg-greenBlue   text-white py-1 px-2 rounded-md`}
                 href={"/about"}
               >
                 OM FORFATTERNE
@@ -106,37 +104,34 @@ export default async function HomePage({
               på alle niveauer på Danskuddannelse 2 og 3. Beskikket censor ved
               Prøve i Dansk 3.
             </p>
-            <footer className="place-items-center font-bold w-full space-x-10 flex justify-end items-center">
-              <p className="text-center   place-items-center font-bold">
-                Læs mere om Neel her
-              </p>
+            <footer className="flex flex-row w-full items-center justify-evenly">
+              <p className="font-bold">Læs mere om Neel her</p>
               <Link
-                className={`${anton.className} tracking-wider bg-greenBlue   text-white py-1 px-4 rounded-md`}
+                className={`${anton.className} tracking-wider bg-greenBlue   text-white py-1 px-2 rounded-md`}
                 href={"/about"}
               >
                 OM FORFATTERNE
               </Link>
             </footer>
           </div>
-          <div className=" w-1/2">
+          <div className="relative w-1/2">
             <Image
               src={"/images/neel_persons.png"}
               alt={""}
-              layout="responsive"
-              width={1}
-              height={1}
+              fill
+              className="object-contain object-top"
             />
           </div>
         </article>
       </section>
 
-      <section className="place-items-center mt-32 w-full space-x-10  mx-auto space-y-14">
+      <section className="w-4/5 mx-auto place-items-center mt-32 space-y-14">
         <h3 className="text-5xl font-extrabold">
           Forlaget DIT - Dansk I Tiden
         </h3>
 
-        <div className="flex flex-row space-x-10">
-          <div className=" flex items-center relative w-1/2">
+        <div className="flex flex-row space-x-10 ">
+          <div className=" flex items-center relative w-2/5">
             <Image
               src={"/images/logo_notext.svg"}
               alt="logo"
@@ -145,7 +140,7 @@ export default async function HomePage({
             />
           </div>
 
-          <article className="flex flex-col w-1/2 space-y-4 items-start ">
+          <article className="flex  w-3/5 flex-col  space-y-4 items-start ">
             <p className="text-lg">
               <b>Forlaget DIT - Dansk I Tiden</b> udgiver
               undervisningsmaterialer i dansk som andetsprog til Danskuddannelse

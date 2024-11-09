@@ -79,7 +79,7 @@ p {
 }
 
 .landing-article {
-  @apply flex flex-row space-x-8;
+  @apply flex flex-row space-x-8 px-10;
 }
 
 .landing-article-text {
