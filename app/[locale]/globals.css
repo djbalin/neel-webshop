@@ -71,7 +71,7 @@ p {
 }
 
 .personArticle {
-  @apply flex space-x-10 flex-row justify-between;
+  @apply flex flex-col space-y-4 lg:flex-row;
 }
 
 .h3 {

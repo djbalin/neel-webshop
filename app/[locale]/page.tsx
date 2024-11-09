@@ -58,7 +58,7 @@ export default async function HomePage({
 
         {/* A row */}
         <article className="landing-article">
-          <div className="relative w-1/2 h-auto">
+          <div className="relative w-1/2">
             <Image
               src={"/images/neel_persons.png"}
               alt={""}
