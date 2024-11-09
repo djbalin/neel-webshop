@@ -15,9 +15,11 @@ const AUDIO_FILE_PATHS = [
 
 export default function AudioSection() {
   return (
-    <div className="w-full h-full space-y-6">
-      <h1 className="text-3xl md:text-4xl font-bold ">Lydfiler til Facet 5</h1>
-      <div className="h-full space-y-6 scrollable p-6 border-gray-100 border-2 shadow-lg rounded-lg ">
+    <div className="w-full h-full border-gray-100 border-2 shadow-lg rounded-lg">
+      <h1 className="bg-gray-100 py-2 border-b-2 border-gray-200 text-2xl lg:text-3xl xl:text-4xl font-bold text-center">
+        Lydafspiller til Facet 5
+      </h1>
+      <div className="h-full max-h-[400px] xl:max-h-[600px] space-y-6 scrollable p-6  overflow-auto ">
         {AUDIO_FILE_PATHS.map((audioFilePath, idx) => {
           return (
             <div className="space-y-1 flex flex-col" key={idx}>

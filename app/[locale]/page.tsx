@@ -11,16 +11,18 @@ export default async function HomePage({
   setRequestLocale(params.locale);
   return (
     <>
-      <section className="relative bg-green place-items-center  text-center ">
-        <div className="w-[70%] space-y-4">
-          <h1 className="text-6xl  md:text-4xl lg:text-6xl font-extrabold tracking-tighter">
-            Facet 5
-          </h1>
-          <h2 className="text-2xl text-white font-bold  ">
-            Ny grundbog til modul 5 på Danskuddannelse 3
-          </h2>
-          <p className="paragraph text-white font-normal  text-sm text-center">
-            Facet 5 er en ny grundbog til modul 5 på Danskuddannelse 3.
+      <section className="relative bg-green place-items-center pt-10  text-center ">
+        <div className="w-1/2 space-y-6">
+          <header className="space-y-2">
+            <h1 className="text-6xl  md:text-4xl lg:text-8xl font-extrabold tracking-tighter">
+              Facet 5
+            </h1>
+            <h2 className="text-2xl text-white font-bold  ">
+              Ny grundbog til modul 5 på Danskuddannelse 3
+            </h2>
+          </header>
+          <p className="paragraph text-white font-normal  text-base text-center">
+            <b>Facet 5</b> er en ny grundbog til modul 5 på Danskuddannelse 3.
             Materialet skaber en aktiv og dynamisk undervisning, hvor sprogets
             mange facetter kommer i spil, når kursisterne skal diskutere og
             argumentere, samtidig med at den forbereder kursisterne optimalt til
@@ -30,17 +32,16 @@ export default async function HomePage({
             <Link href={"/books"}>Læs mere</Link>
           </button>
         </div>
-        <div className="h-[260px]  w-full bg-orange-50">
-          <figure className="absolute  w-full bg-orange-50 -bottom-16 ">
+        <div className="h-[400px]  w-full">
+          <div className="absolute h-[400px]  w-full -bottom-16 ">
             <Image
-              className="mx-auto  drop-shadow-2xl  shadow-gray-600"
+              className="mx-auto  drop-shadow-2xl  shadow-gray-600 object-contain object-top"
               src={"/images/book_facet5.png"}
-              alt={"Facet 5 book cover"}
-              width={350}
-              height={350}
+              alt={"Facet 5 book example"}
               priority
+              fill
             />
-          </figure>
+          </div>
         </div>
       </section>
 

@@ -47,7 +47,7 @@ export default function Book1() {
         </p>
       </article>
 
-      <article className="mt-8 space-y-16 text-center">
+      <article className="mt-8 space-y-4 text-center">
         <h3 className=" text-lg">
           Facet indeholder udover{" "}
           <b>PD3-identiske læse-, skrive- og mundtlige opgaver,</b> et væld af

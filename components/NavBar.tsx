@@ -30,7 +30,7 @@ export default function NavBar() {
     <nav
       className={`${anton.className} ${
         isBgGreen && "text-white bg-green"
-      }  space-x-8  w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
+      }  lg:space-x-4 xl:space-x-8  w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
     >
       <div className=" flex items-center  relative w-[75px] h-[75px]">
         {isBgGreen ? (
@@ -65,7 +65,7 @@ export default function NavBar() {
         </button>
       </div>
       <div
-        className={`w-full justify-center gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
@@ -73,25 +73,24 @@ export default function NavBar() {
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
         <CartButton />
-      </div>
-
-      <div className="flex flex-row gap-x-4 items-center">
-        <Link href={pathname} locale="da">
-          <Image
-            src={"/images/flags/dk_flag.svg"}
-            alt="Danish flag"
-            width={40}
-            height={40}
-          />
-        </Link>
-        <Link href={pathname} locale="en">
-          <Image
-            src={"/images/flags/uk_flag.svg"}
-            alt="UK Flag"
-            width={40}
-            height={40}
-          />
-        </Link>
+        <div className="flex flex-row gap-x-4 items-center">
+          <Link href={pathname} locale="da">
+            <Image
+              src={"/images/flags/dk_flag.svg"}
+              alt="Danish flag"
+              width={40}
+              height={40}
+            />
+          </Link>
+          <Link href={pathname} locale="en">
+            <Image
+              src={"/images/flags/uk_flag.svg"}
+              alt="UK Flag"
+              width={40}
+              height={40}
+            />
+          </Link>
+        </div>
       </div>
     </nav>
   );

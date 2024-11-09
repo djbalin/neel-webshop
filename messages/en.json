@@ -1,9 +1,13 @@
 {
+  "Metadata": {
+    "title": "Forlaget DIT",
+    "description": "Forlaget Dansk I Tiden (DIT)"
+  },
   "HomePage": {
     "title": "Hello!"
   },
   "Guide": {
-    "title": "Heyy"
+    "title": "Materials"
   },
   "NavBar": {
     "title": "Forlaget DIT",
@@ -15,10 +19,7 @@
       "contact": "CONTACT"
     }
   },
-  "Metadata": {
-    "title": "Forlaget DIT",
-    "description": "Forlaget Dansk I Tiden (DIT)"
-  },
+
   "Return": {
     "success": "Ordre bekræftet!",
     "canceled": "Bestilling ikke gennemført"
@@ -37,7 +38,7 @@
       "li4": "Fagkonsulent ved Prøve i Dansk 2",
       "li5": "Opgaveforfatter og ansvarlig for udvikling af alle nye mundtlige og skriftlige modultestopgaver til Danskuddannelse 2 og 3.",
       "li6": "Udvikling af materiale til digital bedømmertræningssite til modultestbedømmelse",
-      "p5": "Læs mere om Fanny på LinkedIn. (et link her)"
+      "p5": "Læs mere om Fanny på LinkedIn."
     },
     "person2": {
       "title": "Neel Jersild Moreira",
@@ -50,7 +51,7 @@
       "li3": "Beskikket censor ved Prøve i Dansk 2",
       "li4": "Opgaveforfatter til nye mundtlige og skriftlige modultestopgaver til Danskuddannelse 2 og 3.",
       "li5": "Udarbejdelse af to praktikbøger for CSI / Jobcenter København, et udviklingsprojekt som blev støttet af SIRI.",
-      "p5": "Læs mere om Neel på LinkedIn. (et link her)"
+      "p5": "Læs mere om Neel på LinkedIn."
     }
   }
 }

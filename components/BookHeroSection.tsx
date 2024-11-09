@@ -6,7 +6,7 @@ export default function BookHeroSection({ locale }: { locale: string }) {
   setRequestLocale(locale);
 
   return (
-    <section className=" place-items-center  pb-20 bg-green  gap-y-8 md:gap-x-12 w-full">
+    <section className=" place-items-center  pb-20 bg-green pt-10  gap-y-8 md:gap-x-12 w-full">
       <div className="w-3/5 flex flex-row justify-between space-x-8 ">
         <div className="  space-y-2">
           <h1 className="text-6xl  md:text-4xl lg:text-6xl font-extrabold tracking-tighter">
