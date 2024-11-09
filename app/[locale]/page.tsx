@@ -11,10 +11,10 @@ export default async function HomePage({
   setRequestLocale(params.locale);
   return (
     <>
-      <section className="relative bg-green place-items-center pt-10 text-center ">
+      <section className="relative bg-green place-items-center  lg:pt-10 text-center ">
         <div className="w-2/3 space-y-10">
-          <header className="space-y-2">
-            <h1 className="text-6xl lg:text-8xl font-extrabold tracking-tighter">
+          <header className="space-y-3">
+            <h1 className="text-8xl font-extrabold tracking-tighter">
               Facet 5
             </h1>
             <h2 className="text-2xl text-white font-bold  ">
@@ -58,7 +58,7 @@ export default async function HomePage({
 
         {/* A row */}
         <article className="landing-article">
-          <div className="relative w-1/2">
+          <div className="relative w-1/2 h-auto">
             <Image
               src={"/images/neel_persons.png"}
               alt={""}
@@ -125,7 +125,7 @@ export default async function HomePage({
         </article>
       </section>
 
-      <section className="w-4/5 mx-auto place-items-center mt-32 space-y-14">
+      <section className="w-4/5 pb-16 mx-auto place-items-center mt-32 space-y-14">
         <h3 className="text-5xl font-extrabold">
           Forlaget DIT - Dansk I Tiden
         </h3>
