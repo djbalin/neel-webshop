@@ -1,5 +1,6 @@
 "use client";
 import { useCartContext } from "@/contexts/CartContext";
+import { openSans } from "@/fonts/fonts";
 import { ShoppingBasket, XCircleIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -27,14 +28,16 @@ const CartButton = () => {
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
   return (
-    <div className="relative font-sans">
+    <div
+      className={`relative ${openSans.className} text-lg xl:text-xl tracking-tighter `}
+    >
       {/* Basket Icon */}
       <div
         className="relative cursor-pointer"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
         <ShoppingBasket size={40} />
-        <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2">
+        <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">
           <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2  rounded-full px-2 py-[0.15rem] text-lg font-bold">
             {amount}
           </span>
@@ -43,25 +46,25 @@ const CartButton = () => {
 
       {/* Cart Contents Dropdown */}
       {isCartVisible && (
-        <div className="absolute z-50 right-0 mt-2 w-80 text-black bg-white shadow-lg border border-gray-300 rounded-lg p-4">
+        <div className="absolute z-50 right-0 mt-2 min-w-[600px] text-black bg-white shadow-lg border border-gray-300 rounded-lg py-6 px-10">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-2xl font-semibold">Din kurv</h3>
+            <h3 className="text-2xl font-bold">Din kurv</h3>
             <XCircleIcon
               size={30}
               className="cursor-pointer"
               onClick={() => setIsCartVisible(false)}
             />
           </div>
-          <div className="flex items-center mb-4">
+          <div className="flex items-center space-x-4 mb-10">
             <Image
               src={"/images/neel_book.png"}
               alt="Item"
-              width={50}
-              height={50}
-              className="mr-4"
+              width={75}
+              height={75}
             />
-            <span className="font-medium">Puls 4, Grundbog</span>
+            <span className="font-semibold text-3xl">Facet 5, Grundbog</span>
           </div>
+
           <div className="flex justify-between items-center mb-4">
             <span className="text-lg font-semibold">Antal</span>
             <span className="text-lg font-semibold">Pris</span>
@@ -84,7 +87,9 @@ const CartButton = () => {
             </div>
             <span>{format(grossPrice)} DKK</span>
           </div>
-          <hr className="my-4" />
+
+          <hr className="my-6 border-gray-400" />
+
           <div className="flex justify-between mb-2">
             <span>Levering:</span>
             <span>{format(deliveryPrice)} DKK</span>
@@ -93,7 +98,9 @@ const CartButton = () => {
             <span>Moms (25%):</span>
             <span>{format(momsPrice)} DKK</span>
           </div>
-          <hr className="my-4 border-gray-200" />
+
+          <hr className="my-6 border-gray-400" />
+
           <div className="flex  justify-between font-bold mb-4">
             <span>Total inkl. moms og levering:</span>
             <span>{format(totalPrice)} DKK</span>
@@ -103,7 +110,7 @@ const CartButton = () => {
               disabled={amount === 0}
               type="submit"
               role="link"
-              className="w-full font-bold items-center text-center py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
+              className="w-full font-bold items-center text-center py-2 bg-greenBlue text-white rounded hover:bg-orange-600 transition"
             >
               Gå til betaling
             </button>

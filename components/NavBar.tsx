@@ -2,7 +2,7 @@
 
 import { anton } from "@/fonts/fonts";
 import { Link, usePathname } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import CartButton from "./CartButton";
@@ -10,6 +10,7 @@ import CartButton from "./CartButton";
 export default function NavBar() {
   const pathname = usePathname();
 
+  const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const t = useTranslations("NavBar");
@@ -17,7 +18,7 @@ export default function NavBar() {
   const links = {
     "/": t("menu.home"),
     "/books": t("menu.books"),
-    "/guide": t("menu.guide"),
+    "/materials": t("menu.materials"),
     "/about": t("menu.about"),
     "/contact": t("menu.contact"),
   };
@@ -29,26 +30,23 @@ export default function NavBar() {
   return (
     <nav
       className={`${anton.className} ${
-        isBgGreen && "text-white"
-      } absolute top-0 w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
+        isBgGreen && "text-white bg-green"
+      }  lg:space-x-4 xl:space-x-8  w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
     >
-      <div className="flex items-center flex-shrink-0 mr-6">
+      <div className=" flex items-center  relative w-[75px] h-[75px]">
         {isBgGreen ? (
           <Image
-            className="inline "
             src={"/images/logo_white.svg"}
             alt="logo"
-            color="black"
-            width={100}
-            height={100}
+            className="object-contain"
+            fill
           />
         ) : (
           <Image
-            className="inline "
             src={"/images/logo_black.svg"}
             alt="logo"
-            width={100}
-            height={100}
+            className="object-contain"
+            fill
           />
         )}
       </div>
@@ -67,22 +65,23 @@ export default function NavBar() {
           </svg>
         </button>
       </div>
+
       <div
-        className={`w-full justify-center gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
         {Object.entries(links).map(([path, message]) => (
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
-        <CartButton />
       </div>
-
+      <CartButton />
       <div className="flex flex-row gap-x-4 items-center">
         <Link href={pathname} locale="da">
           <Image
             src={"/images/flags/dk_flag.svg"}
             alt="Danish flag"
+            className={`${locale === "da" ? "" : "opacity-50"}`}
             width={40}
             height={40}
           />
@@ -91,6 +90,7 @@ export default function NavBar() {
           <Image
             src={"/images/flags/uk_flag.svg"}
             alt="UK Flag"
+            className={`${locale === "en" ? "" : "opacity-50"}`}
             width={40}
             height={40}
           />

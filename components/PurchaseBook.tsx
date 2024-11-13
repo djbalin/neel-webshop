@@ -32,7 +32,7 @@ export default function PurchaseBook() {
         <span>excl. moms</span>
       </p>
       <div className="flex gap-2 flex-col lg:flex-row w-full gap-x-8">
-        <div className="bg-white justify-between w-24 px-2 flex flex-row items-center rounded-xl border-2 border-black">
+        <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-xl border-2 border-black">
           <button onClick={() => handleChangeAmount("m")} className="text-3xl">
             <Minus />
           </button>
@@ -48,9 +48,9 @@ export default function PurchaseBook() {
         ) : (
           <button
             onClick={handleAddToCart}
-            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-2 bg-blue text-white text-sm md:text-base font-medium"
+            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-1 bg-blue text-white text-sm md:text-base font-medium"
           >
-            <ShoppingBasket /> Føj til kurv
+            <ShoppingBasket /> Læg i kurv
           </button>
         )}
       </div>

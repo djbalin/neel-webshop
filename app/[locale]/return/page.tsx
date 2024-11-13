@@ -17,7 +17,7 @@ export default async function CheckoutReturn({
   const canceled = searchP.canceled;
 
   return (
-    <div className="flex items-center justify-center min-h-screen w-full bg-gray-100 px-4 py-8">
+    <div className="flex items-center justify-center flex-grow w-full bg-gray-100 px-4 py-8">
       <div className="bg-white p-6 md:p-8 rounded-lg shadow-md max-w-md w-full">
         <Suspense fallback={<div>Loading...</div>}>
           {success && (
