@@ -2,7 +2,7 @@
 
 import { anton } from "@/fonts/fonts";
 import { Link, usePathname } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import CartButton from "./CartButton";
@@ -10,6 +10,7 @@ import CartButton from "./CartButton";
 export default function NavBar() {
   const pathname = usePathname();
 
+  const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const t = useTranslations("NavBar");
@@ -64,33 +65,36 @@ export default function NavBar() {
           </svg>
         </button>
       </div>
+
       <div
-        className={`w-full justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
         {Object.entries(links).map(([path, message]) => (
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
-        <CartButton />
-        <div className="flex flex-row gap-x-4 items-center">
-          <Link href={pathname} locale="da">
-            <Image
-              src={"/images/flags/dk_flag.svg"}
-              alt="Danish flag"
-              width={40}
-              height={40}
-            />
-          </Link>
-          <Link href={pathname} locale="en">
-            <Image
-              src={"/images/flags/uk_flag.svg"}
-              alt="UK Flag"
-              width={40}
-              height={40}
-            />
-          </Link>
-        </div>
+      </div>
+      <CartButton />
+      <div className="flex flex-row gap-x-4 items-center">
+        <Link href={pathname} locale="da">
+          <Image
+            src={"/images/flags/dk_flag.svg"}
+            alt="Danish flag"
+            className={`${locale === "da" ? "" : "opacity-50"}`}
+            width={40}
+            height={40}
+          />
+        </Link>
+        <Link href={pathname} locale="en">
+          <Image
+            src={"/images/flags/uk_flag.svg"}
+            alt="UK Flag"
+            className={`${locale === "en" ? "" : "opacity-50"}`}
+            width={40}
+            height={40}
+          />
+        </Link>
       </div>
     </nav>
   );

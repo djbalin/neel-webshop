@@ -49,7 +49,7 @@ export default async function HomePage({
       <section className="w-full mx-auto space-y-16 place-items-center pt-36">
         <header className="w-4/5 place-items-center text-center space-y-8">
           <h2 className="text-5xl font-extrabold  ">Mød forfatterne</h2>
-          <p className="text-lg ">
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
             Facet 5 er skrevet af de to erfarne og anerkendte lærebogsforfattere
             Fanny Slotorub og Neel Jersild Moreira, der hver har en lang række
             udgivelser til DU2 og DU3 bag sig.

@@ -9,7 +9,7 @@ export function Book() {
   const [activeBook, setActiveBook] = useState<"book1" | "book2">("book1");
 
   return (
-    <>
+    <section className="pb-10">
       <div className="fixed bottom-20 flex flex-col right-10 ">
         <button
           onClick={() => setActiveBook("book1")}
@@ -35,6 +35,6 @@ export function Book() {
         // <Book2 locale={locale} />
         <Book2 />
       )}
-    </>
+    </section>
   );
 }

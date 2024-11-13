@@ -53,7 +53,7 @@ export default function Book1() {
           <b>PD3-identiske læse-, skrive- og mundtlige opgaver,</b> et væld af
           forskellige opgaver som bl.a. har fokus på:
         </h3>
-        <div className="text-left w-1/2 mx-auto p-2 font-bold">
+        <div className="text-left inline-block   mx-auto p-2 font-bold">
           <div className="h-[0.15rem] bg-green mb-2"></div>
           <ul className="space-y-2">
             <ListItem

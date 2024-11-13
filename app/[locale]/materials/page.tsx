@@ -35,8 +35,8 @@ export default async function GuidePage({
   const t = await getTranslations("Guide");
 
   return (
-    <div className="flex flex-col pt-0 lg:pt-2 md:px-6 sm:px-8 lg:px-10  mx-auto space-y-4">
-      <h1 className="text-4xl md:text-5xl pt-4 lg:mb-0 mb-10 xl:text-7xl text-center lg:text-left font-bold">
+    <div className="flex flex-col pt-0  pb-10 lg:pt-2 md:px-6 sm:px-8 lg:px-10  mx-auto space-y-4">
+      <h1 className="text-4xl md:text-5xl xl:text-7xl pt-4 lg:mb-0 mb-10  text-center lg:text-left font-bold">
         {t("title")}
       </h1>
       <div className="flex md:flex-row w-full flex-col md:space-x-10 space-y-8 md:space-y-0">

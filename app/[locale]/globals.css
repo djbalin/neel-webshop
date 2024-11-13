@@ -68,10 +68,11 @@ p {
 
 .paragraph {
   margin-bottom: 1em;
+  font-size: 14px;
 }
 
 .personArticle {
-  @apply flex flex-col space-y-4 lg:flex-row;
+  @apply flex flex-col gap-4 lg:flex-row;
 }
 
 .h3 {

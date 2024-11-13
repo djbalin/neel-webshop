@@ -28,13 +28,15 @@ const CartButton = () => {
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
   return (
-    <div className={`relative ${openSans.className} text-lg xl:text-xl `}>
+    <div
+      className={`relative ${openSans.className} text-lg xl:text-xl tracking-tighter `}
+    >
       {/* Basket Icon */}
       <div
         className="relative cursor-pointer"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
-        <ShoppingBasket size={50} />
+        <ShoppingBasket size={40} />
         <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">
           <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2  rounded-full px-2 py-[0.15rem] text-lg font-bold">
             {amount}
