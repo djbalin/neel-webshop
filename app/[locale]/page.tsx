@@ -12,7 +12,7 @@ export default async function HomePage({
   return (
     <>
       <section className="relative bg-green place-items-center  lg:pt-10 text-center ">
-        <div className="w-2/3 space-y-10">
+        <div className="w-2/3 space-y-6">
           <header className="space-y-3">
             <h1 className="text-8xl font-extrabold tracking-tighter">
               Facet 5
@@ -21,7 +21,7 @@ export default async function HomePage({
               Ny grundbog til modul 5 på Danskuddannelse 3
             </h2>
           </header>
-          <p className="paragraph text-white font-normal  text-base text-center">
+          <p className="paragraph text-lg max-w-4xl mx-auto text-white  text-center">
             <b>Facet 5</b> er en ny grundbog til modul 5 på Danskuddannelse 3.
             Materialet skaber en aktiv og dynamisk undervisning, hvor sprogets
             mange facetter kommer i spil, når kursisterne skal diskutere og
