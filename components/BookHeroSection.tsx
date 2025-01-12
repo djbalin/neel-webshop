@@ -7,13 +7,13 @@ export default function BookHeroSection({ locale }: { locale: string }) {
 
   return (
     <div className="w-full   bg-greenPale  py-16 ">
-      <div className="w-3/5 flex flex-row place-items-center mx-auto">
-        <div className="flex w-2/5 flex-col">
+      <div className="w-3/5 flex flex-row space-x-6 place-items-center mx-auto">
+        <div className="flex w-2/5  flex-col">
           <h1 className="text-6xl  md:text-4xl lg:text-6xl font-normal tracking-tight mb-1">
             Facet
           </h1>
           <span>
-            Af <a className="anchorTag">Fanny Slotorub</a> og{" "}
+            Af <a className="anchorTag">Fanny Slotorub</a> &{" "}
             <a className="anchorTag">Neel Jersild Moreira</a>
           </span>
           <p className="font-normal mt-6 mb-8 ">
@@ -22,6 +22,7 @@ export default function BookHeroSection({ locale }: { locale: string }) {
             straf... (læs mere)
           </p>
           <PurchaseBook />
+          <span className="mt-3">Forventet leveringstid: 3 uger</span>
         </div>
         <div className="w-3/5">
           <Image

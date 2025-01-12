@@ -68,7 +68,9 @@ export default async function AudioPage({
                   {/* <span className="font-semibold text-sm md:text-base">
                     Opgave {opgave}
                   </span> */}
-                  <span className="font-medium">{fileName.split(".")[0]}</span>
+                  <span className="font-semibold">
+                    {fileName.split(".")[0]}
+                  </span>
                 </div>
                 <audio
                   controls

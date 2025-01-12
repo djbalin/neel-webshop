@@ -12,16 +12,16 @@ export function Book() {
             </h3>
           </header>
           <div className="flex flex-wrap justify-center space-x-2 gap-y-2 text-white font-medium uppercase text-sm">
-            <span className="px-3 py-2 rounded-md bg-greenPale">
+            <span className="px-3 py-1 rounded-md bg-greenPale">
               <span className="font-extrabold">1</span> Arbejde og identitet
             </span>
-            <span className="px-3 py-2 rounded-md bg-greenPale">
+            <span className="px-3 py-1 tracking-wide  rounded-md bg-greenPale">
               <span className="font-extrabold">2</span> Penge og økonomi
             </span>
-            <span className="px-3 py-2 rounded-md bg-greenPale">
+            <span className="px-3 py-1 tracking-wide  rounded-md bg-greenPale">
               <span className="font-extrabold">3</span> sundhed og livsstil
             </span>
-            <span className="px-3 py-2 rounded-md bg-greenPale">
+            <span className="px-3 py-1 tracking-wide  rounded-md bg-greenPale">
               <span className="font-extrabold">4</span> kriminalitet og straf
             </span>
           </div>
@@ -33,7 +33,7 @@ export function Book() {
           </p>
         </article>
 
-        <article className="mt-8 flex flex-row space-x-2  align-top">
+        <article className="mt-8 flex flex-row space-x-4  align-top">
           <div className="w-1/2">
             <p className="">
               Facet indeholder udover{" "}
@@ -41,7 +41,7 @@ export function Book() {
               af forskellige opgaver som bl.a. har fokus på:
             </p>
           </div>
-          <div className=" w-1/2 border-b-4 pl-4  border-greenPale pb-2 font-bold">
+          <div className=" w-1/2 border-b-4  border-greenPale pb-2 font-bold">
             <ul className="list-disc list-inside">
               <li>Ordkenskab og ordklasser</li>
               <li>Fejlretning</li>

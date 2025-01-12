@@ -1,4 +1,4 @@
-import { Arimo, Roboto } from "next/font/google";
+import { Arimo, Montserrat } from "next/font/google";
 
 // export const openSans = Open_Sans({
 //   subsets: ["latin"],
@@ -15,7 +15,8 @@ export const arimo = Arimo({
   weight: "variable",
 });
 
-export const mainFont = Roboto({
+export const mainFont = Montserrat({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: "variable",
+  // weight: ["100", "300", "400", "500", "700", "900"],
 });

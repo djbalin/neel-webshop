@@ -19,12 +19,12 @@ export default async function HomePage({
             </h2>
           </header>
 
-          <div className="max-w-[50rem] mx-auto text-center ">
+          <div className=" mx-auto text-center ">
             <p className=" mb-2">
               <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3
               modul 5, der er på vej mod Prøve i Dansk 3.
             </p>
-            <p className=" mb-4">
+            <p className=" mb-4 px-10">
               <b>Facet</b> skaber en aktiv og dynamisk undervisning, hvor
               sprogets mange facetter kommer i spil, når kursisterne skal
               arbejde med et væld af varierede opgavetyper, der kommer godt

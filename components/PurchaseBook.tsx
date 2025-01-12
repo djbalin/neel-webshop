@@ -64,10 +64,10 @@ export default function PurchaseBook() {
         ) : (
           <button
             onClick={handleAddToCart}
-            className=" justify-center items-center stroke-white px-6 flex flex-row gap-x-3 bg-orange text-white text-sm md:text-base "
+            className=" justify-center items-center stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white text-sm md:text-base "
           >
             <Image
-              src={"/images/basket.svg"}
+              src={"/images/basket_white.svg"}
               alt="book"
               width={25}
               height={25}
