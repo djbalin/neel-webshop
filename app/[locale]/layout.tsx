@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
+import { mainFont } from "@/fonts/fonts";
 import { routing } from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
@@ -11,7 +12,6 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { openSans } from "../../fonts/fonts";
 import "./globals.css";
 
 export function generateStaticParams() {
@@ -54,7 +54,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${openSans.className} flex flex-col  antialiased min-h-screen w-full`}
+        className={`${mainFont.className} flex flex-col  antialiased min-h-screen w-full`}
       >
         <NextIntlClientProvider messages={messages}>
           <CartContextProvider>

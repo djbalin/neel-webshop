@@ -48,7 +48,7 @@ export default function PurchaseBook() {
         ) : (
           <button
             onClick={handleAddToCart}
-            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-1 bg-blue text-white text-sm md:text-base font-medium"
+            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-1 bg-blueCustom text-white text-sm md:text-base font-medium"
           >
             <ShoppingBasket /> Læg i kurv
           </button>

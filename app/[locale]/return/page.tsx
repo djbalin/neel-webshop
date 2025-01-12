@@ -42,9 +42,7 @@ export default async function CheckoutReturn({
               <h2 className="text-xl md:text-2xl font-bold mb-4">
                 Bestilling ikke gennemført
               </h2>
-              <p className="text-gray-600 mb-6">
-                Betalingen blev afbrudt, prøv venligst igen.
-              </p>
+              <p className="text-gray-600 mb-6">Betalingen blev afbrudt.</p>
               <a
                 href="/"
                 className="inline-block bg-brandGreen text-white px-6 py-2 rounded hover:bg-green-600 transition"

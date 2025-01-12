@@ -33,7 +33,7 @@ export default function Book1() {
           <span className="px-3 py-2 rounded-md bg-green">
             3 sundhed og livsstil
           </span>
-          <span className="px-3 py-2 rounded-md bg-blue">
+          <span className="px-3 py-2 rounded-md bg-blueCustom">
             4 kriminalitet og straf
           </span>
         </div>

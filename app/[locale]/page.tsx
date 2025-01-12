@@ -1,4 +1,3 @@
-import { anton } from "@/fonts/fonts";
 import { Link } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
@@ -11,176 +10,155 @@ export default async function HomePage({
   setRequestLocale(params.locale);
   return (
     <>
-      <section className="relative bg-green place-items-center  lg:pt-10 text-center ">
-        <div className="w-2/3 space-y-6">
-          <header className="space-y-3">
-            <h1 className="text-8xl font-extrabold tracking-tighter">
-              Facet 5
-            </h1>
-            <h2 className="text-2xl text-white font-bold  ">
-              Ny grundbog til modul 5 på Danskuddannelse 3
+      <section className="relative  place-items-center mb-20  lg:pt-10 text-center ">
+        <div className="w-2/3 ">
+          <header className="space-y-3 mb-8">
+            <h1 className="text-8xl font-normal ">Facet</h1>
+            <h2 className="text-5xl font-normal  ">
+              Ny grundbog i dansk til 3.5
             </h2>
           </header>
-          <p className="paragraph text-lg max-w-4xl mx-auto text-white  text-center">
-            <b>Facet 5</b> er en ny grundbog til modul 5 på Danskuddannelse 3.
-            Materialet skaber en aktiv og dynamisk undervisning, hvor sprogets
-            mange facetter kommer i spil, når kursisterne skal diskutere og
-            argumentere, samtidig med at den forbereder kursisterne optimalt til
-            Prøve i dansk 3 med PD3-lignende øvelser og opgaver.
-          </p>
-          <button className="bg-white rounded-md border-orange border-2 px-8 text-lg font-bold">
+
+          <div className="max-w-[50rem] mx-auto text-center ">
+            <p className=" mb-2">
+              <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3
+              modul 5, der er på vej mod Prøve i Dansk 3.
+            </p>
+            <p className=" mb-4">
+              <b>Facet</b> skaber en aktiv og dynamisk undervisning, hvor
+              sprogets mange facetter kommer i spil, når kursisterne skal
+              arbejde med et væld af varierede opgavetyper, der kommer godt
+              rundt om de fire færdigheder. Samtidig forberedes kursisterne
+              optimalt til Prøve i dansk 3 med en lang række PD3-lignende
+              øvelser og opgaver.
+            </p>
+          </div>
+
+          <button className=" bg-orange text-white px-8 py-1 text-lg font-medium">
             <Link href={"/books"}>Læs mere</Link>
           </button>
         </div>
+      </section>
+      <div className="h-[400px] bg-green relative w-full">
+        <div className="h-[500px] absolute -top-10  w-full ">
+          <Image
+            className="mx-auto  drop-shadow-2xl  shadow-gray-600 object-contain  "
+            src={"/images/book_facet5.png"}
+            alt={"Facet 5 book example"}
+            priority
+            // height={700}
+            // width={400}
+            fill
+          />
+        </div>
+      </div>
 
-        <div className="h-[400px]  w-full">
-          <div className="absolute h-[400px]  w-full -bottom-16 ">
+      <section className="w-full mx-auto space-y-16 place-items-center pt-36">
+        <header className="w-4/5 place-items-center text-center space-y-8">
+          <h2 className="text-5xl font-normal  ">Om forfatterne</h2>
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
+            <b>Facet</b> er skrevet af de to erfarne og anerkendte
+            lærebogsforfattere Fanny Slotorub og Neel Jersild Moreira, der hver
+            har en lang række udgivelser til DU2 og DU3 bag sig.
+          </p>
+        </header>
+
+        <div className="flex gap-14 place-items-center mx-auto max-w-6xl">
+          {/* Image container */}
+          <div className="flex-1 aspect-square relative">
             <Image
-              className="mx-auto  drop-shadow-2xl  shadow-gray-600 object-contain object-top"
-              src={"/images/book_facet5.png"}
-              alt={"Facet 5 book example"}
-              priority
+              src={"/images/neel_persons.png"}
+              alt=""
               fill
+              className="object-contain object-top"
             />
+          </div>
+
+          {/* Red container */}
+          <div className="flex-1 flex flex-col space-y-8 justify-between">
+            <article className="">
+              <div>
+                <h3 className="text-4xl font-normal text-orange mb-4">
+                  Fanny Slotorub
+                </h3>
+                <p className="paragraph">
+                  Forfatter til en lang række populære lærebøger inden for dansk
+                  som andetsprog, herunder <b>Grammatik i brug, At skrive</b>{" "}
+                  samt <b>Puls- og Fokusserien.</b>
+                </p>
+                <p className="paragraph">
+                  Ansat på Københavns Sprogcenter i mere end 20 år med
+                  undervisning på alle niveauer på Danskuddannelse 2 og 3. Mange
+                  års erfaring som beskikket censor ved Prøve i Dansk 2 og 3.
+                  Siden 2018 ansat som pædagogisk konsulent for Styrelsen for
+                  International Rekruttering og Integration (SIRI).
+                </p>
+              </div>
+            </article>
+            <article className="">
+              <div>
+                <h3 className="text-4xl font-normal text-orange mb-4">
+                  Neel Jersild Moreira
+                </h3>
+                <p className="paragraph">
+                  Forfatter til en lang række populære lærebøger inden for dansk
+                  som andetsprog, nemlig <b>Puls- og Fokusserien</b> samt{" "}
+                  <b>10 Danskere</b> og frilæsningsbogen{" "}
+                  <b>Det er dit valg, Ahmed.</b>
+                </p>
+                <p className="paragraph">
+                  Ansat på Københavns Sprogcenter i en længere årrække med
+                  undervisning på alle niveauer på DU2 og DU3. Siden 2018 ansat
+                  på CSI Sprogcenter.
+                </p>
+              </div>
+            </article>
+            <div className="flex  mx-auto">
+              <Link
+                className={`tracking-wider bg-orange font-medium text-white py-1 px-6`}
+                href={"/about"}
+              >
+                Læs mere om forfatterne her
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full mx-auto space-y-16 place-items-center pt-36">
-        <header className="w-4/5 place-items-center text-center space-y-8">
-          <h2 className="text-5xl font-extrabold  ">Mød forfatterne</h2>
-          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-            Facet 5 er skrevet af de to erfarne og anerkendte lærebogsforfattere
-            Fanny Slotorub og Neel Jersild Moreira, der hver har en lang række
-            udgivelser til DU2 og DU3 bag sig.
-          </p>
-        </header>
+      <section className="max-w-2xl mb-16 mx-auto mt-36 place-items-center space-y-14">
+        <h3 className="text-5xl font-normal">Forlaget DIT - Dansk I Tiden</h3>
 
-        {/* A row */}
-        <article className="landing-article">
-          <div className="relative w-1/2">
-            <Image
-              src={"/images/neel_persons.png"}
-              alt={""}
-              fill
-              className="object-contain object-top"
-            />
-          </div>
-          <div className="landing-article-text ">
-            <h3 className="landing-h3">Fanny Slotorub</h3>
-            <p className="paragraph">
-              Ansat på Københavns Sprogcenter i mere end 20 år med undervisning
-              på alle niveauer på Danskuddannelse 2 og 3. Beskikket censor ved
-              Prøve i Dansk 3.
-            </p>
-            <p className="paragraph">
-              Forfatter til en lang række populære lærebøger inden for dansk som
-              andetsprog, herunder Grammatik i brug, At skrive samt Puls- og
-              Fokusserien (Forlaget Praxis). 
-            </p>
-            {/* A footer of the article */}
-            <footer className="flex flex-row w-full items-center justify-evenly">
-              <p className="font-bold">Læs mere om Fanny her</p>
-              <Link
-                className={`${anton.className} tracking-wider bg-greenBlue   text-white py-1 px-2 rounded-md`}
-                href={"/about"}
-              >
-                OM FORFATTERNE
-              </Link>
-            </footer>
-          </div>
-        </article>
-        {/* Another row */}
-        <article className="landing-article">
-          <div className="landing-article-text ">
-            <h3 className="landing-h3">Neel Jersild Moreira</h3>
-            <p className="paragraph">
-              Ansat på Københavns Sprogcenter i mere end 20 år med undervisning
-              på alle niveauer på Danskuddannelse 2 og 3. Beskikket censor ved
-              Prøve i Dansk 3.
-            </p>
-            <p className="paragraph">
-              Ansat på Københavns Sprogcenter i mere end 20 år med undervisning
-              på alle niveauer på Danskuddannelse 2 og 3. Beskikket censor ved
-              Prøve i Dansk 3.
-            </p>
-            <footer className="flex flex-row w-full items-center justify-evenly">
-              <p className="font-bold">Læs mere om Neel her</p>
-              <Link
-                className={`${anton.className} tracking-wider bg-greenBlue   text-white py-1 px-2 rounded-md`}
-                href={"/about"}
-              >
-                OM FORFATTERNE
-              </Link>
-            </footer>
-          </div>
-          <div className="relative w-1/2">
-            <Image
-              src={"/images/neel_persons.png"}
-              alt={""}
-              fill
-              className="object-contain object-top"
-            />
-          </div>
-        </article>
-      </section>
-
-      <section className="w-4/5 pb-16 mx-auto place-items-center mt-32 space-y-14">
-        <h3 className="text-5xl font-extrabold">
-          Forlaget DIT - Dansk I Tiden
-        </h3>
-
-        <div className="flex flex-row space-x-10 ">
-          <div className=" flex items-center relative w-2/5">
-            <Image
-              src={"/images/logo_notext.svg"}
-              alt="logo"
-              className="object-contain object-top"
-              fill
-            />
+        <div className="flex pl-16 text-sm pr-12 tracking-tight  flex-row space-x-8 place-items-center ">
+          <div className="bg-black py-3 px-5">
+            <div className=" flex items-center   relative w-24 h-24">
+              <Image
+                src={"/images/logo_jan2025.svg"}
+                alt="logo"
+                className="object-contain "
+                fill
+              />
+            </div>
           </div>
 
-          <article className="flex  w-3/5 flex-col  space-y-4 items-start ">
-            <p className="text-lg">
+          <article className="flex  flex-col  space-y-4 ">
+            <p>
               <b>Forlaget DIT - Dansk I Tiden</b> udgiver
               undervisningsmaterialer i dansk som andetsprog til Danskuddannelse
               2 og 3.
             </p>
 
-            <p className="text-lg font-bold">
-              Facet 4 til 3.4 udkommer i efteråret 2024.
+            <p>
+              <b>Facet</b> til 3.4 udkommer i efteråret 2024.
             </p>
 
-            <p className="text-lg">
-              Følg ForlagetDIT på Facebook, Instagram og Linkedin.
+            <p className="italic">
+              Følg ForlagetDIT på{" "}
+              <a href="/" className="anchorTag">
+                Facebook
+              </a>
+              , <a className="anchorTag">Instagram</a> og{" "}
+              <a className="anchorTag">Linkedin</a>.
             </p>
-
-            <div className="flex flex-row gap-x-6 items-center">
-              <a href={"/"}>
-                <Image
-                  src={"/images/socials/ig.svg"}
-                  alt="instagram"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href={"/"}>
-                <Image
-                  src={"/images/socials/fb.svg"}
-                  alt="facebook"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href={"/"}>
-                <Image
-                  src={"/images/socials/in.svg"}
-                  alt="linkedin"
-                  width={40}
-                  height={40}
-                />
-              </a>
-            </div>
           </article>
         </div>
       </section>

@@ -1,7 +1,6 @@
 "use client";
 import { useCartContext } from "@/contexts/CartContext";
-import { openSans } from "@/fonts/fonts";
-import { ShoppingBasket, XCircleIcon } from "lucide-react";
+import { XCircleIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -28,18 +27,26 @@ const CartButton = () => {
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
   return (
-    <div
-      className={`relative ${openSans.className} text-lg xl:text-xl tracking-tighter `}
-    >
+    <div className={`relative`}>
       {/* Basket Icon */}
       <div
-        className="relative cursor-pointer"
+        className="relative cursor-pointer space-x-1"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
-        <ShoppingBasket size={40} />
-        <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">
-          <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2  rounded-full px-2 py-[0.15rem] text-lg font-bold">
-            {amount}
+        <span>Kurv</span>
+        <span>
+          <Image
+            src={"/images/basket.svg"}
+            alt="book"
+            width={30}
+            height={30}
+            className="inline-block mr-2"
+          />
+          {/* <ShoppingBasket size={40} /> */}
+          <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">
+            <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2  rounded-full px-2 py-[0.15rem] font-medium ">
+              {amount}
+            </span>
           </span>
         </span>
       </div>
