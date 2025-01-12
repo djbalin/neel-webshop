@@ -1,11 +1,11 @@
 "use client";
 
-import { anton } from "@/fonts/fonts";
 import { Link, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import CartButton from "./CartButton";
+import Logo from "./Logo";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -18,38 +18,19 @@ export default function NavBar() {
   const links = {
     "/": t("menu.home"),
     "/books": t("menu.books"),
-    "/materials": t("menu.materials"),
+    "/audio": t("menu.audioFiles"),
+    "/guide": t("menu.guide"),
+    "/answers": t("menu.answers"),
     "/about": t("menu.about"),
     "/contact": t("menu.contact"),
   };
 
-  const isBgGreen = useMemo(() => {
-    return pathname === "/" || pathname.includes("books");
-  }, [pathname]);
-
   return (
     <nav
-      className={`${anton.className} ${
-        isBgGreen && "text-white bg-green"
-      }  lg:space-x-4 xl:space-x-8  w-full tracking-wider z-10 min-h-14 px-4 sm:px-8 xl:px-20 flex items-center justify-between flex-wrap py-4`}
+      className={` lg:space-x-4 xl:space-x-10 tracking-wider z-10 min-h-14  mx-auto  flex items-center  flex-wrap pt-6 pb-4`}
     >
-      <div className=" flex items-center  relative w-[75px] h-[75px]">
-        {isBgGreen ? (
-          <Image
-            src={"/images/logo_white.svg"}
-            alt="logo"
-            className="object-contain"
-            fill
-          />
-        ) : (
-          <Image
-            src={"/images/logo_black.svg"}
-            alt="logo"
-            className="object-contain"
-            fill
-          />
-        )}
-      </div>
+      <Logo />
+
       <div className="block lg:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -67,15 +48,15 @@ export default function NavBar() {
       </div>
 
       <div
-        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-12 flex-grow lg:flex lg:items-center lg:w-auto ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
         {Object.entries(links).map(([path, message]) => (
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
+        <CartButton />
       </div>
-      <CartButton />
       <div className="flex flex-row gap-x-4 items-center">
         <Link href={pathname} locale="da">
           <Image
@@ -111,7 +92,7 @@ function NavItem({
 }) {
   return (
     <Link
-      className={`block mt-4  lg:inline-block lg:mt-0 mr-4 ${
+      className={`block mt-4 font-normal text-lg  lg:inline-block lg:mt-0  ${
         pathname === href ? "underline" : ""
       }`}
       href={{ pathname: href }}

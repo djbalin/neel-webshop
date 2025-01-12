@@ -7,7 +7,7 @@
     "title": "HEJ!"
   },
   "Guide": {
-    "title": "Læringsmateriale"
+    "title": "Lærervejledning"
   },
   "Return": {
     "success": "Ordre bekræftet!",
@@ -16,11 +16,14 @@
   "NavBar": {
     "title": "Ordstrøm",
     "menu": {
-      "home": "FORSIDE",
-      "books": "BØGER",
-      "materials": "LÆRINGSMATERIALE",
-      "about": "OM FORFATTERNE",
-      "contact": "KONTAKT"
+      "home": "Forside",
+      "books": "Bøger",
+      "audioFiles": "Lydfiler",
+      "guide": "Lærervejledning",
+      "answers": "Rettenøgle",
+      "about": "Om Forfatterne",
+      "contact": "Kontakt",
+      "basket": "Kurv"
     }
   },
   "About": {

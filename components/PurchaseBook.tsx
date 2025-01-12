@@ -1,6 +1,7 @@
 "use client";
 import { useCartContext } from "@/contexts/CartContext";
-import { Check, Minus, Plus, ShoppingBasket } from "lucide-react";
+import { Check, Minus, Plus } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function PurchaseBook() {
@@ -24,33 +25,55 @@ export default function PurchaseBook() {
     }
   }
 
+  const handleTypeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const num = parseInt(e.target.value);
+    if (isNaN(num)) {
+      setPurchaseAmount(0);
+      return;
+    }
+    setPurchaseAmount(num);
+  };
+
   return (
     <div className=" rounded-xl  flex flex-col gap-y-2 w-full">
-      <p className="gap-x-1 flex flex-row items-baseline">
+      <p className="gap-x-2 flex mb-4 flex-row items-baseline">
         <span className="text-4xl font-semibold">200</span>
-        <span className="text-2xl font-semibold">DKK</span>
-        <span>excl. moms</span>
+        <span className="text-2xl font-normal">DKK</span>
+        <span className="font-light">excl. moms</span>
       </p>
-      <div className="flex gap-2 flex-col lg:flex-row w-full gap-x-8">
-        <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-xl border-2 border-black">
+      <div className="flex gap-2 flex-col lg:flex-row w-full gap-x-6">
+        <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
           <button onClick={() => handleChangeAmount("m")} className="text-3xl">
             <Minus />
           </button>
-          <span className="text-2xl font-bold">{purchaseAmount}</span>
+          <input
+            type="text"
+            className="text-3xl w-14 text-center"
+            onChange={handleTypeAmount}
+            value={purchaseAmount}
+          />
+          {/* <span className="text-2xl font-bold">{purchaseAmount}</span> */}
           <button onClick={() => handleChangeAmount("p")} className="text-3xl">
             <Plus />
           </button>
         </div>
         {isItemsAdded ? (
-          <button className="rounded-lg justify-center items-center px-2 text-lg flex flex-row gap-x-2 bg-brandOrange text-white font-medium">
+          <button className="rounded-lg justify-center items-center px-2 text-lg flex flex-row gap-x-2 bg-orange text-white font-medium">
             <Check /> Kurv opdateret!
           </button>
         ) : (
           <button
             onClick={handleAddToCart}
-            className="rounded-lg justify-center items-center px-4 flex flex-row gap-x-1 bg-blue text-white text-sm md:text-base font-medium"
+            className=" justify-center items-center stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white text-sm md:text-base "
           >
-            <ShoppingBasket /> Læg i kurv
+            <Image
+              src={"/images/basket_white.svg"}
+              alt="book"
+              width={25}
+              height={25}
+              className="inline-block"
+            />
+            Føj til kurv
           </button>
         )}
       </div>

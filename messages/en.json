@@ -12,11 +12,13 @@
   "NavBar": {
     "title": "Forlaget DIT",
     "menu": {
-      "home": "HOME",
-      "books": "BOOKS",
-      "materials": "MATERIALS",
-      "about": "ABOUT THE AUTHORS",
-      "contact": "CONTACT"
+      "home": "Home",
+      "books": "Books",
+      "guide": "Guide",
+      "answers": "Answers",
+      "audioFiles": "Audio files",
+      "about": "About the Authors",
+      "contact": "Contact"
     }
   },
 

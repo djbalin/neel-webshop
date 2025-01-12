@@ -119,7 +119,7 @@ export default function Book2() {
             dansk som det tales blandt venner, studerende og kollegaer, dansk i
             tiden.
           </p>
-          <button className="bg-blue text-white rounded-md px-4 py-1 font-bold tracking-tight">
+          <button className="bg-blueCustom text-white rounded-md px-4 py-1 font-bold tracking-tight">
             <Link href={"/audio"}>Se læringsmateriale</Link>
           </button>
         </article>
