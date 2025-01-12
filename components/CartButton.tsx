@@ -33,7 +33,7 @@ const CartButton = () => {
         className="relative cursor-pointer space-x-1"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
-        <span>Kurv</span>
+        <span className="text-lg">Kurv</span>
         <span>
           <Image
             src={"/images/basket.svg"}
@@ -42,12 +42,11 @@ const CartButton = () => {
             height={30}
             className="inline-block mr-2"
           />
-          {/* <ShoppingBasket size={40} /> */}
-          <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">
+          {/* <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">
             <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2  rounded-full px-2 py-[0.15rem] font-medium ">
               {amount}
             </span>
-          </span>
+          </span> */}
         </span>
       </div>
 

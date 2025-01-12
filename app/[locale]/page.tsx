@@ -10,7 +10,7 @@ export default async function HomePage({
   setRequestLocale(params.locale);
   return (
     <>
-      <section className="relative  place-items-center mb-20  lg:pt-10 text-center ">
+      <section className="relative  place-items-center mb-28  lg:pt-10 text-center ">
         <div className="w-2/3 ">
           <header className="space-y-3 mb-8">
             <h1 className="text-8xl font-normal ">Facet</h1>
@@ -39,8 +39,8 @@ export default async function HomePage({
           </button>
         </div>
       </section>
-      <div className="h-[400px] bg-green relative w-full">
-        <div className="h-[500px] absolute -top-10  w-full ">
+      <div className="h-[500px] bg-green relative w-full">
+        <div className="h-[630px] absolute -top-10  w-full ">
           <Image
             className="mx-auto  drop-shadow-2xl  shadow-gray-600 object-contain  "
             src={"/images/book_facet5.png"}
@@ -53,17 +53,17 @@ export default async function HomePage({
         </div>
       </div>
 
-      <section className="w-full mx-auto space-y-16 place-items-center pt-36">
-        <header className="w-4/5 place-items-center text-center space-y-8">
+      <section className="w-5/6 xl:w-full mx-auto space-y-16 place-items-center pt-36">
+        <header className="w-4/5 place-items-center text-center space-y-4">
           <h2 className="text-5xl font-normal  ">Om forfatterne</h2>
-          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-normal max-w-2xl mx-auto">
             <b>Facet</b> er skrevet af de to erfarne og anerkendte
             lærebogsforfattere Fanny Slotorub og Neel Jersild Moreira, der hver
             har en lang række udgivelser til DU2 og DU3 bag sig.
           </p>
         </header>
 
-        <div className="flex gap-14 place-items-center mx-auto max-w-6xl">
+        <div className="flex gap-14  mx-auto max-w-6xl">
           {/* Image container */}
           <div className="flex-1 aspect-square relative">
             <Image

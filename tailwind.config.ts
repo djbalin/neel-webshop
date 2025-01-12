@@ -14,7 +14,7 @@ const config: Config = {
         green: "#26744E",
         greenContrast: "#214A31",
         orange: "#F86624",
-        greenPale: "#B5D4C1",
+        greenPale: "#449965",
         greenBlue: "#43BCCD",
         yellow: "#F9C80E",
         blueCustom: "#39B6FF",
