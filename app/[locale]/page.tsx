@@ -115,7 +115,7 @@ export default async function HomePage({
             </article>
             <div className="flex  mx-auto">
               <Link
-                className={`tracking-wider bg-orange font-medium text-white py-1 px-6`}
+                className={`tracking-wider bg-orange font-medium text-white py-1 px-8`}
                 href={"/about"}
               >
                 Læs mere om forfatterne her

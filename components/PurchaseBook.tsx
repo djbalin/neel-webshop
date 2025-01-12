@@ -64,13 +64,13 @@ export default function PurchaseBook() {
         ) : (
           <button
             onClick={handleAddToCart}
-            className=" justify-center items-center stroke-white px-2 flex flex-row gap-x-1 bg-orange text-white text-sm md:text-base "
+            className=" justify-center items-center stroke-white px-6 flex flex-row gap-x-3 bg-orange text-white text-sm md:text-base "
           >
             <Image
               src={"/images/basket.svg"}
               alt="book"
-              width={30}
-              height={30}
+              width={25}
+              height={25}
               className="inline-block"
             />
             Føj til kurv

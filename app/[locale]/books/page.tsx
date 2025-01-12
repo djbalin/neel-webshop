@@ -10,10 +10,10 @@ export default function BooksPage({
   setRequestLocale(locale);
 
   return (
-    <>
+    <section>
       <BookHeroSection locale={locale} />
 
       <Book />
-    </>
+    </section>
   );
 }

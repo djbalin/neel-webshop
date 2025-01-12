@@ -19,7 +19,7 @@ export default function NavBar() {
     "/": t("menu.home"),
     "/books": t("menu.books"),
     "/audio": t("menu.audioFiles"),
-    "/materials": t("menu.materials"),
+    "/guide": t("menu.guide"),
     "/answers": t("menu.answers"),
     "/about": t("menu.about"),
     "/contact": t("menu.contact"),
@@ -27,7 +27,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={` lg:space-x-4 xl:space-x-10 tracking-wider z-10 min-h-14  mx-auto  flex items-center  flex-wrap pt-10 pb-4`}
+      className={` lg:space-x-4 xl:space-x-10 tracking-wider z-10 min-h-14  mx-auto  flex items-center  flex-wrap pt-6 pb-4`}
     >
       <Logo />
 

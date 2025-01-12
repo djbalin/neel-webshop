@@ -22,14 +22,17 @@ export default function AudioSection() {
       <div className="h-full max-h-[400px] xl:max-h-[600px] space-y-6 scrollable p-6  overflow-auto ">
         {AUDIO_FILE_PATHS.map((audioFilePath, idx) => {
           return (
-            <div className="space-y-1 flex flex-col" key={idx}>
-              <span className="font-semibold text-sm md:text-base">
+            <div
+              className="space-y-1 flex flex-row justify-center place-items-center"
+              key={idx}
+            >
+              <span className="font-semibold text-sm md:text-base w-1/6">
                 Øvelse {idx + 1}
               </span>
               <audio
                 controls
                 src={audioFilePath}
-                className="text-sm h-10 w-full"
+                className="text-sm h-10 w-5/6"
               />
             </div>
           );

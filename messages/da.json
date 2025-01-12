@@ -7,7 +7,7 @@
     "title": "HEJ!"
   },
   "Guide": {
-    "title": "Læringsmateriale"
+    "title": "Lærervejledning"
   },
   "Return": {
     "success": "Ordre bekræftet!",
@@ -19,7 +19,7 @@
       "home": "Forside",
       "books": "Bøger",
       "audioFiles": "Lydfiler",
-      "materials": "Læringsmateriale",
+      "guide": "Lærervejledning",
       "answers": "Rettenøgle",
       "about": "Om Forfatterne",
       "contact": "Kontakt",
