@@ -48,7 +48,7 @@ export default function NavBar() {
       </div>
 
       <div
-        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-12 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-8 flex-grow lg:flex lg:items-center lg:w-auto ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
@@ -92,7 +92,7 @@ function NavItem({
 }) {
   return (
     <Link
-      className={`block mt-4 font-normal text-lg  lg:inline-block lg:mt-0  ${
+      className={`block mt-4 font-normal   lg:inline-block lg:mt-0  ${
         pathname === href ? "underline" : ""
       }`}
       href={{ pathname: href }}

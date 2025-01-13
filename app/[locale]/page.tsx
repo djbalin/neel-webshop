@@ -10,7 +10,7 @@ export default async function HomePage({
   setRequestLocale(params.locale);
   return (
     <>
-      <section className="relative  place-items-center mb-28  lg:pt-10 text-center ">
+      <section className="  flex justify-center mb-28  lg:pt-10 text-center ">
         <div className="w-2/3 ">
           <header className="space-y-3 mb-8">
             <h1 className="text-8xl font-normal ">Facet</h1>
@@ -54,7 +54,7 @@ export default async function HomePage({
       </div>
 
       <section className="w-5/6 xl:w-full mx-auto space-y-16 place-items-center pt-36">
-        <header className="w-4/5 place-items-center text-center space-y-4">
+        <header className="w-4/5 flex flex-col mx-auto  place-items-center text-center space-y-4">
           <h2 className="text-5xl font-normal  ">Om forfatterne</h2>
           <p className="text-normal max-w-2xl mx-auto">
             <b>Facet</b> er skrevet af de to erfarne og anerkendte
