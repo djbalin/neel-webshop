@@ -72,10 +72,17 @@ export function Book() {
             benyttes til selvstudium.
           </p>
           <p className="paragraph">
-            <a className="anchorTag">Lydfiler,</a>{" "}
-            <a className="anchorTag">rettenøgle</a> og{" "}
-            <a className="anchorTag">lærervejledning</a> med kopiark kan frit
-            downloades her på hjemmesiden.
+            <a href="/audio" className="anchorTag">
+              Lydfiler,
+            </a>{" "}
+            <a href="/answers" className="anchorTag">
+              rettenøgle
+            </a>{" "}
+            og{" "}
+            <a href="/guide" className="anchorTag">
+              lærervejledning
+            </a>{" "}
+            med kopiark kan frit downloades her på hjemmesiden.
           </p>
         </div>
       </div>

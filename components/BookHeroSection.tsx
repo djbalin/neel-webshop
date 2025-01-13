@@ -13,8 +13,14 @@ export default function BookHeroSection({ locale }: { locale: string }) {
             Facet
           </h1>
           <span>
-            Af <a className="anchorTag">Fanny Slotorub</a> &{" "}
-            <a className="anchorTag">Neel Jersild Moreira</a>
+            Af{" "}
+            <a href="/about" className="anchorTag">
+              Fanny Slotorub
+            </a>{" "}
+            &{" "}
+            <a href="/about" className="anchorTag">
+              Neel Jersild Moreira
+            </a>
           </span>
           <p className="font-normal mt-6 mb-8 ">
             <b>Facet</b> består af 4 kapitler med temaerne: Arbejde og
