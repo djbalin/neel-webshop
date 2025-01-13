@@ -38,8 +38,8 @@ const CartButton = () => {
           <Image
             src={"/images/basket.svg"}
             alt="book"
-            width={30}
-            height={30}
+            width={20}
+            height={20}
             className="inline-block mr-2"
           />
           {/* <span className="absolute bottom-1 right-1 translate-x-1/2 translate-y-1/2">

@@ -27,7 +27,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={` lg:space-x-4 xl:space-x-10 tracking-wider z-10 min-h-14  mx-auto  flex items-center  flex-wrap pt-6 pb-4`}
+      className={` lg:space-x-4 xl:space-x-10  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10`}
     >
       <Logo />
 
@@ -56,26 +56,26 @@ export default function NavBar() {
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
         <CartButton />
-      </div>
-      <div className="flex flex-row gap-x-4 items-center">
-        <Link href={pathname} locale="da">
-          <Image
-            src={"/images/flags/dk_flag.svg"}
-            alt="Danish flag"
-            className={`${locale === "da" ? "" : "opacity-50"}`}
-            width={40}
-            height={40}
-          />
-        </Link>
-        <Link href={pathname} locale="en">
-          <Image
-            src={"/images/flags/uk_flag.svg"}
-            alt="UK Flag"
-            className={`${locale === "en" ? "" : "opacity-50"}`}
-            width={40}
-            height={40}
-          />
-        </Link>
+        <div className="flex flex-row gap-x-4 items-center">
+          <Link href={pathname} locale="da">
+            <Image
+              src={"/images/flags/dk_flag.svg"}
+              alt="Danish flag"
+              className={`${locale === "da" ? "" : "opacity-50"}`}
+              width={40}
+              height={40}
+            />
+          </Link>
+          <Link href={pathname} locale="en">
+            <Image
+              src={"/images/flags/uk_flag.svg"}
+              alt="UK Flag"
+              className={`${locale === "en" ? "" : "opacity-50"}`}
+              width={40}
+              height={40}
+            />
+          </Link>
+        </div>
       </div>
     </nav>
   );
@@ -92,7 +92,7 @@ function NavItem({
 }) {
   return (
     <Link
-      className={`block mt-4 font-normal   lg:inline-block lg:mt-0  ${
+      className={`block mt-4 font-normal    lg:inline-block lg:mt-0  ${
         pathname === href ? "underline" : ""
       }`}
       href={{ pathname: href }}
