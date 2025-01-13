@@ -33,7 +33,7 @@ const CartButton = () => {
         className="relative cursor-pointer space-x-1"
         onClick={() => setIsCartVisible((prev) => !prev)} // Toggle cart visibility on click
       >
-        <span className="text-lg">Kurv</span>
+        <span className="">Kurv</span>
         <span>
           <Image
             src={"/images/basket.svg"}
