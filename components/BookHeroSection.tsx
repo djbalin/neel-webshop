@@ -6,40 +6,75 @@ export default function BookHeroSection({ locale }: { locale: string }) {
   setRequestLocale(locale);
 
   return (
-    <div className="w-full   bg-greenPale  py-16 ">
-      <div className="w-3/5 flex flex-row space-x-6 place-items-center mx-auto">
-        <div className="flex w-2/5  flex-col">
-          <h1 className="text-6xl  md:text-4xl lg:text-6xl font-normal tracking-tight mb-1">
-            Facet
-          </h1>
-          <span>
-            Af{" "}
-            <a href="/about" className="anchorTag">
-              Fanny Slotorub
-            </a>{" "}
-            &{" "}
-            <a href="/about" className="anchorTag">
-              Neel Jersild Moreira
-            </a>
-          </span>
-          <p className="font-normal mt-6 mb-8 ">
-            <b>Facet</b> består af 4 kapitler med temaerne: Arbejde og
-            identitet, Penge og økonomi, Sundhed og livsstil og Kriminalitet og
-            straf... (læs mere)
-          </p>
-          <PurchaseBook />
-          <span className="mt-3">Forventet leveringstid: 3 uger</span>
-        </div>
-        <div className="w-3/5">
+    <section className="flex flex-col md:flex-row pb-14">
+      <div className="md:w-3/5 ">
+        <h1 className="header  mb-1">Facet</h1>
+        <span className="text-sm text-gray-500">
+          Af{" "}
+          <a href="/about" className="underline font-medium text-gray-700">
+            Fanny Slotorub
+          </a>{" "}
+          &{" "}
+          <a href="/about" className="underline font-medium text-gray-700">
+            Neel Jersild Moreira
+          </a>
+        </span>
+        <p className="font-normal my-4 w-4/5 ">
+          <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3 modul
+          5, der er på vej mod Prøve i Dansk 3.
+        </p>
+        <PurchaseBook />
+        <span className="text-gray-700 text-sm">
+          Forventet leveringstid: 3-4 arbejdsdage
+        </span>
+      </div>
+      <div className="md:w-2/5 px-6 mt-8 md:mt-0">
+        <div className="relative aspect-[3/4] w-2/3">
           <Image
-            width={650}
-            height={650}
-            src={"/images/book_facet5.png"}
-            alt={"Puls 4 book cover"}
+            src="/images/forside.avif"
+            alt="Facet lærebog"
+            fill
             className="object-contain"
+            priority
           />
         </div>
       </div>
-    </div>
+    </section>
   );
+}
+
+{
+  /* <div className="flex w-full py-16 flex-row space-x-6  ">
+  <div className="flex w-3/5   bg-blue-50  flex-col">
+    <h1 className="text-6xl   md:text-4xl lg:text-6xl font-normal tracking-tight mb-1">
+      Facet
+    </h1>
+    <span>
+      Af{" "}
+      <a href="/about" className="anchorTag">
+        Fanny Slotorub
+      </a>{" "}
+      &{" "}
+      <a href="/about" className="anchorTag">
+        Neel Jersild Moreira
+      </a>
+    </span>
+    <p className="font-normal mt-6 mb-8 ">
+      <b>Facet</b> består af 4 kapitler med temaerne: Arbejde og identitet,
+      Penge og økonomi, Sundhed og livsstil og Kriminalitet og straf... (læs
+      mere)
+    </p>
+    <PurchaseBook />
+    <span className="mt-3">Forventet leveringstid: 3 uger</span>
+  </div>
+  <div className="w-2/5">
+    <Image
+      width={250}
+      height={250}
+      src={"/images/forside.avif"}
+      alt={"Puls 4 book cover"}
+      className="object-contain"
+    />
+  </div>
+</div>; */
 }

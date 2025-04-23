@@ -23,27 +23,17 @@ export default async function AudioPage({
   return (
     // <div className="flex flex-col pt-0  pb-10 lg:pt-2 md:px-6 sm:px-8 lg:px-10  mx-auto space-y-4">
     //   {/* <div className="flex md:flex-row w-full flex-col md:space-x-10 space-y-8 md:space-y-0"> */}
-    <div className="flex flex-row w-4/5 mx-auto py-10 justify-between">
-      <section className="flex flex-col ">
+    <div className="flex flex-row  py-10justify-between">
+      <section className="flex flex-col pr-8 ">
         <header className="space-y-4 md:space-y-8">
-          <h1 className="text-4xl md:text-5xl xl:text-7xl pt-4 lg:mb-0 mb-10  text-center lg:text-left font-bold">
+          <h1 className="header lg:mb-0 mb-10  text-center lg:text-left">
             Lydfiler
           </h1>
           <p className="font-semibold text-lg text-center md:text-left">
-            Lydfiler til <b>Facet 5</b> kan frit afspilles og downloades her på
+            Lydfiler til <b>Facet</b> kan frit afspilles og downloades her på
             siden.
           </p>
         </header>
-
-        <div className="flex flex-row mt-12">
-          <div className="w-1/2 flex flex-col">
-            <span className="mb-2">Vælg kapitel</span>
-            <select className="text-lg border-2 rounded-md w-min">
-              <option className="text-sm">Kapitel 1</option>
-              <option className="text-sm">Kapitel ...</option>
-            </select>
-          </div>
-        </div>
       </section>
 
       <div className=" h-full border-gray-100 border-2 shadow-lg rounded-lg">
@@ -56,6 +46,12 @@ export default async function AudioPage({
           </h4>
         </div>
         <div className="h-full max-h-[400px] xl:max-h-[600px] space-y-6 scrollable p-6  overflow-auto ">
+          <select className="text-lg border-2 rounded-md w-min">
+            <option className="text-sm">
+              Kapitel 1 - Arbejde og Identitet
+            </option>
+            <option className="text-sm">Kapitel ...</option>
+          </select>
           {fileNames.map((fileName, idx) => {
             console.log(path.join(folderDir, fileName));
 

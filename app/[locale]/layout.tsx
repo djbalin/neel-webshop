@@ -54,7 +54,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${mainFont.className} flex flex-col  antialiased min-h-screen w-full`}
+        className={`${mainFont.className} flex flex-col px-20 xl:px-56  antialiased min-h-screen w-full`}
       >
         <NextIntlClientProvider messages={messages}>
           <CartContextProvider>

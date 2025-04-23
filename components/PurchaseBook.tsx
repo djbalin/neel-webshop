@@ -37,7 +37,7 @@ export default function PurchaseBook() {
   return (
     <div className=" rounded-xl  flex flex-col gap-y-2 w-full">
       <p className="gap-x-2 flex mb-4 flex-row items-baseline">
-        <span className="text-4xl font-semibold">200</span>
+        <span className="text-4xl font-semibold">289</span>
         <span className="text-2xl font-normal">DKK</span>
         <span className="font-light">excl. moms</span>
       </p>

@@ -2,7 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
+// import Image from "next/image";
 import { useState } from "react";
 import CartButton from "./CartButton";
 import Logo from "./Logo";
@@ -10,24 +10,24 @@ import Logo from "./Logo";
 export default function NavBar() {
   const pathname = usePathname();
 
-  const locale = useLocale();
+  // const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const t = useTranslations("NavBar");
 
   const links = {
     "/": t("menu.home"),
-    "/books": t("menu.books"),
+    "/boeger": t("menu.books"),
     "/audio": t("menu.audioFiles"),
-    "/guide": t("menu.guide"),
+    "/laerervejledning": t("menu.guide"),
     "/answers": t("menu.answers"),
-    "/about": t("menu.about"),
-    "/contact": t("menu.contact"),
+    "/om-os": t("menu.about"),
+    "/kontakt": t("menu.contact"),
   };
 
   return (
     <nav
-      className={` lg:space-x-4 xl:space-x-10  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10`}
+      className={` lg:space-x-4 xl:space-x-10  w-full  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10 pb-20`}
     >
       <Logo />
 
@@ -48,7 +48,7 @@ export default function NavBar() {
       </div>
 
       <div
-        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-8 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
@@ -56,7 +56,7 @@ export default function NavBar() {
           <NavItem key={path} href={path} text={message} pathname={pathname} />
         ))}
         <CartButton />
-        <div className="flex flex-row gap-x-4 items-center">
+        {/* <div className="flex flex-row gap-x-4 items-center">
           <Link href={pathname} locale="da">
             <Image
               src={"/images/flags/dk_flag.svg"}
@@ -75,7 +75,7 @@ export default function NavBar() {
               height={40}
             />
           </Link>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

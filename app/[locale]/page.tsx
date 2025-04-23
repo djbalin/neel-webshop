@@ -11,10 +11,10 @@ export default async function HomePage({
   return (
     <>
       {/* Hero section */}
-      <section className="flex flex-col md:flex-row max-w-6xl mx-auto mb-16 py-10">
-        <div className="md:w-3/5 px-6">
+      <section className="flex flex-col  md:flex-row max-w-6xl mx-auto mb-16 pb-10">
+        <div className="md:w-3/5 ">
           <header className="mb-8">
-            <h1 className="text-6xl font-normal mb-2">Facet</h1>
+            <h1 className="header mb-2">Facet</h1>
             <h2 className="text-2xl font-normal">
               Grundbog i dansk til DU3 • Modul 5
             </h2>
@@ -51,34 +51,37 @@ export default async function HomePage({
         </div>
       </section>
 
-      <div className="h-[500px] px-20 flex flex-row bg-green relative w-full">
-        <div className="w-1/2 flex items-center">
-          <div className="bg-orange text-white p-10 max-w-lg">
-            <h2 className="text-4xl font-normal mb-6">Læseprøve</h2>
-            <p className="text-xl mb-8">
-              Få et smugkig i bogen – se indholdsfortegnelsen og læs de første
-              sider af kapitel 1.
-            </p>
-            <Link
-              href="/sample"
-              className="inline-block bg-blue-900 text-white py-3 px-8 text-lg"
-            >
-              Læs læseprøven her
-            </Link>
+      {/* Full-width green section */}
+      <section className="full-bleed bg-green">
+        <div className="h-[500px] px-20  mx-auto flex w-full flex-row">
+          <div className="w-1/2 flex items-center">
+            <div className="bg-orange text-white p-10 max-w-lg">
+              <h2 className="text-4xl font-normal mb-6">Læseprøve</h2>
+              <p className="text-xl mb-8">
+                Få et smugkig i bogen – se indholdsfortegnelsen og læs de første
+                sider af kapitel 1.
+              </p>
+              <Link
+                href="/sample"
+                className="inline-block bg-blue-900 text-white py-3 px-8 text-lg"
+              >
+                Læs læseprøven her
+              </Link>
+            </div>
+          </div>
+          <div className="w-1/2 relative flex items-center justify-center">
+            <div className="relative w-full h-full">
+              <Image
+                className="drop-shadow-2xl object-contain scale-125"
+                src={"/images/open_2.avif"}
+                alt={"Facet 5 book example"}
+                priority
+                fill
+              />
+            </div>
           </div>
         </div>
-        <div className="w-1/2  relative flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Image
-              className="drop-shadow-2xl object-contain scale-125"
-              src={"/images/open_2.avif"}
-              alt={"Facet 5 book example"}
-              priority
-              fill
-            />
-          </div>
-        </div>
-      </div>
+      </section>
 
       <section className="w-4/6 mx-auto space-y-16 pt-36">
         <header className="space-y-4">
@@ -138,7 +141,7 @@ export default async function HomePage({
       </section>
 
       <section className="max-w-2xl mb-16 mx-auto mt-36 place-items-center space-y-14">
-        <h3 className="text-5xl font-normal">Forlaget DIT - Dansk I Tiden</h3>
+        <h3 className="text-5xl font-normal">Forlaget DIT - Dansk i Tiden</h3>
 
         <div className="flex pl-16 text-sm pr-12 tracking-tight  flex-row space-x-8 place-items-center ">
           <div className="bg-black py-3 px-5">
@@ -154,7 +157,7 @@ export default async function HomePage({
 
           <article className="flex  flex-col  space-y-4 ">
             <p>
-              <b>Forlaget DIT - Dansk I Tiden</b> udgiver
+              <b>Forlaget DIT - Dansk i Tiden</b> udgiver
               undervisningsmaterialer i dansk som andetsprog til Danskuddannelse
               2 og 3.
             </p>
