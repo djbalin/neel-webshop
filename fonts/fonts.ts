@@ -1,4 +1,4 @@
-import { Arimo, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 
 // export const openSans = Open_Sans({
 //   subsets: ["latin"],
@@ -10,13 +10,18 @@ import { Arimo, Montserrat } from "next/font/google";
 //   weight: ["400"],
 // });
 
-export const arimo = Arimo({
-  subsets: ["latin"],
-  weight: "variable",
-});
+// export const arimo = Arimo({
+//   subsets: ["latin"],
+//   weight: "variable",
+// });
 
-export const mainFont = Montserrat({
+export const mainFont = Inter({
   subsets: ["latin"],
   weight: "variable",
   // weight: ["100", "300", "400", "500", "700", "900"],
 });
+// export const mainFont = Montserrat({
+//   subsets: ["latin"],
+//   weight: "variable",
+//   // weight: ["100", "300", "400", "500", "700", "900"],
+// });

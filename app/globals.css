@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html {
+  font-size: 18px;
+  /* width: "100%"; */
+  /* max-width: ; */
+  /* overflow-x: hidden; */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 100%;
+  letter-spacing: -0.025em;
+  /* line-height: 1.4em; */
+}
+
+p {
+  font-weight: 400;
+  /* font-size: 1.5em;
+  line-height: 1.375em; */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Full width utility that breaks out of container constraints */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+}
+
+/* width */
+.scrollable::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+.paragraph {
+  margin-bottom: 1em;
+}
+
+.h3 {
+  @apply text-2xl font-extrabold mb-2;
+}
+
+.anchorTag {
+  @apply text-blue-600 underline;
+}
+
+.header {
+  @apply text-5xl  lg:text-6xl font-normal;
+}
+
+.ulIndent {
+  list-style-position: outside; /* keep bullet outside */
+  padding-left: 1.5em; /* controls space before bullet */
+}
+
+.liIndent {
+  text-indent: -1.5em; /* pull first line left */
+  padding-left: 1.5em; /* push all lines right */
+}
