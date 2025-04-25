@@ -24,9 +24,14 @@ export default function BookHeroSection({ locale }: { locale: string }) {
           5, der er på vej mod Prøve i Dansk 3.
         </p>
         <PurchaseBook />
-        <span className="text-gray-700 text-sm">
-          Forventet leveringstid: 3-4 arbejdsdage
-        </span>
+        <div className="flex flex-col gap-y-2 mt-2">
+          <span className="text-gray-700 text-sm">
+            Forventet leveringstid: 3-4 arbejdsdage
+          </span>
+          <a href="/preview" className="text-blue-600 underline text-sm">
+            Læseprøve →
+          </a>
+        </div>
       </div>
       <div className="md:w-2/5 px-6 mt-8 md:mt-0">
         <div className="relative aspect-[3/4] w-2/3">

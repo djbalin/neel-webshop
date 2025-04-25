@@ -58,11 +58,11 @@ export default async function HomePage({
             <div className="bg-orange text-white p-10 max-w-lg">
               <h2 className="text-4xl font-normal mb-6">Læseprøve</h2>
               <p className="text-xl mb-8">
-                Få et smugkig i bogen – se indholdsfortegnelsen og læs de første
+                Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
                 sider af kapitel 1.
               </p>
               <Link
-                href="/sample"
+                href="/preview"
                 className="inline-block bg-blue-900 text-white py-3 px-8 text-lg"
               >
                 Læs læseprøven her

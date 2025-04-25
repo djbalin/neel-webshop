@@ -1,8 +1,6 @@
 "use client";
 
 import { Link, usePathname } from "@/i18n/routing";
-import { useLocale, useTranslations } from "next-intl";
-// import Image from "next/image";
 import { useState } from "react";
 import CartButton from "./CartButton";
 import Logo from "./Logo";
@@ -10,24 +8,21 @@ import Logo from "./Logo";
 export default function NavBar() {
   const pathname = usePathname();
 
-  // const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const t = useTranslations("NavBar");
-
   const links = {
-    "/": t("menu.home"),
-    "/boeger": t("menu.books"),
-    "/audio": t("menu.audioFiles"),
-    "/laerervejledning": t("menu.guide"),
-    "/answers": t("menu.answers"),
-    "/om-os": t("menu.about"),
-    "/kontakt": t("menu.contact"),
+    "/": "Forside",
+    "/boeger": "Bøger",
+    "/audio": "Lydfiler",
+    "/preview": "Læseprøve",
+    "/materialer": "Materialer",
+    "/om-os": "Om forfatterne",
+    "/kontakt": "Kontakt",
   };
 
   return (
     <nav
-      className={` lg:space-x-4 xl:space-x-10  w-full  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10 pb-16`}
+      className={` lg:space-x-4 xl:space-x-10  w-full  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10 pb-12`}
     >
       <Logo />
 
