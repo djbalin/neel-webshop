@@ -27,7 +27,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={` lg:space-x-4 xl:space-x-10  w-full  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10 pb-20`}
+      className={` lg:space-x-4 xl:space-x-10  w-full  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10 pb-16`}
     >
       <Logo />
 
