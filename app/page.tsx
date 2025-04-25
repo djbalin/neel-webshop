@@ -1,13 +1,8 @@
-import { Link } from "@/i18n/routing";
-import { setRequestLocale } from "next-intl/server";
+import Logo from "@/components/Logo";
 import Image from "next/image";
+import Link from "next/link";
 
-export default async function HomePage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  setRequestLocale(params.locale);
+export default async function HomePage() {
   return (
     <>
       {/* Hero section */}
@@ -144,16 +139,7 @@ export default async function HomePage({
         <h3 className="text-5xl font-normal">Forlaget DIT - Dansk i Tiden</h3>
 
         <div className="flex pl-16 text-sm pr-12 tracking-tight  flex-row space-x-8 place-items-center ">
-          <div className="bg-black py-3 px-5">
-            <div className=" flex items-center   relative w-24 h-24">
-              <Image
-                src={"/images/logo_jan2025.svg"}
-                alt="logo"
-                className="object-contain "
-                fill
-              />
-            </div>
-          </div>
+          <Logo height={200} width={200} />
 
           <article className="flex  flex-col  space-y-4 ">
             <p>

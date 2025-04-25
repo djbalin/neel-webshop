@@ -1,9 +1,10 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/routing";
 import { useState } from "react";
 import CartButton from "./CartButton";
 import Logo from "./Logo";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function NavBar() {
   const pathname = usePathname();
