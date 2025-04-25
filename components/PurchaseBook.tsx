@@ -41,7 +41,7 @@ export default function PurchaseBook() {
       <div className="flex flex-col gap-y-2 md:w-3/5">
         <p className="gap-x-2 flex mb-4 flex-row items-baseline">
           <span className="text-4xl font-semibold">
-            {CONSTANTS.BOOK_PRICE_DKK_INCL_MOMS}
+            {CONSTANTS.BOOK_PRICE_DKK_EXCL_MOMS}
           </span>
           <span className="text-2xl font-normal">DKK</span>
           <span className="font-light">excl. moms</span>

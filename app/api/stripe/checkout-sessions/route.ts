@@ -7,6 +7,7 @@ const PROD_DOMAIN = "https://www.forlagetdit.dk";
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
 
 export async function POST(req: Request) {
+  const PRICE_ID = "price_1RHnGURrN8SMS2hTQPP2XgAB";
   try {
     console.log("REQUEST:");
     console.log(req);
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: "price_1Q0TPxRrN8SMS2hTt9PfT7Mc",
+          price: PRICE_ID,
           quantity: quantity,
         },
       ],

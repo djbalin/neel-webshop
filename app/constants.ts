@@ -1,5 +1,5 @@
 export const CONSTANTS = {
-  BOOK_PRICE_DKK_INCL_MOMS: 289,
+  BOOK_PRICE_DKK_EXCL_MOMS: 289,
   LINKS: {
     HOME: "/",
     ABOUT: "/om-os",
@@ -8,5 +8,6 @@ export const CONSTANTS = {
     PREVIEW: "/preview",
     MATERIALS: "/materialer",
     AUDIO: "/audio",
+    CART: "/kurv",
   },
 } as const;

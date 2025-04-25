@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
+import Footer from "@/app/components/Footer";
+import NavBar from "@/app/components/NavBar";
 import CartContextProvider from "@/contexts/CartContext";
 import { mainFont } from "@/fonts/fonts";
 import { Analytics } from "@vercel/analytics/next";

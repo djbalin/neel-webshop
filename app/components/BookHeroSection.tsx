@@ -1,8 +1,48 @@
 "use client";
 import Image from "next/image";
-import { usePurchaseControls } from "./PurchaseBook";
 import { Check, Minus, Plus } from "lucide-react";
 import { CONSTANTS } from "@/app/constants";
+import { useState } from "react";
+import { useCartContext } from "@/contexts/CartContext";
+
+function usePurchaseControls() {
+  const [purchaseAmount, setPurchaseAmount] = useState(1);
+  const [isItemsAdded, setIsItemsAdded] = useState(false);
+
+  const { setAmount } = useCartContext();
+
+  function handleAddToCart() {
+    setAmount(purchaseAmount);
+    setIsItemsAdded(true);
+  }
+
+  function handleChangeAmount(button: "p" | "m") {
+    setIsItemsAdded(false);
+    if (button === "p") {
+      setPurchaseAmount((prev) => prev + 1);
+    } else {
+      if (purchaseAmount === 1) return;
+      setPurchaseAmount((prev) => prev - 1);
+    }
+  }
+
+  const handleTypeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const num = parseInt(e.target.value);
+    if (isNaN(num)) {
+      setPurchaseAmount(0);
+      return;
+    }
+    setPurchaseAmount(num);
+  };
+
+  return {
+    purchaseAmount,
+    isItemsAdded,
+    handleAddToCart,
+    handleChangeAmount,
+    handleTypeAmount,
+  };
+}
 
 export default function BookHeroSection() {
   const {
@@ -37,7 +77,7 @@ export default function BookHeroSection() {
           <div className="flex flex-col gap-y-2 w-full">
             <p className="gap-x-2 flex mb-4 flex-row items-baseline">
               <span className="text-4xl font-semibold">
-                {CONSTANTS.BOOK_PRICE_DKK_INCL_MOMS}
+                {CONSTANTS.BOOK_PRICE_DKK_EXCL_MOMS}
               </span>
               <span className="text-2xl font-normal">DKK</span>
               <span className="font-light">excl. moms</span>
