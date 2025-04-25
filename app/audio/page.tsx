@@ -1,17 +1,10 @@
 import fs from "fs";
-import { setRequestLocale } from "next-intl/server";
 import path from "path";
 
 const audioDir = path.join(process.cwd(), "public/audio/1");
 const fileNames = fs.readdirSync(audioDir);
 
-export default async function AudioPage({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  setRequestLocale(locale);
-
+export default async function AudioPage() {
   //   const [opgave, setOpgave] = useState(1);
   const opgave = 1;
   const chapter = 1;

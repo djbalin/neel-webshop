@@ -1,17 +1,10 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 
 export default async function CheckoutReturn({
-  params: { locale },
   searchParams,
 }: {
-  params: { locale: string };
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  setRequestLocale(locale);
-
-  const t = await getTranslations("Return");
-
   const searchP = await searchParams;
   const success = searchP.success;
   const canceled = searchP.canceled;
@@ -23,7 +16,7 @@ export default async function CheckoutReturn({
           {success && (
             <div className="text-center">
               <h2 className="text-xl md:text-2xl font-bold mb-4">
-                {t("success")}
+                Ordre bekræftet!
               </h2>
               <p className="text-gray-600 mb-6">
                 Mange tak for din bestilling. Du modtager en ordrebekræftelse

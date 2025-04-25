@@ -1,10 +1,7 @@
-import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import PurchaseBook from "./PurchaseBook";
 
-export default function BookHeroSection({ locale }: { locale: string }) {
-  setRequestLocale(locale);
-
+export default function BookHeroSection() {
   return (
     <section className="flex flex-col md:flex-row pb-14">
       <div className="md:w-3/5 ">
