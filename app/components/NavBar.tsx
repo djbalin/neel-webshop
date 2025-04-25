@@ -16,6 +16,7 @@ export default function NavBar() {
     [CONSTANTS.LINKS.HOME]: "Forside",
     [CONSTANTS.LINKS.BOOKS]: "Bøger",
     [CONSTANTS.LINKS.PREVIEW]: "Læseprøve",
+    [CONSTANTS.LINKS.AUDIO]: "Lydfiler",
     [CONSTANTS.LINKS.MATERIALS]: "Materialer",
     [CONSTANTS.LINKS.ABOUT]: "Om forfatterne",
     [CONSTANTS.LINKS.CONTACT]: "Kontakt",
@@ -23,7 +24,7 @@ export default function NavBar() {
 
   return (
     <nav className=" z-50 xs:px-4 w-full  py-8 relative pb-12 lg:pb-20">
-      <div className="flex items-center space-x-10 justify-between lg:justify-start w-full">
+      <div className="flex items-center space-x-6 justify-between lg:justify-start w-full">
         <Logo />
 
         <div className="flex items-center ">
