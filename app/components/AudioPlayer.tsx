@@ -69,7 +69,7 @@ export default function AudioPlayer({
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
             />
           </svg>
-          Download filer
+          Download kapitel
         </a>
       </div>
 
@@ -89,7 +89,7 @@ export default function AudioPlayer({
                       {exercise.replace("opg", "Opgave ")}
                     </h4>
 
-                    <div className="space-y-2 ml-4">
+                    <div className="space-y-2 sm:ml-4">
                       {audioStructure[selectedChapter][section][exercise].map(
                         (fileName, idx) => {
                           const fileNameParts = fileName

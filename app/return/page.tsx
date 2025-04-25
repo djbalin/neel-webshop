@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { CONSTANTS } from "../constants";
 
 export default async function CheckoutReturn({
   searchParams,
@@ -23,7 +24,7 @@ export default async function CheckoutReturn({
                 via e-mail.
               </p>
               <a
-                href="/"
+                href={CONSTANTS.LINKS.HOME}
                 className="inline-block bg-brandGreen text-white px-6 py-2 rounded hover:bg-green-600 transition"
               >
                 Hjem
@@ -37,7 +38,7 @@ export default async function CheckoutReturn({
               </h2>
               <p className="text-gray-600 mb-6">Betalingen blev afbrudt.</p>
               <a
-                href="/"
+                href={CONSTANTS.LINKS.HOME}
                 className="inline-block bg-brandGreen text-white px-6 py-2 rounded hover:bg-green-600 transition"
               >
                 Hjem

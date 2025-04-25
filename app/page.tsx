@@ -42,7 +42,7 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="flex justify-center md:justify-start">
-            <button className="mt-6 bg-orange  text-white px-8 py-1 text-lg font-medium">
+            <button className="mt-6 clickable rounded-xl bg-orange  text-white px-8 py-1 text-lg font-medium">
               <Link href={CONSTANTS.LINKS.BOOKS}>Læs mere</Link>
             </button>
           </div>
@@ -75,7 +75,7 @@ export default async function HomePage() {
             <div className="flex justify-center">
               <Link
                 href={CONSTANTS.LINKS.PREVIEW}
-                className="inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
+                className="clickable inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
               >
                 Læs læseprøven her
               </Link>
@@ -94,7 +94,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <section className="w-full px-4 xl:w-5/6 mx-auto space-y-12 md:space-y-16 pt-20 md:pt-36">
+      <section className="w-full xl:w-5/6 mx-auto space-y-12 md:space-y-16 pt-20 md:pt-36">
         <header className="space-y-4">
           <h2 className="text-4xl md:text-5xl">Om forfatterne</h2>
           <p className="text-base md:text-lg">
@@ -104,7 +104,7 @@ export default async function HomePage() {
           </p>
         </header>
 
-        <div className="space-y-6">
+        <div className="space-y-2">
           <div className="flex-1 flex flex-col md:flex-row align-top space-y-8 md:space-y-0 md:space-x-14 justify-between">
             <article className="w-full md:w-1/2">
               <h3 className="text-3xl md:text-4xl font-normal text-orange mb-4">
@@ -142,7 +142,7 @@ export default async function HomePage() {
           </div>
           <div className="flex justify-center md:justify-start mx-auto">
             <Link
-              className={`tracking-wider bg-green font-medium sm:text-lg text-white py-1 px-4 sm:px-8`}
+              className={`tracking-wider clickable bg-green font-medium sm:text-lg text-white py-1 px-4 sm:px-8`}
               href={CONSTANTS.LINKS.ABOUT}
             >
               Læs mere om forfatterne
@@ -150,8 +150,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      <hr className="w-full border-t border-gray-300 mt-10 mb-8"></hr>
       {/* <div className="flex max-w-[500px]"> */}
-      <div className="mt-20 px-4 max-w-[400px] sm:max-w-[700px] sm:pb-10 pb-6 mx-auto flex flex-row justify-center items-center md:items-start md:pl-16 text-sm md:pr-12 tracking-tight md:space-y-0 md:space-x-6 space-x-4">
+      <div className="px-4 max-w-[400px] sm:max-w-[700px] sm:pb-10 pb-6 mx-auto flex flex-row justify-center items-center md:items-start md:pl-16 text-sm md:pr-12 tracking-tight md:space-y-0 md:space-x-6 space-x-4">
         <div className="hidden sm:flex justify-center min-w-[150px]">
           <Logo height={150} width={150} />
         </div>

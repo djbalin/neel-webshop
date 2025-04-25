@@ -59,11 +59,17 @@ export default function BookHeroSection() {
         <h1 className="header mb-1">Facet</h1>
         <span className="text-sm text-gray-500">
           Af{" "}
-          <a href="/about" className="underline font-medium text-gray-700">
+          <a
+            href={CONSTANTS.LINKS.ABOUT}
+            className="underline font-medium text-gray-700"
+          >
             Fanny Slotorub
           </a>{" "}
           &{" "}
-          <a href="/about" className="underline font-medium text-gray-700">
+          <a
+            href={CONSTANTS.LINKS.ABOUT}
+            className="underline font-medium text-gray-700"
+          >
             Neel Jersild Moreira
           </a>
         </span>
@@ -130,7 +136,10 @@ export default function BookHeroSection() {
           <span className="text-gray-700 text-xs sm:text-sm">
             Forventet leveringstid: 3-4 arbejdsdage
           </span>
-          <a href="/preview" className="text-blue-600 underline text-sm">
+          <a
+            href={CONSTANTS.LINKS.PREVIEW}
+            className="text-blue-600 underline text-sm"
+          >
             Læseprøve →
           </a>
         </div>
@@ -160,11 +169,11 @@ export default function BookHeroSection() {
     </h1>
     <span>
       Af{" "}
-      <a href="/about" className="anchorTag">
+      <a href={CONSTANTS.LINKS.ABOUT} className="anchorTag">
         Fanny Slotorub
       </a>{" "}
       &{" "}
-      <a href="/about" className="anchorTag">
+      <a href={CONSTANTS.LINKS.ABOUT} className="anchorTag">
         Neel Jersild Moreira
       </a>
     </span>

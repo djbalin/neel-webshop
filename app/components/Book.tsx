@@ -1,5 +1,7 @@
 "use client";
 
+import { CONSTANTS } from "../constants";
+
 export function Book() {
   return (
     <section className="pb-10 full-bleed text-white bg-ditBlue">
@@ -59,14 +61,20 @@ export function Book() {
               kan også benyttes til selvstudium.
             </p>
             <p className="paragraph bg-white py-2 px-3 text-black">
-              <a href="/audio" className="anchorTag font-bold">
+              <a href={CONSTANTS.LINKS.AUDIO} className="anchorTag font-bold">
                 Lydfiler,
               </a>{" "}
-              <a href="/answers" className="anchorTag font-bold">
+              <a
+                href={CONSTANTS.LINKS.MATERIALS}
+                className="anchorTag font-bold"
+              >
                 rettenøgle
               </a>{" "}
               og{" "}
-              <a href="/guide" className="anchorTag font-bold">
+              <a
+                href={CONSTANTS.LINKS.MATERIALS}
+                className="anchorTag font-bold"
+              >
                 lærervejledning
               </a>{" "}
               med kopiark kan frit downloades her på hjemmesiden.

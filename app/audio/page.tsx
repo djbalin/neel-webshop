@@ -100,26 +100,26 @@ export default function AudioPage() {
   };
 
   return (
-    <div className="flex flex-row py-10 justify-between">
-      <section className="flex flex-col pr-8">
+    <div className="flex flex-col xl:flex-row justify-between pb-12">
+      <section className="flex flex-col lg:pr-8 ">
         <header className="space-y-4 md:space-y-8">
-          <h1 className="header lg:mb-0 mb-10 text-center lg:text-left">
+          <h1 className="header mb-4 lg:mb-0 text-center md:text-left">
             Lydfiler
           </h1>
-          <p className=" text-lg text-center md:text-left">
+          <p className="text-lg text-center md:text-left">
             Lydfiler til <b>Facet</b> kan frit afspilles og downloades her på
             siden.
           </p>
         </header>
       </section>
 
-      <div className="h-full min-w-[700px] border-gray-100 border-2 shadow-lg rounded-lg">
+      <div className="h-full w-full xl:min-w-[700px] border-gray-100 mt-10 xl:mt-0 border-2 shadow-lg rounded-lg">
         <div className="bg-gray-200 space-y-2 p-2 border-b-2 border-gray-200 text-center">
           <h3 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
             Lydafspiller
           </h3>
         </div>
-        <div className="h-full max-h-[400px] xl:max-h-[600px] space-y-6 scrollable p-6 overflow-auto">
+        <div className="h-full max-h-[600px] space-y-6 scrollable p-6 overflow-auto">
           <AudioPlayer
             chapters={chapterDirs}
             chapterTitles={chapterTitles}

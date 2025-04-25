@@ -14,7 +14,7 @@ export default async function GuidePage() {
       <a
         href="/materials/lærervejledning.docx"
         download="lærervejledning.docx"
-        className="bg-green w-fit text-white px-4 py-2 rounded hover:bg-blue-600 transition mt-8"
+        className="bg-green w-fit text-white px-4 py-2 rounded   mt-8"
       >
         <span className="flex gap-x-4 items-center">
           <DownloadIcon color="white" size={20} />

@@ -38,7 +38,7 @@ export default function CartPage() {
   };
 
   return (
-    <div className=" px-4 space-y-4 pb-10">
+    <div className=" sm:px-4 space-y-4 pb-10">
       <h1 className="header">Din kurv</h1>
 
       <div className="bg-white rounded-lg max-w-xl shadow-xl p-6 mb-10">
@@ -49,7 +49,9 @@ export default function CartPage() {
             width={100}
             height={100}
           />
-          <span className="font-semibold text-3xl">Facet 5, Grundbog</span>
+          <span className="font-semibold text-lg sm:text-3xl">
+            Facet 5, Grundbog
+          </span>
         </div>
 
         <div className="flex justify-between items-center mb-4">
@@ -88,7 +90,7 @@ export default function CartPage() {
 
         <hr className="my-6 border-gray-300" />
 
-        <div className="flex justify-between font-bold mb-6 text-lg">
+        <div className="flex justify-between font-bold mb-6 sm:text-lg">
           <span>Total inkl. moms og levering:</span>
           <span>{format(totalPrice)} DKK</span>
         </div>
