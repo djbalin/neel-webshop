@@ -16,7 +16,7 @@ export default function CartPage() {
   const router = useRouter();
 
   const unitPrice = CONSTANTS.BOOK_PRICE_DKK_EXCL_MOMS; // Fixed unit price
-  const deliveryPrice = 25;
+  const deliveryPrice = 55;
   const grossPrice = unitPrice * amount;
   const momsPrice = grossPrice * 0.25;
   const totalPrice = grossPrice + momsPrice + deliveryPrice;
@@ -36,15 +36,6 @@ export default function CartPage() {
       e.currentTarget.submit();
     }
   };
-
-  // if (amount === 0) {
-  //   return (
-  //     <div className="container mx-auto max-w-4xl px-4 py-10">
-  //       <h1 className="text-3xl font-bold mb-8">Din kurv</h1>
-  //       <p className="text-lg mb-6">Din kurv er tom.</p>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className=" px-4 space-y-4 pb-10">

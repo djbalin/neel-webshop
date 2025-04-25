@@ -4,12 +4,7 @@ import CartContextProvider from "@/contexts/CartContext";
 import { mainFont } from "@/fonts/fonts";
 import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
-// import { notFound } from "next/navigation";
 import "./globals.css";
-
-// export function generateStaticParams() {
-//   return routing.locales.map((locale) => ({ locale }));
-// }
 
 export async function generateMetadata() {
   const md: Metadata = {

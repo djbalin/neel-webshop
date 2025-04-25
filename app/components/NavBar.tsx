@@ -15,18 +15,18 @@ export default function NavBar() {
   const links = {
     [CONSTANTS.LINKS.HOME]: "Forside",
     [CONSTANTS.LINKS.BOOKS]: "Bøger",
-    [CONSTANTS.LINKS.MATERIALS]: "Materialer",
     [CONSTANTS.LINKS.PREVIEW]: "Læseprøve",
+    [CONSTANTS.LINKS.MATERIALS]: "Materialer",
     [CONSTANTS.LINKS.ABOUT]: "Om forfatterne",
     [CONSTANTS.LINKS.CONTACT]: "Kontakt",
   };
 
   return (
-    <nav className="w-full z-50 xs:px-4 py-8 relative pb-12 lg:pb-20">
-      <div className="flex items-center justify-between">
+    <nav className=" z-50 xs:px-4 w-full  py-8 relative pb-12 lg:pb-20">
+      <div className="flex items-center space-x-10 justify-between lg:justify-start w-full">
         <Logo />
 
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <div className="hidden lg:block lg:ml-6">
             <div className="flex space-x-6 xl:space-x-10">
               {Object.entries(links).map(([path, message]) => (
