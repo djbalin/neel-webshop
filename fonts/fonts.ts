@@ -1,4 +1,4 @@
-import { Arimo, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 
 // export const openSans = Open_Sans({
 //   subsets: ["latin"],
@@ -10,10 +10,10 @@ import { Arimo, Inter } from "next/font/google";
 //   weight: ["400"],
 // });
 
-export const arimo = Arimo({
-  subsets: ["latin"],
-  weight: "variable",
-});
+// export const arimo = Arimo({
+//   subsets: ["latin"],
+//   weight: "variable",
+// });
 
 export const mainFont = Inter({
   subsets: ["latin"],

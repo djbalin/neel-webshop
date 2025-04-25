@@ -1,11 +1,22 @@
+"use client";
 import Image from "next/image";
-import PurchaseBook from "./PurchaseBook";
+import { usePurchaseControls } from "./PurchaseBook";
+import { Check, Minus, Plus } from "lucide-react";
+import { CONSTANTS } from "@/app/constants";
 
 export default function BookHeroSection() {
+  const {
+    purchaseAmount,
+    isItemsAdded,
+    handleAddToCart,
+    handleChangeAmount,
+    handleTypeAmount,
+  } = usePurchaseControls();
+
   return (
     <section className="flex flex-col md:flex-row pb-14">
-      <div className="md:w-3/5 ">
-        <h1 className="header  mb-1">Facet</h1>
+      <div className="md:w-3/5">
+        <h1 className="header mb-1">Facet</h1>
         <span className="text-sm text-gray-500">
           Af{" "}
           <a href="/about" className="underline font-medium text-gray-700">
@@ -16,13 +27,67 @@ export default function BookHeroSection() {
             Neel Jersild Moreira
           </a>
         </span>
-        <p className="font-normal my-4 w-4/5 ">
+        <p className="font-normal my-4 w-4/5">
           <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3 modul
           5, der er på vej mod Prøve i Dansk 3.
         </p>
-        <PurchaseBook />
+
+        {/* Purchase Controls */}
+        <div className="rounded-xl flex flex-col md:flex-row w-full gap-6">
+          <div className="flex flex-col gap-y-2 w-full">
+            <p className="gap-x-2 flex mb-4 flex-row items-baseline">
+              <span className="text-4xl font-semibold">
+                {CONSTANTS.BOOK_PRICE_DKK_INCL_MOMS}
+              </span>
+              <span className="text-2xl font-normal">DKK</span>
+              <span className="font-light">excl. moms</span>
+            </p>
+            <div className="flex gap-2 flex-col lg:flex-row w-full gap-x-6">
+              <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
+                <button
+                  onClick={() => handleChangeAmount("m")}
+                  className="text-3xl"
+                >
+                  <Minus />
+                </button>
+                <input
+                  type="text"
+                  className="text-3xl w-14 text-center"
+                  onChange={handleTypeAmount}
+                  value={purchaseAmount}
+                />
+                <button
+                  onClick={() => handleChangeAmount("p")}
+                  className="text-3xl"
+                >
+                  <Plus />
+                </button>
+              </div>
+              {isItemsAdded ? (
+                <button className="rounded-lg justify-center items-center px-2 text-lg flex flex-row gap-x-2 bg-orange text-white font-medium">
+                  <Check /> Kurv opdateret!
+                </button>
+              ) : (
+                <button
+                  onClick={handleAddToCart}
+                  className="justify-center items-center py-2 stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white"
+                >
+                  <Image
+                    src={"/images/basket_white.svg"}
+                    alt="book"
+                    width={25}
+                    height={25}
+                    className="inline-block"
+                  />
+                  Føj til kurv
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-col gap-y-2 mt-2">
-          <span className="text-gray-700 text-sm">
+          <span className="text-gray-700 text-xs sm:text-sm">
             Forventet leveringstid: 3-4 arbejdsdage
           </span>
           <a href="/preview" className="text-blue-600 underline text-sm">
@@ -30,7 +95,9 @@ export default function BookHeroSection() {
           </a>
         </div>
       </div>
-      <div className="md:w-2/5 px-6 mt-8 md:mt-0">
+
+      {/* Book Image Column */}
+      <div className="hidden md:flex md:w-2/5 justify-center items-start">
         <div className="relative aspect-[3/4] w-2/3">
           <Image
             src="/images/forside.avif"

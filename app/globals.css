@@ -87,15 +87,15 @@ p {
 }
 
 .header {
-  @apply text-6xl   md:text-4xl lg:text-6xl font-normal;
+  @apply text-5xl  lg:text-6xl font-normal;
 }
 
-ul {
+.ulIndent {
   list-style-position: outside; /* keep bullet outside */
   padding-left: 1.5em; /* controls space before bullet */
 }
 
-ul li {
+.liIndent {
   text-indent: -1.5em; /* pull first line left */
   padding-left: 1.5em; /* push all lines right */
 }

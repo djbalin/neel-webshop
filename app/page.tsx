@@ -1,19 +1,32 @@
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import Link from "next/link";
-
+import { CONSTANTS } from "@/app/constants";
 export default async function HomePage() {
   return (
     <>
       {/* Hero section */}
-      <section className="flex flex-col  md:flex-row max-w-6xl mx-auto mb-16 pb-10">
-        <div className="md:w-3/5 ">
-          <header className="mb-8">
+      <section className="flex flex-col md:flex-row max-w-7xl mx-auto mb-16 xs:pb-10">
+        <div className="md:w-3/5">
+          <header className="mb-4 md:mb-8">
             <h1 className="header mb-2">Facet</h1>
-            <h2 className="text-2xl font-normal">
+            <h2 className="text-lg xs:text-2xl font-medium xs:font-normal">
               Grundbog i dansk til DU3 • Modul 5
             </h2>
           </header>
+
+          {/* Mobile book image - only shows on small screens */}
+          <div className="flex justify-center mb-8 md:hidden">
+            <div className="relative aspect-[3/4] w-2/3 max-w-[300px]">
+              <Image
+                src="/images/forside.avif"
+                alt="Facet lærebog"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
 
           <div className="space-y-4">
             <p>
@@ -28,13 +41,15 @@ export default async function HomePage() {
               til Prøve i Dansk 3 med en lang række PD3-lignende opgaver.
             </p>
           </div>
-
-          <button className="mt-6 bg-orange text-white px-8 py-1 text-lg font-medium">
-            <Link href={"/books"}>Læs mere</Link>
-          </button>
+          <div className="flex justify-center md:justify-start">
+            <button className="mt-6 bg-orange  text-white px-8 py-1 text-lg font-medium">
+              <Link href={CONSTANTS.LINKS.BOOKS}>Læs mere</Link>
+            </button>
+          </div>
         </div>
-        <div className="md:w-2/5 px-6 mt-8 md:mt-0">
-          <div className="relative aspect-[3/4] w-2/3">
+        {/* Desktop book image - only shows on medium screens and up */}
+        <div className="hidden md:flex md:w-2/5 px-6 items-center justify-center">
+          <div className="relative aspect-[3/4] w-2/3 max-w-none">
             <Image
               src="/images/forside.avif"
               alt="Facet lærebog"
@@ -47,41 +62,42 @@ export default async function HomePage() {
       </section>
 
       {/* Full-width green section */}
-      <section className="full-bleed bg-green">
-        <div className="h-[500px] px-20  mx-auto flex w-full flex-row">
-          <div className="w-1/2 flex items-center">
-            <div className="bg-orange text-white p-10 max-w-lg">
-              <h2 className="text-4xl font-normal mb-6">Læseprøve</h2>
-              <p className="text-xl mb-8">
-                Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
-                sider af kapitel 1.
-              </p>
+      <div className="full-bleed bg-green px-8 sm:px-8 lg:px-20 mx-auto flex w-full justify-center py-4">
+        <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
+          <div className="bg-orange max-w-md rounded-xl text-white p-4 sm:p-6 md:w-2/5 mb-4 md:mb-0">
+            <h2 className="text-xl md:text-2xl font-normal mb-4 md:mb-6">
+              Læseprøve
+            </h2>
+            <p className="mb-4 md:mb-8">
+              Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
+              sider af kapitel 1.
+            </p>
+            <div className="flex justify-center">
               <Link
-                href="/preview"
-                className="inline-block bg-blue-900 text-white py-3 px-8 text-lg"
+                href={CONSTANTS.LINKS.PREVIEW}
+                className="inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
               >
                 Læs læseprøven her
               </Link>
             </div>
           </div>
-          <div className="w-1/2 relative flex items-center justify-center">
-            <div className="relative w-full h-full">
-              <Image
-                className="drop-shadow-2xl object-contain scale-125"
-                src={"/images/open_2.avif"}
-                alt={"Facet 5 book example"}
-                priority
-                fill
-              />
-            </div>
+          <div className="w-full md:w-3/5 flex items-center justify-center">
+            <Image
+              className="max-w-full h-auto object-contain"
+              src={"/images/open_2.avif"}
+              alt={"Facet 5 book example"}
+              priority
+              width={700}
+              height={400}
+            />
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="w-4/6 mx-auto space-y-16 pt-36">
+      <section className="w-full px-4 xl:w-5/6 mx-auto space-y-12 md:space-y-16 pt-20 md:pt-36">
         <header className="space-y-4">
-          <h2 className="text-5xl   ">Om forfatterne</h2>
-          <p className="text-lg">
+          <h2 className="text-4xl md:text-5xl">Om forfatterne</h2>
+          <p className="text-base md:text-lg">
             <b>Facet</b> er skrevet af de to erfarne og anerkendte
             lærebogsforfattere Fanny Slotorub og Neel Jersild Moreira, der hver
             har en lang række udgivelser til DU2 og DU3 bag sig.
@@ -89,9 +105,9 @@ export default async function HomePage() {
         </header>
 
         <div className="space-y-6">
-          <div className="flex-1 flex flex-row align-top space-x-14 justify-between">
-            <article className="w-1/2">
-              <h3 className="text-4xl font-normal text-orange mb-4">
+          <div className="flex-1 flex flex-col md:flex-row align-top space-y-8 md:space-y-0 md:space-x-14 justify-between">
+            <article className="w-full md:w-1/2">
+              <h3 className="text-3xl md:text-4xl font-normal text-orange mb-4">
                 Fanny Slotorub
               </h3>
               <p className="paragraph">
@@ -107,8 +123,8 @@ export default async function HomePage() {
                 International Rekruttering og Integration (SIRI).
               </p>
             </article>
-            <article className="w-1/2">
-              <h3 className="text-4xl font-normal text-orange mb-4">
+            <article className="w-full md:w-1/2">
+              <h3 className="text-3xl md:text-4xl font-normal text-orange mb-4">
                 Neel Jersild Moreira
               </h3>
               <p className="paragraph">
@@ -124,32 +140,28 @@ export default async function HomePage() {
               </p>
             </article>
           </div>
-          <div className="flex mx-auto">
+          <div className="flex justify-center md:justify-start mx-auto">
             <Link
-              className={`tracking-wider bg-green font-medium text-lg text-white py-1 px-8`}
-              href={"/about"}
+              className={`tracking-wider bg-green font-medium sm:text-lg text-white py-1 px-4 sm:px-8`}
+              href={CONSTANTS.LINKS.ABOUT}
             >
               Læs mere om forfatterne
             </Link>
           </div>
         </div>
       </section>
-
-      <section className="max-w-2xl mb-16 mx-auto mt-36 place-items-center space-y-14">
-        <h3 className="text-5xl font-normal">Forlaget DIT - Dansk i Tiden</h3>
-
-        <div className="flex pl-16 text-sm pr-12 tracking-tight  flex-row space-x-8 place-items-center ">
-          <Logo height={200} width={200} />
-
-          <article className="flex  flex-col  space-y-4 ">
-            <p>
-              <b>Forlaget DIT - Dansk i Tiden</b> udgiver
-              undervisningsmaterialer i dansk som andetsprog til Danskuddannelse
-              2 og 3.
-            </p>
-          </article>
+      {/* <div className="flex max-w-[500px]"> */}
+      <div className="mt-20 px-4 max-w-[400px] sm:max-w-[700px] sm:pb-10 pb-6 mx-auto flex flex-row justify-center items-center md:items-start md:pl-16 text-sm md:pr-12 tracking-tight md:space-y-0 md:space-x-6 space-x-4">
+        <div className="hidden sm:flex justify-center min-w-[150px]">
+          <Logo height={150} width={150} />
         </div>
-      </section>
+
+        <p className="text-xs sm:text-sm">
+          <b>Forlaget DIT - Dansk i Tiden</b> udgiver undervisningsmaterialer i
+          dansk som andetsprog til Danskuddannelse 2 og 3.
+        </p>
+        {/* </div> */}
+      </div>
     </>
   );
 }

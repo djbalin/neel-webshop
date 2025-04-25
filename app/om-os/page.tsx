@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 export default async function About() {
   return (
-    <section className="flex leading-snug flex-col  space-y-10  pb-10">
+    <section className="flex leading-snug flex-col space-y-10 pb-10">
       <h1 className="header">Om forfatterne</h1>
-      <div className="flex w-full justify-between  flex-row space-x-16">
+      <div className="flex w-full flex-col space-y-12">
         {/* First Article */}
-        <article className="">
+        <article>
           <h2 className="text-2xl font-extrabold mb-4">Fanny Slotorub</h2>
           <p className="paragraph">
             Cand.mag. og uddannet som underviser i dansk som andetsprog.
@@ -24,8 +25,8 @@ export default async function About() {
             Rekruttering og Integration (SIRI) siden 2018 med flg.
             arbejdsområder:
           </p>
-          <ul className="paragraph list-disc  max-w-lg">
-            <li>Udvikling og revision af SIRI&aposs visitationsmateriale</li>
+          <ul className="paragraph list-disc ulIndent max-w-full space-y-1">
+            <li>Udvikling og revision af SIRI's visitationsmateriale</li>
             <li>Beskikket som opgaveforfatter ved Prøve i Dansk 2</li>
             <li>Beskikket censor ved Prøve i Dansk 2</li>
             <li>Fagkonsulent ved Prøve i Dansk 2</li>
@@ -38,11 +39,20 @@ export default async function About() {
               modultestbedømmelse
             </li>
           </ul>
-          <p>Læs mere om Fanny på LinkedIn.</p>
+          <p>
+            Læs mere om Fanny på{" "}
+            <a
+              className="anchorTag"
+              href="https://www.linkedin.com/in/fanny-slotorub-16b30a131/"
+            >
+              LinkedIn
+            </a>
+            .
+          </p>
         </article>
 
         {/* Second Article */}
-        <article className="">
+        <article>
           <h2 className="text-2xl font-extrabold mb-4">Neel Jersild Moreira</h2>
           <p className="paragraph">
             Cand.mag. og uddannet som underviser i dansk som andetsprog.
@@ -59,7 +69,7 @@ export default async function About() {
             Sprogcenter / Jobcenter København.
           </p>
           <p className="paragraph">Har endvidere varetaget flg. opgaver:</p>
-          <ul className="paragraph list-disc  max-w-lg">
+          <ul className="paragraph list-disc ulIndent max-w-full space-y-1">
             <li>Beskikket som opgaveforfatter ved Prøve i Dansk 2</li>
             <li>Medlem af opgavekommissionen Prøve i Dansk 2</li>
             <li>Beskikket censor ved Prøve i Dansk 2</li>
@@ -72,7 +82,16 @@ export default async function About() {
               udviklingsprojekt som blev støttet af SIRI.
             </li>
           </ul>
-          <p>Læs mere om Neel på LinkedIn.</p>
+          <p>
+            Læs mere om Neel på{" "}
+            <a
+              className="anchorTag"
+              href="https://www.linkedin.com/in/neel-jersild-moreira-a56b58131/?originalSubdomain=dk"
+            >
+              LinkedIn
+            </a>
+            .
+          </p>
         </article>
       </div>
     </section>

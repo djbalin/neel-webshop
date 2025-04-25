@@ -1,5 +1,6 @@
 import Image from "next/image";
-
+import Link from "next/link";
+import { CONSTANTS } from "@/app/constants";
 export default function Logo({
   height = 150,
   width = 150,
@@ -8,7 +9,7 @@ export default function Logo({
   width?: number;
 }) {
   return (
-    <div className="">
+    <Link href={CONSTANTS.LINKS.HOME} className="">
       <Image
         src={"/images/logo.png"}
         alt="logo"
@@ -17,6 +18,6 @@ export default function Logo({
         height={height}
         priority
       />
-    </div>
+    </Link>
   );
 }

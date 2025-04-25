@@ -3,11 +3,11 @@
 export function Book() {
   return (
     <section className="pb-10 full-bleed text-white bg-ditBlue">
-      <div className="place-items-center  pt-16 w-1/2 mx-auto">
+      <div className="place-items-center  pt-16 px-8 lg:px-0 lg:w-2/3 max-w-[800px] mx-auto">
         <article className="space-y-8 ">
-          <header className="place-items-center space-y-6">
+          <header className="place-items-center space-y-2 sm:space-y-6">
             <h2 className="text-5xl font-normal text-orange">Om bogen</h2>
-            <h3 className="text-3xl font-normal">
+            <h3 className="text-lg text-center sm:text-left sm:text-3xl font-normal">
               Facet 5 består af 4 kapitler med temaerne:
             </h3>
           </header>

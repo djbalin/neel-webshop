@@ -29,7 +29,7 @@ export default async function LocaleLayout({
   return (
     <html lang={"da"}>
       <body
-        className={`${mainFont.className} flex flex-col px-20 xl:px-56  antialiased min-h-screen w-full`}
+        className={`${mainFont.className} flex flex-col px-8 xs:px-16 lg:px-20 xl:px-28 2xl:px-56  antialiased min-h-screen w-full`}
       >
         <CartContextProvider>
           <NavBar />

@@ -63,7 +63,7 @@ const CartButton = () => {
           </div>
           <div className="flex items-center space-x-4 mb-10">
             <Image
-              src={"/images/neel_book.png"}
+              src={"/images/forside.avif"}
               alt="Item"
               width={75}
               height={75}

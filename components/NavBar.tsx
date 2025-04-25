@@ -5,6 +5,7 @@ import CartButton from "./CartButton";
 import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { CONSTANTS } from "@/app/constants";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -12,66 +13,112 @@ export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = {
-    "/": "Forside",
-    "/boeger": "Bøger",
-    "/audio": "Lydfiler",
-    "/preview": "Læseprøve",
-    "/materialer": "Materialer",
-    "/om-os": "Om forfatterne",
-    "/kontakt": "Kontakt",
+    [CONSTANTS.LINKS.HOME]: "Forside",
+    [CONSTANTS.LINKS.BOOKS]: "Bøger",
+    [CONSTANTS.LINKS.MATERIALS]: "Materialer",
+    [CONSTANTS.LINKS.PREVIEW]: "Læseprøve",
+    [CONSTANTS.LINKS.ABOUT]: "Om forfatterne",
+    [CONSTANTS.LINKS.CONTACT]: "Kontakt",
   };
 
   return (
-    <nav
-      className={` lg:space-x-4 xl:space-x-10  w-full  z-10 min-h-14  mx-auto  flex items-center  flex-wrap py-10 pb-12`}
-    >
-      <Logo />
+    <nav className="w-full z-50 xs:px-4 py-8 relative pb-12 lg:pb-20">
+      <div className="flex items-center justify-between">
+        <Logo />
 
-      <div className="block lg:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center px-3 py-2 border rounded text-black border-black hover:text-gray-500 hover:border-gray-500"
-        >
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="flex items-center">
+          <div className="hidden lg:block lg:ml-6">
+            <div className="flex space-x-6 xl:space-x-10">
+              {Object.entries(links).map(([path, message]) => (
+                <NavItem
+                  key={path}
+                  href={path}
+                  text={message}
+                  pathname={pathname}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden lg:flex lg:ml-6">
+            <CartButton />
+          </div>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden ml-4 p-2 rounded-md text-black hover:bg-gray-100"
+            aria-expanded={isMenuOpen}
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="h-10 w-10"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
+      {/* Mobile menu, show/hide based on menu state */}
       <div
-        className={`w-full  z-10  justify-center lg:gap-x-6 xl:gap-x-10 flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`lg:hidden absolute top-[10%] left-0 right-0 bg-white shadow-xl py-4 z-50 border-2 rounded-xl border-gray-300 ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
-        {Object.entries(links).map(([path, message]) => (
-          <NavItem key={path} href={path} text={message} pathname={pathname} />
-        ))}
-        <CartButton />
-        {/* <div className="flex flex-row gap-x-4 items-center">
-          <Link href={pathname} locale="da">
-            <Image
-              src={"/images/flags/dk_flag.svg"}
-              alt="Danish flag"
-              className={`${locale === "da" ? "" : "opacity-50"}`}
-              width={40}
-              height={40}
+        <div className="flex flex-col text-lg sm:text-base space-y-5 px-6 max-w-screen-lg mx-auto">
+          {Object.entries(links).map(([path, message]) => (
+            <NavItem
+              key={path}
+              href={path}
+              text={message}
+              pathname={pathname}
+              onClick={() => setIsMenuOpen(false)}
             />
-          </Link>
-          <Link href={pathname} locale="en">
-            <Image
-              src={"/images/flags/uk_flag.svg"}
-              alt="UK Flag"
-              className={`${locale === "en" ? "" : "opacity-50"}`}
-              width={40}
-              height={40}
-            />
-          </Link>
-        </div> */}
+          ))}
+          <div className="pt-4 mt-2 border-t border-gray-100">
+            <CartButton />
+          </div>
+        </div>
+        {isMenuOpen && (
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-0 right-0 p-2 rounded-md text-black hover:bg-gray-100"
+          >
+            <span className="sr-only">Close menu</span>
+            <svg
+              className="h-10 w-10"
+              fill="none"
+              viewBox="0 0 30 30"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        )}
       </div>
     </nav>
   );
@@ -81,17 +128,20 @@ function NavItem({
   href,
   pathname,
   text,
+  onClick,
 }: {
   href: string;
   pathname: string;
   text: string;
+  onClick?: () => void;
 }) {
   return (
     <Link
-      className={`block mt-4 font-normal    lg:inline-block lg:mt-0  ${
-        pathname === href ? "underline" : ""
+      className={`block font-normal transition-colors hover:text-gray-600 ${
+        pathname === href ? "underline font-medium" : ""
       }`}
       href={{ pathname: href }}
+      onClick={onClick}
     >
       {text}
     </Link>
