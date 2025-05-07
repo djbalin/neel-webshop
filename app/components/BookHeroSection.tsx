@@ -54,7 +54,7 @@ export default function BookHeroSection() {
   } = usePurchaseControls();
 
   return (
-    <section className="flex flex-col md:flex-row pb-14">
+    <section className="flex flex-col md:flex-row pb-4">
       <div className="md:w-3/5">
         <h1 className="header mb-1">Facet</h1>
         <span className="text-sm text-gray-500">
@@ -88,7 +88,7 @@ export default function BookHeroSection() {
               <span className="text-2xl font-normal">DKK</span>
               <span className="font-light">excl. moms</span>
             </p>
-            <div className="flex gap-2 flex-col lg:flex-row w-full gap-x-6">
+            <div className="flex gap-2 flex-col md:flex-row w-full gap-x-6">
               <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
                 <button
                   onClick={() => handleChangeAmount("m")}
@@ -109,25 +109,33 @@ export default function BookHeroSection() {
                   <Plus />
                 </button>
               </div>
-              {isItemsAdded ? (
+              {/* {isItemsAdded ? (
                 <button className="rounded-lg justify-center items-center px-2 text-lg flex flex-row gap-x-2 bg-orange text-white font-medium">
                   <Check /> Kurv opdateret!
                 </button>
-              ) : (
-                <button
-                  onClick={handleAddToCart}
-                  className="justify-center items-center py-2 stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white"
-                >
-                  <Image
-                    src={"/images/basket_white.svg"}
-                    alt="book"
-                    width={25}
-                    height={25}
-                    className="inline-block"
-                  />
-                  Føj til kurv
-                </button>
-              )}
+              ) : ( */}
+              <button
+                onClick={handleAddToCart}
+                className="justify-center max-w-sm items-center py-2 stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white"
+              >
+                {isItemsAdded ? (
+                  <>
+                    <Check /> Kurv opdateret!
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      src={"/images/basket_white.svg"}
+                      alt="book"
+                      width={25}
+                      height={25}
+                      // className="inline-block"
+                    />
+                    Føj til kurv
+                  </>
+                )}
+              </button>
+              {/* )} */}
             </div>
           </div>
         </div>
@@ -146,8 +154,8 @@ export default function BookHeroSection() {
       </div>
 
       {/* Book Image Column */}
-      <div className="hidden md:flex md:w-2/5 justify-center items-start">
-        <div className="relative aspect-[3/4] w-2/3">
+      <div className="hidden md:flex md:w-2/5 ">
+        <div className="relative aspect-[3/4] w-2/3 ">
           <Image
             src="/images/forside.avif"
             alt="Facet lærebog"

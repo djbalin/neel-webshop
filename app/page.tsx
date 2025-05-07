@@ -85,7 +85,7 @@ export default async function HomePage() {
             <Image
               className="max-w-full h-auto object-contain"
               src={"/images/open_2.avif"}
-              alt={"Facet 5 book example"}
+              alt={"Facet book example"}
               priority
               width={700}
               height={400}
@@ -137,6 +137,10 @@ export default async function HomePage() {
                 Ansat på Københavns Sprogcenter i en længere årrække med
                 undervisning på alle niveauer på DU2 og DU3. Siden 2018 ansat på
                 CSI Sprogcenter.
+              </p>
+              <p className="paragraph">
+                Mange års erfaring som beskikket censor og som medlem af
+                opgavekommissionen.
               </p>
             </article>
           </div>

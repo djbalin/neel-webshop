@@ -10,7 +10,7 @@ export function Book() {
           <header className="place-items-center space-y-2 sm:space-y-6">
             <h2 className="text-5xl font-normal text-orange">Om bogen</h2>
             <h3 className="text-lg text-center sm:text-left sm:text-3xl font-normal">
-              Facet 5 består af 4 kapitler med temaerne:
+              Facet består af 4 kapitler med temaerne:
             </h3>
           </header>
           <div className="flex flex-wrap justify-center space-x-2 gap-y-2 text-white font-medium uppercase text-sm">
@@ -43,7 +43,7 @@ export function Book() {
           <div>
             <p className="paragraph">
               Sideløbende er der fokus på <b>grammatik,</b> bl.a. verber,
-              adjektiver, substantiver, forbinderord og ordstilling samt
+              adjektiver, substantiver, forbinderord og ordstilling samt{" "}
               <b>lytteforståelse,</b> hvor kursisterne hører dansk, som det
               tales blandt venner, kollegaer og studiekammerater.
             </p>
@@ -56,23 +56,23 @@ export function Book() {
               brug samt uvurderlige tips og gode råd.
             </p>
             <p className="paragraph">
-              Bogen er særdeles velegnet til prøveforberedende hold, da den
-              lægger op til sjove og inspirerende par- og gruppeøvelser, men den
-              kan også benyttes til selvstudium.
+              Bogen er særdeles velegnet til prøveforberedende hold og lægger op
+              til sjove og inspirerende par- og gruppeøvelser, men den kan også
+              benyttes til selvstudium.
             </p>
             <p className="paragraph bg-white py-2 px-3 text-black">
               <a href={CONSTANTS.LINKS.AUDIO} className="anchorTag font-bold">
                 Lydfiler,
               </a>{" "}
               <a
-                href={CONSTANTS.LINKS.MATERIALS}
+                href={CONSTANTS.LINKS.LAERERVEJLEDNING}
                 className="anchorTag font-bold"
               >
                 rettenøgle
               </a>{" "}
               og{" "}
               <a
-                href={CONSTANTS.LINKS.MATERIALS}
+                href={CONSTANTS.LINKS.LAERERVEJLEDNING}
                 className="anchorTag font-bold"
               >
                 lærervejledning

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
+
 export default function Logo({
   height = 150,
   width = 150,

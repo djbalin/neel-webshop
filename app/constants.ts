@@ -6,7 +6,7 @@ export const CONSTANTS = {
     BOOKS: "/boeger",
     CONTACT: "/kontakt",
     PREVIEW: "/preview",
-    MATERIALS: "/materialer",
+    LAERERVEJLEDNING: "/laerervejledning",
     AUDIO: "/audio",
     CART: "/kurv",
   },
