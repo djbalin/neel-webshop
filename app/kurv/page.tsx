@@ -5,6 +5,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { CONSTANTS } from "../constants";
 import { useRouter } from "next/navigation";
+
+const DAFOLO_URL =
+  "https://dafololager.dk/dafololagerhotel/WebForms/_!Dafolo_45152383.asp";
+
 export default function CartPage() {
   const { amount, setAmount } = useCartContext();
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +34,7 @@ export default function CartPage() {
 
     if (amount > 5) {
       // Redirect to Dafolo website for orders > 5
-      router.push("https://www.dafolo.dk");
+      router.push(DAFOLO_URL);
     } else {
       // Submit the form for Stripe checkout for orders <= 5
       e.currentTarget.submit();
@@ -38,10 +42,10 @@ export default function CartPage() {
   };
 
   return (
-    <div className=" sm:px-4 space-y-4 pb-10">
+    <div className="  space-y-4 pb-10">
       <h1 className="header">Din kurv</h1>
 
-      <div className="bg-white rounded-lg max-w-xl shadow-xl p-6 mb-10">
+      <div className="bg-white sm:px-4 rounded-lg max-w-xl border-2 border-gray-100 shadow-xl p-6 mb-10">
         <div className="flex items-center space-x-4 mb-10">
           <Image
             src={"/images/forside.avif"}
@@ -50,7 +54,7 @@ export default function CartPage() {
             height={100}
           />
           <span className="font-semibold text-lg sm:text-3xl">
-            Facet 5, Grundbog
+            Facet, Grundbog
           </span>
         </div>
 

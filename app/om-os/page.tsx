@@ -11,9 +11,8 @@ export default async function About() {
             Cand.mag. og uddannet som underviser i dansk som andetsprog.
           </p>
           <p className="paragraph">
-            Ansat på Københavns Sprogcenter i mere end 20 år med undervisning på
-            alle niveauer på Danskuddannelse 2 og 3. Beskikket censor ved Prøve
-            i Dansk 3.
+            Mange års erfaring som beskikket censor ved Prøve i Dansk 2 og Dansk
+            3.
           </p>
           <p className="paragraph">
             Forfatter til en lang række populære lærebøger inden for dansk som
@@ -27,16 +26,19 @@ export default async function About() {
           </p>
           <ul className="paragraph list-disc ulIndent max-w-full space-y-1">
             <li>Udvikling og revision af SIRI's visitationsmateriale</li>
-            <li>Beskikket som opgaveforfatter ved Prøve i Dansk 2</li>
+            <li>
+              Mange års erfaring som beskikket censor ved Prøve i Dansk 2 og
+              Dansk 3.
+            </li>
             <li>Beskikket censor ved Prøve i Dansk 2</li>
             <li>Fagkonsulent ved Prøve i Dansk 2</li>
             <li>
               Opgaveforfatter og ansvarlig for udvikling af alle nye mundtlige
-              og skriftlige modultestopgaver til Danskuddannelse 2 og 3.
+              og skriftlige modultestopgaver til Danskuddannelse 2 og 3
             </li>
             <li>
               Udvikling af materiale til digital bedømmertræningssite til
-              modultestbedømmelse
+              modultestbedømmelse på både DU2 og DU3
             </li>
           </ul>
           <p>
@@ -75,11 +77,11 @@ export default async function About() {
             <li>Beskikket censor ved Prøve i Dansk 2</li>
             <li>
               Opgaveforfatter til nye mundtlige og skriftlige modultestopgaver
-              til Danskuddannelse 2 og 3.
+              til Danskuddannelse 2 og 3
             </li>
             <li>
               Udarbejdelse af to praktikbøger for CSI / Jobcenter København, et
-              udviklingsprojekt som blev støttet af SIRI.
+              udviklingsprojekt som blev støttet af SIRI
             </li>
           </ul>
           <p>

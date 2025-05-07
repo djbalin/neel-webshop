@@ -11,25 +11,24 @@ export default function NavBar() {
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const links = {
     [CONSTANTS.LINKS.HOME]: "Forside",
     [CONSTANTS.LINKS.BOOKS]: "Bøger",
     [CONSTANTS.LINKS.PREVIEW]: "Læseprøve",
     [CONSTANTS.LINKS.AUDIO]: "Lydfiler",
-    [CONSTANTS.LINKS.MATERIALS]: "Materialer",
+    [CONSTANTS.LINKS.LAERERVEJLEDNING]: "Lærervejledning",
     [CONSTANTS.LINKS.ABOUT]: "Om forfatterne",
     [CONSTANTS.LINKS.CONTACT]: "Kontakt",
   };
 
   return (
-    <nav className=" z-50 xs:px-4 w-full  py-8 relative pb-12 lg:pb-20">
-      <div className="flex items-center space-x-6 justify-between lg:justify-start w-full">
+    <nav className=" z-50  w-full  py-8 relative pb-12 lg:pb-12">
+      <div className="flex items-center  justify-between lg:justify-start w-full">
         <Logo />
 
-        <div className="flex items-center ">
-          <div className="hidden lg:block lg:ml-6">
-            <div className="flex space-x-6 xl:space-x-10">
+        <div className="flex items-center lg:w-full  ">
+          <div className="hidden lg:block lg:ml-6 w-full ">
+            <div className="flex text-sm xl:text-base space-x-6 xl:space-x-10 justify-evenly w-full  ">
               {Object.entries(links).map(([path, message]) => (
                 <NavItem
                   key={path}
@@ -38,16 +37,14 @@ export default function NavBar() {
                   pathname={pathname}
                 />
               ))}
-            </div>
-          </div>
 
-          <div className="hidden lg:flex lg:ml-6">
-            <CartButton />
+              <CartButton />
+            </div>
           </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden ml-4 p-2 rounded-md text-black hover:bg-gray-100"
+            className="lg:hidden ml-4 p-2  rounded-md text-black hover:bg-gray-100"
             aria-expanded={isMenuOpen}
           >
             <span className="sr-only">Open main menu</span>

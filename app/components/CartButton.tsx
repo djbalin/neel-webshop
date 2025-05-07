@@ -4,11 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
 
-export type CheckoutData = {
-  quantity: number;
-  locale: "da" | "en";
-};
-
 const CartButton = () => {
   const { amount } = useCartContext();
 
