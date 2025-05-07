@@ -45,7 +45,7 @@ export default function CartPage() {
     <div className="  space-y-4 pb-10">
       <h1 className="header">Din kurv</h1>
 
-      <div className="bg-white sm:px-4 rounded-lg max-w-xl shadow-xl p-6 mb-10">
+      <div className="bg-white sm:px-4 rounded-lg max-w-xl border-2 border-gray-100 shadow-xl p-6 mb-10">
         <div className="flex items-center space-x-4 mb-10">
           <Image
             src={"/images/forside.avif"}

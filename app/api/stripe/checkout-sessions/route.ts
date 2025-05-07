@@ -44,6 +44,17 @@ export async function POST(req: Request) {
       shipping_address_collection: {
         allowed_countries: ["DK"],
       },
+      // custom_fields: [
+      //   {
+      //     key: "ean_number",
+      //     label: {
+      //       type: "custom",
+      //       custom: "EAN-nummer (valgfrit)",
+      //     },
+      //     type: "text",
+      //     optional: true,
+      //   },
+      // ],
 
       mode: "payment",
       success_url: `${URL}/return/?success=true`,
