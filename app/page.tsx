@@ -43,7 +43,7 @@ export default async function HomePage() {
           </div>
           <div className="flex justify-center md:justify-start">
             <button className="mt-6 clickable rounded-xl bg-orange  text-white px-8 py-1 text-lg font-medium">
-              <Link href={CONSTANTS.LINKS.BOOKS}>Læs mere</Link>
+              <Link href={CONSTANTS.LINKS.BOOKS.da}>Læs mere</Link>
             </button>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default async function HomePage() {
             </p>
             <div className="flex justify-center">
               <Link
-                href={CONSTANTS.LINKS.PREVIEW}
+                href={CONSTANTS.LINKS.PREVIEW.da}
                 className="clickable inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
               >
                 Læs læseprøven her
@@ -147,7 +147,7 @@ export default async function HomePage() {
           <div className="flex justify-center md:justify-start mx-auto">
             <Link
               className={`tracking-wider clickable bg-green font-medium sm:text-lg text-white py-1 px-4 sm:px-8`}
-              href={CONSTANTS.LINKS.ABOUT}
+              href={CONSTANTS.LINKS.ABOUT.da}
             >
               Læs mere om forfatterne
             </Link>

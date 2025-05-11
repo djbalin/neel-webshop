@@ -6,29 +6,42 @@ import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
+import Image from "next/image";
+
+const DA_LINKS = {
+  [CONSTANTS.LINKS.BOOKS.da]: "Bøger",
+  [CONSTANTS.LINKS.PREVIEW.da]: "Læseprøve",
+  [CONSTANTS.LINKS.AUDIO.da]: "Lydfiler",
+  [CONSTANTS.LINKS.LAERERVEJLEDNING.da]: "Lærervejledning",
+  [CONSTANTS.LINKS.ABOUT.da]: "Om forfatterne",
+  [CONSTANTS.LINKS.CONTACT.da]: "Kontakt",
+};
+
+const EN_LINKS = {
+  [CONSTANTS.LINKS.BOOKS.en]: "Book",
+  [CONSTANTS.LINKS.PREVIEW.en]: "Preview",
+  [CONSTANTS.LINKS.AUDIO.en]: "Sound files",
+  [CONSTANTS.LINKS.LAERERVEJLEDNING.en]: "Teacher's guide",
+  [CONSTANTS.LINKS.ABOUT.en]: "The authors",
+  [CONSTANTS.LINKS.CONTACT.en]: "Contact",
+};
 
 export default function NavBar() {
   const pathname = usePathname();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const links = {
-    [CONSTANTS.LINKS.HOME]: "Forside",
-    [CONSTANTS.LINKS.BOOKS]: "Bøger",
-    [CONSTANTS.LINKS.PREVIEW]: "Læseprøve",
-    [CONSTANTS.LINKS.AUDIO]: "Lydfiler",
-    [CONSTANTS.LINKS.LAERERVEJLEDNING]: "Lærervejledning",
-    [CONSTANTS.LINKS.ABOUT]: "Om forfatterne",
-    [CONSTANTS.LINKS.CONTACT]: "Kontakt",
-  };
+
+  const isEn = pathname.startsWith("/en");
+
+  const links = isEn ? EN_LINKS : DA_LINKS;
 
   return (
     <nav className=" z-50  w-full  py-8 relative pb-12 lg:pb-12">
       <div className="flex items-center  justify-between lg:justify-start w-full">
         <Logo />
-
         <div className="flex items-center lg:w-full  ">
           <div className="hidden lg:block lg:ml-6 w-full ">
-            <div className="flex text-sm xl:text-base space-x-6 xl:space-x-10 justify-evenly w-full  ">
+            <div className="flex text-sm xl:text-base justify-evenly  w-full  ">
+              <HomeButton isEn={isEn} />
               {Object.entries(links).map(([path, message]) => (
                 <NavItem
                   key={path}
@@ -38,7 +51,7 @@ export default function NavBar() {
                 />
               ))}
 
-              <CartButton />
+              <CartButton isEn={isEn} />
             </div>
           </div>
 
@@ -73,6 +86,26 @@ export default function NavBar() {
             </svg>
           </button>
         </div>
+        <div className="flex flex-row gap-x-4 items-center">
+          <Link href={"/"} locale="da">
+            <Image
+              src={"/images/flags/dk_flag.svg"}
+              alt="Danish flag"
+              className={`${!isEn ? "" : "opacity-50"}`}
+              width={40}
+              height={40}
+            />
+          </Link>
+          <Link href={"/en"} locale="en">
+            <Image
+              src={"/images/flags/uk_flag.svg"}
+              alt="UK Flag"
+              className={`${isEn ? "" : "opacity-50"}`}
+              width={40}
+              height={40}
+            />
+          </Link>
+        </div>
       </div>
 
       {/* Mobile menu, show/hide based on menu state */}
@@ -92,7 +125,7 @@ export default function NavBar() {
             />
           ))}
           <div className="pt-4 mt-2 border-t border-gray-100">
-            <CartButton />
+            <CartButton isEn={isEn} />
           </div>
         </div>
         {isMenuOpen && (
@@ -119,6 +152,20 @@ export default function NavBar() {
         )}
       </div>
     </nav>
+  );
+}
+
+function HomeButton({ isEn }: { isEn: boolean }) {
+  return (
+    <Link href={isEn ? "/en" : "/"} locale="da">
+      <Image
+        src={"/images/home.svg"}
+        alt="home"
+        width={20}
+        height={20}
+        className="inline-block mr-2"
+      />
+    </Link>
   );
 }
 
