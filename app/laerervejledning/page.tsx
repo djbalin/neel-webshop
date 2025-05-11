@@ -22,7 +22,7 @@ export default async function GuidePage() {
         </span>
       </a>
       <a
-        href="/materials/facet_rettenøgle.pdf"
+        href="/materials/facet_rettenoegle.pdf"
         download="facet_rettenøgle.pdf"
         className="bg-green w-fit text-white px-4 py-2 rounded   mt-8"
       >
