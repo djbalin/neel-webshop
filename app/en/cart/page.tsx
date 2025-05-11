@@ -3,7 +3,7 @@
 import { useCartContext } from "@/contexts/CartContext";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { CONSTANTS } from "../constants";
+import { CONSTANTS } from "../../constants";
 import { useRouter } from "next/navigation";
 
 const DAFOLO_URL =
@@ -35,7 +35,7 @@ export default function CartPage() {
   }, [customerType]);
 
   function format(num: number) {
-    return num.toFixed(2).replace(".", ",");
+    return num.toFixed(2);
   }
 
   const unitPrice = CONSTANTS.BOOK_PRICE_DKK_EXCL_MOMS;
@@ -60,7 +60,7 @@ export default function CartPage() {
 
   return (
     <div className="space-y-4 pb-10">
-      <h1 className="header">Din kurv</h1>
+      <h1 className="header">Your cart</h1>
 
       <div className="bg-white sm:px-4 rounded-lg max-w-xl border-2 border-gray-100 shadow-xl p-6 mb-10">
         <div className="flex items-center space-x-4 mb-10">
@@ -71,42 +71,42 @@ export default function CartPage() {
             height={100}
           />
           <span className="font-semibold text-lg sm:text-3xl">
-            Facet, Grundbog
+            Facet, Textbook
           </span>
         </div>
 
         {!customerType ? (
           <div className="space-y-6 py-4">
             <h2 className="text-xl font-semibold text-center">
-              Hvilken type kunde er du?
+              Which type of customer are you?
             </h2>
             <div className="flex flex-col gap-3">
               <button
                 onClick={() => setCustomerType("privat")}
                 className="w-full py-3 bg-orange text-white rounded-lg hover:bg-orange-600 transition-colors font-medium"
               >
-                Privat
+                Private/individual
               </button>
               <button
                 onClick={() => setCustomerType("erhverv")}
                 className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
-                Erhverv/institution
+                Business/institution
               </button>
             </div>
           </div>
         ) : customerType === "erhverv" ? (
           <div className="text-center py-6 space-y-2">
             <p className="text-xl font-semibold">
-              Du videresendes til vores distributør Dafolo
+              You are being redirected to our distributor Dafolo
             </p>
             <p className="text-gray-500">({countdown})</p>
           </div>
         ) : (
           <>
             <div className="flex justify-between items-center mb-4">
-              <span className="text-xl font-semibold">Antal</span>
-              <span className="text-xl font-semibold">Pris</span>
+              <span className="text-xl font-semibold">Quantity</span>
+              <span className="text-xl font-semibold">Price</span>
             </div>
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center">
@@ -130,18 +130,18 @@ export default function CartPage() {
             <hr className="my-6 border-gray-300" />
 
             <div className="flex justify-between mb-2">
-              <span>Moms (25%):</span>
+              <span>VAT (25%):</span>
               <span>{format(momsPrice)} DKK</span>
             </div>
             <div className="flex justify-between mb-2">
-              <span>Levering:</span>
+              <span>Delivery:</span>
               <span>{format(deliveryPrice)} DKK</span>
             </div>
 
             <hr className="my-6 border-gray-300" />
 
             <div className="flex justify-between font-bold mb-6 sm:text-lg">
-              <span>Total inkl. moms og levering:</span>
+              <span>Total including VAT and delivery:</span>
               <span>{format(totalPrice)} DKK</span>
             </div>
             <form
@@ -158,8 +158,8 @@ export default function CartPage() {
                 } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 {isLoading
-                  ? "Du videresendes til betaling..."
-                  : "Gå til betaling"}
+                  ? "You are being redirected to checkout..."
+                  : "Proceed to checkout"}
               </button>
               <input type="hidden" name="quantity" value={amount} />
               <input type="hidden" name="locale" value="da" />

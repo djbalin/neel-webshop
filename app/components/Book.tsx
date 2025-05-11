@@ -61,18 +61,21 @@ export function Book() {
               benyttes til selvstudium.
             </p>
             <p className="paragraph bg-white py-2 px-3 text-black">
-              <a href={CONSTANTS.LINKS.AUDIO} className="anchorTag font-bold">
+              <a
+                href={CONSTANTS.LINKS.AUDIO.da}
+                className="anchorTag font-bold"
+              >
                 Lydfiler,
               </a>{" "}
               <a
-                href={CONSTANTS.LINKS.LAERERVEJLEDNING}
+                href={CONSTANTS.LINKS.LAERERVEJLEDNING.da}
                 className="anchorTag font-bold"
               >
                 rettenøgle
               </a>{" "}
               og{" "}
               <a
-                href={CONSTANTS.LINKS.LAERERVEJLEDNING}
+                href={CONSTANTS.LINKS.LAERERVEJLEDNING.da}
                 className="anchorTag font-bold"
               >
                 lærervejledning
