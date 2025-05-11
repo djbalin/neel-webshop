@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { CONSTANTS } from "../constants";
+import { usePathname } from "next/navigation";
 
 interface AudioPlayerProps {
   chapters: string[];
@@ -22,7 +23,8 @@ export default function AudioPlayer({
   sectionTitles,
 }: AudioPlayerProps) {
   const [selectedChapter, setSelectedChapter] = useState(chapters[0]);
-
+  const pathName = usePathname();
+  const isEn = pathName.startsWith("/en");
   // Zip files are names kapitel1.zip, kapitel2.zip, etc.
   const zipFileName = `kapitel${selectedChapter.replace("chp", "")}.zip`;
 
@@ -69,7 +71,7 @@ export default function AudioPlayer({
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
             />
           </svg>
-          Download kapitel
+          {isEn ? "Download chapter" : "Download kapitel"}
         </a>
       </div>
 

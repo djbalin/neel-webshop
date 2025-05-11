@@ -11,10 +11,9 @@ export default async function HomePage() {
           <header className="mb-4 md:mb-8">
             <h1 className="header mb-2">Facet</h1>
             <h2 className="text-lg xs:text-2xl font-medium xs:font-normal">
-              Grundbog i dansk til DU3 • Modul 5
+              An Engaging Textbook for Danish Education 3 • Module 5
             </h2>
           </header>
-
           {/* Mobile book image - only shows on small screens */}
           <div className="flex justify-center mb-8 md:hidden">
             <div className="relative aspect-[3/4] w-2/3 max-w-[300px]">
@@ -30,20 +29,23 @@ export default async function HomePage() {
 
           <div className="space-y-4">
             <p>
-              <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3
-              modul 5, der er på vej mod Prøve i Dansk 3.
+              <em>Facet</em> is the perfect textbook for learners at Danish
+              Education 3, Module 5, who aim for a great results at the Danish
+              Exam 3 (PD3).
             </p>
             <p>
-              <b>Facet</b> skaber en aktiv og dynamisk undervisning, hvor
-              sprogets mange facetter kommer i spil, når kursisterne skal
-              arbejde med de varierede opgavetyper, der kommer godt rundt om
-              alle fire færdigheder. Samtidig forberedes kursisterne optimalt
-              til Prøve i Dansk 3 med en lang række PD3-lignende opgaver.
+              Designed to inspire and challenge, <em>Facet</em> brings the
+              Danish language to life through varied and motivating tasks that
+              strengthen all four language skills. Learners explore the many
+              facets of Danish in an active, learner-centered environment with a
+              large selection of PD3- style exercises. At the same time, the
+              book offers thorough preparation for the Danish Exam 3 through a
+              large selection of PD3-style exercises.
             </p>
           </div>
           <div className="flex justify-center md:justify-start">
             <button className="mt-6 clickable rounded-xl bg-orange  text-white px-8 py-1 text-lg font-medium">
-              <Link href={CONSTANTS.LINKS.BOOKS.da}>Læs mere</Link>
+              <Link href={CONSTANTS.LINKS.BOOKS.da}>Read more</Link>
             </button>
           </div>
         </div>
@@ -66,18 +68,18 @@ export default async function HomePage() {
         <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
           <div className="bg-orange max-w-md rounded-xl text-white p-4 sm:p-6 md:w-2/5 mb-4 md:mb-0">
             <h2 className="text-xl md:text-2xl font-normal mb-4 md:mb-6">
-              Læseprøve
+              Preview
             </h2>
             <p className="mb-4 md:mb-8">
-              Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
-              sider af kapitel 1.
+              Take a sneak peek inside the book – view the table of contents and
+              read the first pages of Chapter 1.
             </p>
             <div className="flex justify-center">
               <Link
                 href={CONSTANTS.LINKS.PREVIEW.da}
                 className="clickable inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
               >
-                Læs læseprøven her
+                Read a sample here
               </Link>
             </div>
           </div>
@@ -96,11 +98,11 @@ export default async function HomePage() {
 
       <section className="w-full xl:w-5/6 mx-auto space-y-12 md:space-y-16 pt-20 md:pt-36">
         <header className="space-y-4">
-          <h2 className="text-4xl md:text-5xl">Om forfatterne</h2>
+          <h2 className="text-4xl md:text-5xl">About the authors</h2>
           <p className="text-base md:text-lg">
-            <b>Facet</b> er skrevet af de to erfarne og anerkendte
-            lærebogsforfattere Fanny Slotorub og Neel Jersild Moreira, der hver
-            har en lang række udgivelser til DU2 og DU3 bag sig.
+            <em>Facet</em> is written by two experienced and renowned textbook
+            authors, Fanny Slotorub and Neel Jersild Moreira, both with a long
+            list of publications for DU2 and DU3.
           </p>
         </header>
 
@@ -111,16 +113,18 @@ export default async function HomePage() {
                 Fanny Slotorub
               </h3>
               <p className="paragraph">
-                Forfatter til en lang række populære lærebøger inden for dansk
-                som andetsprog, herunder <b>Grammatik i brug, At skrive</b> samt{" "}
-                <b>Puls- og Fokusserien.</b>
+                Author of numerous popular textbooks in Danish as a second
+                language, including <em>Grammatik i brug</em>,{" "}
+                <em>At skrive</em>, and the <em>Puls</em> and <em>Fokus</em>
+                -series.
               </p>
               <p className="paragraph">
-                Ansat på Københavns Sprogcenter i mere end 20 år med
-                undervisning på alle niveauer på Danskuddannelse 2 og 3. Mange
-                års erfaring som beskikket censor ved Prøve i Dansk 2 og 3.
-                Siden 2018 ansat som pædagogisk konsulent for Styrelsen for
-                International Rekruttering og Integration (SIRI).
+                Employed at the Copenhagen Language Centre for over 20 years,
+                teaching all levels of Danish Education 2 and 3. With many years
+                of experience as an appointed examiner for the Danish Exams 2
+                and 3. Since 2018, Fanny has been working as a pedagogical
+                consultant for the Danish Agency for International Recruitment
+                and Integration (SIRI).
               </p>
             </article>
             <article className="w-full md:w-1/2">
@@ -128,19 +132,19 @@ export default async function HomePage() {
                 Neel Jersild Moreira
               </h3>
               <p className="paragraph">
-                Forfatter til en lang række populære lærebøger inden for dansk
-                som andetsprog, nemlig <b>Puls- og Fokusserien</b> samt{" "}
-                <b>10 Danskere</b> og frilæsningsbogen{" "}
-                <b>Det er dit valg, Ahmed.</b>
+                Author of a wide range of popular textbooks in Danish as a
+                second language, including the <em>Puls</em> and <em>Fokus</em>
+                -series, as well as <em>10 Danskere</em> and the reader{" "}
+                <em>Det er dit valg, Ahmed.</em>
               </p>
               <p className="paragraph">
-                Ansat på Københavns Sprogcenter i en længere årrække med
-                undervisning på alle niveauer på DU2 og DU3. Siden 2018 ansat på
-                CSI Sprogcenter.
+                Neel has taught at the Copenhagen Language Centre for several
+                years, covering all levels of DU2 and DU3. Since 2018, Neel has
+                been working at CSI Language Centre.
               </p>
               <p className="paragraph">
-                Mange års erfaring som beskikket censor og som medlem af
-                opgavekommissionen.
+                Many years of experience as an appointed examiner and as a
+                member of the exam committee.
               </p>
             </article>
           </div>
@@ -149,7 +153,7 @@ export default async function HomePage() {
               className={`tracking-wider clickable bg-green font-medium sm:text-lg text-white py-1 px-4 sm:px-8`}
               href={CONSTANTS.LINKS.ABOUT.da}
             >
-              Læs mere om forfatterne
+              Read more about the authors
             </Link>
           </div>
         </div>
@@ -162,8 +166,8 @@ export default async function HomePage() {
         </div>
 
         <p className="text-xs sm:text-sm">
-          <b>Forlaget DIT - Dansk i Tiden</b> udgiver undervisningsmaterialer i
-          dansk som andetsprog til Danskuddannelse 2 og 3.
+          <b>Forlaget DIT - Dansk i Tiden</b> publishes teaching materials for
+          Danish as a second language aimed at Danish Education 2 and 3.
         </p>
         {/* </div> */}
       </div>

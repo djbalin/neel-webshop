@@ -4,16 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
 
-const CartButton = () => {
+const CartButton = ({ isEn }: { isEn: boolean }) => {
   const { amount } = useCartContext();
 
   return (
     <div className="relative">
       <Link
-        href={CONSTANTS.LINKS.CART}
+        href={isEn ? CONSTANTS.LINKS.CART.en : CONSTANTS.LINKS.CART.da}
         className="relative cursor-pointer space-x-1 flex items-center"
       >
-        <span className="">Kurv</span>
+        <span>{isEn ? "Cart" : "Kurv"}</span>
         <div className="relative">
           <Image
             src={"/images/basket.svg"}

@@ -44,7 +44,7 @@ function usePurchaseControls() {
   };
 }
 
-export default function BookHeroSection() {
+export default function BookHeroSection_EN() {
   const {
     purchaseAmount,
     isItemsAdded,
@@ -58,24 +58,24 @@ export default function BookHeroSection() {
       <div className="md:w-3/5">
         <h1 className="header mb-1">Facet</h1>
         <span className="text-sm text-gray-500">
-          Af{" "}
+          By{" "}
           <a
-            href={CONSTANTS.LINKS.ABOUT.da}
+            href={CONSTANTS.LINKS.ABOUT.en}
             className="underline font-medium text-gray-700"
           >
             Fanny Slotorub
           </a>{" "}
           &{" "}
           <a
-            href={CONSTANTS.LINKS.ABOUT.da}
+            href={CONSTANTS.LINKS.ABOUT.en}
             className="underline font-medium text-gray-700"
           >
             Neel Jersild Moreira
           </a>
         </span>
         <p className="font-normal my-4 w-4/5">
-          <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3 modul
-          5, der er på vej mod Prøve i Dansk 3.
+          <em>Facet</em> is a textbook for students in Danish Education 3,
+          Module 5, who are preparing for the Danish Exam 3.
         </p>
 
         {/* Purchase Controls */}
@@ -86,7 +86,7 @@ export default function BookHeroSection() {
                 {CONSTANTS.BOOK_PRICE_DKK_EXCL_MOMS}
               </span>
               <span className="text-2xl font-normal">DKK</span>
-              <span className="font-light">excl. moms</span>
+              <span className="font-light">(excl. VAT)</span>
             </p>
             <div className="flex gap-2 flex-col md:flex-row w-full gap-x-6">
               <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
@@ -120,7 +120,7 @@ export default function BookHeroSection() {
               >
                 {isItemsAdded ? (
                   <>
-                    <Check /> Kurv opdateret!
+                    <Check /> Cart updated!
                   </>
                 ) : (
                   <>
@@ -131,7 +131,7 @@ export default function BookHeroSection() {
                       height={25}
                       // className="inline-block"
                     />
-                    Føj til kurv
+                    Add to cart
                   </>
                 )}
               </button>
@@ -142,13 +142,13 @@ export default function BookHeroSection() {
 
         <div className="flex flex-col gap-y-2 mt-2">
           <span className="text-gray-700 text-xs sm:text-sm">
-            Forventet leveringstid: 3-4 arbejdsdage
+            Expected delivery time: 3-4 business days
           </span>
           <a
-            href={CONSTANTS.LINKS.PREVIEW.da}
+            href={CONSTANTS.LINKS.PREVIEW.en}
             className="text-blue-600 underline text-sm"
           >
-            Læseprøve →
+            Preview →
           </a>
         </div>
       </div>
@@ -167,40 +167,4 @@ export default function BookHeroSection() {
       </div>
     </section>
   );
-}
-
-{
-  /* <div className="flex w-full py-16 flex-row space-x-6  ">
-  <div className="flex w-3/5   bg-blue-50  flex-col">
-    <h1 className="text-6xl   md:text-4xl lg:text-6xl font-normal tracking-tight mb-1">
-      Facet
-    </h1>
-    <span>
-      Af{" "}
-      <a href={CONSTANTS.LINKS.ABOUT} className="anchorTag">
-        Fanny Slotorub
-      </a>{" "}
-      &{" "}
-      <a href={CONSTANTS.LINKS.ABOUT} className="anchorTag">
-        Neel Jersild Moreira
-      </a>
-    </span>
-    <p className="font-normal mt-6 mb-8 ">
-      <b>Facet</b> består af 4 kapitler med temaerne: Arbejde og identitet,
-      Penge og økonomi, Sundhed og livsstil og Kriminalitet og straf... (læs
-      mere)
-    </p>
-    <PurchaseBook />
-    <span className="mt-3">Forventet leveringstid: 3 uger</span>
-  </div>
-  <div className="w-2/5">
-    <Image
-      width={250}
-      height={250}
-      src={"/images/forside.avif"}
-      alt={"Puls 4 book cover"}
-      className="object-contain"
-    />
-  </div>
-</div>; */
 }
