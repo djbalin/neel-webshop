@@ -10,4 +10,6 @@ export const CONSTANTS = {
     AUDIO: { da: "/audio", en: "/en/audio" },
     CART: { da: "/kurv", en: "/en/cart" },
   },
+  DAFOLO_URL:
+    "https://dafololager.dk/dafololagerhotel/WebForms/_!Dafolo_45152383.asp",
 } as const;
