@@ -158,7 +158,7 @@ export default async function HomePage() {
       {/* <div className="flex max-w-[500px]"> */}
       <div className="px-4 max-w-[400px] sm:max-w-[700px] sm:pb-10 pb-6 mx-auto flex flex-row justify-center items-center md:items-start md:pl-16 text-sm md:pr-12 tracking-tight md:space-y-0 md:space-x-6 space-x-4">
         <div className="hidden sm:flex justify-center min-w-[150px]">
-          <Logo height={150} width={150} />
+          <Logo height={150} width={150} disableLink={true} />
         </div>
 
         <p className="text-xs sm:text-sm">
