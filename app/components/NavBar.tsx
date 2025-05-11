@@ -37,7 +37,7 @@ export default function NavBar() {
   return (
     <nav className=" z-50  w-full  py-8 relative pb-12 lg:pb-12">
       <div className="flex items-center  justify-between lg:justify-start w-full">
-        <Logo />
+        <Logo isEn={isEn} disableLink={false} />
         <div className="flex items-center lg:w-full  ">
           <div className="hidden lg:block lg:ml-6 w-full ">
             <div className="flex text-sm xl:text-base justify-evenly  w-full  ">
