@@ -7,13 +7,16 @@ const PROD_DOMAIN = "https://www.forlagetdit.dk";
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
 
 export async function POST(req: Request) {
-  const PRICE_ID = "price_1RHnljRrN8SMS2hTFbQ7wrNp";
+  const PRICE_ID =
+    process.env.NODE_ENV === "development"
+      ? "price_1RHnljRrN8SMS2hTFbQ7wrNp"
+      : "price_1ROm5sRrN8SMS2hTIcAeR199";
   try {
-    console.log("REQUEST:");
-    console.log(req);
+    // console.log("REQUEST:");
+    // console.log(req);
 
     const formdata = await req.formData();
-    console.log(formdata);
+    // console.log(formdata);
 
     const quantity = formdata.get("quantity");
     const locale = formdata.get("locale");
@@ -44,17 +47,6 @@ export async function POST(req: Request) {
       shipping_address_collection: {
         allowed_countries: ["DK"],
       },
-      // custom_fields: [
-      //   {
-      //     key: "ean_number",
-      //     label: {
-      //       type: "custom",
-      //       custom: "EAN-nummer (valgfrit)",
-      //     },
-      //     type: "text",
-      //     optional: true,
-      //   },
-      // ],
 
       mode: "payment",
       success_url: `${URL}/return/?success=true`,
