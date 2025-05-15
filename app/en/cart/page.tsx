@@ -4,16 +4,16 @@ import { useCartContext } from "@/contexts/CartContext";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { CONSTANTS } from "../../constants";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
   const { amount, setAmount } = useCartContext();
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [customerType, setCustomerType] = useState<null | "privat" | "erhverv">(
     null
   );
   const [countdown, setCountdown] = useState(5);
-  // const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     if (customerType === "erhverv") {
@@ -44,16 +44,16 @@ export default function CartPage() {
   const increaseAmount = () => setAmount(amount + 1);
   const decreaseAmount = () => setAmount(amount > 0 ? amount - 1 : 0);
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
 
-  //   if (amount > 5) {
-  //     router.push(DAFOLO_URL);
-  //   } else {
-  //     e.currentTarget.submit();
-  //   }
-  // };
+    if (amount > 5) {
+      router.push(CONSTANTS.DAFOLO_URL);
+    } else {
+      e.currentTarget.submit();
+    }
+  };
 
   return (
     <div className="space-y-4 pb-10">
@@ -141,13 +141,13 @@ export default function CartPage() {
               <span>Total including VAT and delivery:</span>
               <span>{format(totalPrice)} DKK</span>
             </div>
-            <p className="text-sm">
+            {/* <p className="text-sm">
               Individual customers will be able to order directly on this site
               from the 18th of May, 2025. Contact us at{" "}
               <a href="mailto:forlagetdit@gmail.com">forlagetdit@gmail.com</a>{" "}
               in order to place an order before that date.
-            </p>
-            {/* <form
+            </p> */}
+            <form
               action="/api/stripe/checkout-sessions"
               method="POST"
               onSubmit={handleSubmit}
@@ -165,8 +165,8 @@ export default function CartPage() {
                   : "Proceed to checkout"}
               </button>
               <input type="hidden" name="quantity" value={amount} />
-              <input type="hidden" name="locale" value="da" />
-            </form> */}
+              <input type="hidden" name="locale" value="en" />
+            </form>
           </>
         )}
       </div>
