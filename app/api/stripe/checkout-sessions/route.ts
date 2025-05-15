@@ -5,12 +5,14 @@ const DEV_DOMAIN = "http://localhost:3000";
 const PROD_DOMAIN = "https://www.forlagetdit.dk";
 
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
+const PRICE_ID =
+  process.env.NODE_ENV === "development"
+    ? "price_1RHnljRrN8SMS2hTFbQ7wrNp"
+    : "price_1RP8mWRrN8SMS2hT7HgPkzEd";
+
+const SHIPPING_ID = "shr_1ROmGlRrN8SMS2hT0GhqEvLq";
 
 export async function POST(req: Request) {
-  const PRICE_ID =
-    process.env.NODE_ENV === "development"
-      ? "price_1RHnljRrN8SMS2hTFbQ7wrNp"
-      : "price_1ROm5sRrN8SMS2hTIcAeR199";
   try {
     // console.log("REQUEST:");
     // console.log(req);
@@ -34,6 +36,9 @@ export async function POST(req: Request) {
           quantity: quantity,
         },
       ],
+      automatic_tax: {
+        enabled: true,
+      },
       custom_text: {
         // shipping_address: { message: "Leveringsadresse" },
         // submit: { message: "Betal" },
@@ -44,6 +49,13 @@ export async function POST(req: Request) {
       phone_number_collection: {
         enabled: true,
       },
+
+      shipping_options: [
+        {
+          shipping_rate: SHIPPING_ID,
+        },
+      ],
+
       shipping_address_collection: {
         allowed_countries: ["DK"],
       },
