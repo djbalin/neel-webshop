@@ -67,9 +67,12 @@ export default function CartPage() {
             width={100}
             height={100}
           />
-          <span className="font-semibold text-lg sm:text-3xl">
-            Facet, Textbook
-          </span>
+          <div>
+            <span className="font-semibold text-lg sm:text-3xl">
+              Facet, Textbook
+            </span>
+            <p className="text-base text-gray-600 mt-1">289.00 DKK excl. VAT</p>
+          </div>
         </div>
 
         {!customerType ? (

@@ -67,9 +67,14 @@ export default function CartPage() {
             width={100}
             height={100}
           />
-          <span className="font-semibold text-lg sm:text-3xl">
-            Facet, Grundbog
-          </span>
+          <div>
+            <span className="font-semibold text-lg sm:text-3xl">
+              Facet, Grundbog
+            </span>
+            <p className="text-base text-gray-600 mt-1">
+              289,00 DKK ekskl. moms
+            </p>
+          </div>
         </div>
 
         {!customerType ? (
