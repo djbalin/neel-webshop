@@ -137,16 +137,13 @@ export default function CartPage() {
 
             <hr className="my-6 border-gray-300" />
 
-            <div className="flex justify-between font-bold mb-6 sm:text-lg">
+            <div className="flex justify-between font-bold mb-2 sm:text-lg">
               <span>Total inkl. moms og levering:</span>
               <span>{format(totalPrice)} DKK</span>
             </div>
-            {/* <p className="text-sm">
-              Private kunder kan bestille direkte her på siden fra d. 18. maj
-              2025. Kontakt os på{" "}
-              <a href="mailto:forlagetdit@gmail.com">forlagetdit@gmail.com</a>{" "}
-              for at aflægge en ordre inden da.
-            </p> */}
+            <p className="text-sm text-gray-600 mb-6">
+              Pakken leveres til din nærmeste pakkeshop.
+            </p>
             <form
               action="/api/stripe/checkout-sessions"
               method="POST"
