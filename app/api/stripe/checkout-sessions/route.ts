@@ -10,7 +10,10 @@ const PRICE_ID =
     ? "price_1RHnljRrN8SMS2hTFbQ7wrNp"
     : "price_1RP8mWRrN8SMS2hT7HgPkzEd";
 
-const SHIPPING_ID = "shr_1ROmGlRrN8SMS2hT0GhqEvLq";
+const SHIPPING_ID =
+  process.env.NODE_ENV === "development"
+    ? "shr_1RTj07RrN8SMS2hTXI2DpH0c"
+    : "shr_1ROmGlRrN8SMS2hT0GhqEvLq";
 
 export async function POST(req: Request) {
   try {
@@ -58,6 +61,10 @@ export async function POST(req: Request) {
 
       shipping_address_collection: {
         allowed_countries: ["DK"],
+      },
+
+      payment_intent_data: {
+        capture_method: "manual",
       },
 
       mode: "payment",
