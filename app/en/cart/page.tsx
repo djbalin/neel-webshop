@@ -67,9 +67,12 @@ export default function CartPage() {
             width={100}
             height={100}
           />
-          <span className="font-semibold text-lg sm:text-3xl">
-            Facet, Textbook
-          </span>
+          <div>
+            <span className="font-semibold text-lg sm:text-3xl">
+              Facet, Textbook
+            </span>
+            <p className="text-base text-gray-600 mt-1">289.00 DKK excl. VAT</p>
+          </div>
         </div>
 
         {!customerType ? (
@@ -137,10 +140,13 @@ export default function CartPage() {
 
             <hr className="my-6 border-gray-300" />
 
-            <div className="flex justify-between font-bold mb-6 sm:text-lg">
+            <div className="flex justify-between font-bold mb-2 sm:text-lg">
               <span>Total including VAT and delivery:</span>
               <span>{format(totalPrice)} DKK</span>
             </div>
+            <p className="text-sm text-gray-600 mb-6">
+              The package will be delivered to your nearest pickup point.
+            </p>
             {/* <p className="text-sm">
               Individual customers will be able to order directly on this site
               from the 18th of May, 2025. Contact us at{" "}
