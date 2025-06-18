@@ -151,7 +151,7 @@ export default async function HomePage() {
           <div className="flex justify-center md:justify-start mx-auto">
             <Link
               className={`tracking-wider clickable bg-green font-medium sm:text-lg text-white py-1 px-4 sm:px-8`}
-              href={CONSTANTS.LINKS.ABOUT.da}
+              href={CONSTANTS.LINKS.ABOUT.en}
             >
               Read more about the authors
             </Link>
