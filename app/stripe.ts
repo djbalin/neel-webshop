@@ -1,2 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-export const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+import "server-only";
+
+import Stripe from "stripe";
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error("STRIPE_SECRET_KEY is not set");
+}
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
