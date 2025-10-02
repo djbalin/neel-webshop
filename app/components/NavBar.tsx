@@ -87,7 +87,7 @@ export default function NavBar() {
           </button>
         </div>
         <div className="flex flex-row gap-x-4 items-center">
-          <Link href={"/"} locale="da">
+          <Link href={"/"}>
             <Image
               src={"/images/flags/dk_flag.svg"}
               alt="Danish flag"
@@ -96,7 +96,7 @@ export default function NavBar() {
               height={40}
             />
           </Link>
-          <Link href={"/en"} locale="en">
+          <Link href={"/en"}>
             <Image
               src={"/images/flags/uk_flag.svg"}
               alt="UK Flag"
@@ -157,7 +157,7 @@ export default function NavBar() {
 
 function HomeButton({ isEn }: { isEn: boolean }) {
   return (
-    <Link href={isEn ? "/en" : "/"} locale="da">
+    <Link href={isEn ? "/en" : "/"}>
       <Image
         src={"/images/home.svg"}
         alt="home"
