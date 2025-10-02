@@ -3,18 +3,14 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 export async function POST(req: Request) {
   let event: Stripe.Event;
 
   try {
-    // Get the raw body text - must be done before any other body parsing
-    const body = await req.text();
+    // Read body as buffer to preserve exact bytes for signature verification
+    // This is critical for Stripe webhook signature validation
+    const buf = await req.arrayBuffer();
+    const body = Buffer.from(buf);
     const stripeSignature = (await headers()).get("stripe-signature");
 
     console.log("🔍 Debug Info:");
@@ -38,7 +34,7 @@ export async function POST(req: Request) {
     }
 
     event = stripe.webhooks.constructEvent(
-      body,
+      body.toString("utf8"),
       stripeSignature,
       process.env.STRIPE_WEBHOOK_SECRET,
     );
