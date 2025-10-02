@@ -3,43 +3,42 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
 export async function POST(req: Request) {
   let event: Stripe.Event;
 
   try {
-    // Read body as buffer to preserve exact bytes for signature verification
-    // This is critical for Stripe webhook signature validation
-    const buf = await req.arrayBuffer();
-    const body = Buffer.from(buf);
     const stripeSignature = (await headers()).get("stripe-signature");
-
-    console.log("🔍 Debug Info:");
-    console.log("- Body length:", body.length);
-    console.log("- Signature present:", !!stripeSignature);
-    console.log(
-      "- Webhook secret present:",
-      !!process.env.STRIPE_WEBHOOK_SECRET,
-    );
-    console.log(
-      "- Webhook secret prefix:",
-      process.env.STRIPE_WEBHOOK_SECRET?.substring(0, 7),
-    );
-
     if (!stripeSignature) {
-      throw new Error("Missing stripe-signature header");
+      return NextResponse.json(
+        { message: "No stripe-signature header" },
+        { status: 400 },
+      );
     }
 
     if (!process.env.STRIPE_WEBHOOK_SECRET) {
-      throw new Error("Missing STRIPE_WEBHOOK_SECRET environment variable");
+      return NextResponse.json(
+        { message: "No STRIPE_WEBHOOK_SECRET environment variable" },
+        { status: 400 },
+      );
     }
 
+    const body = await req.text();
+
     event = stripe.webhooks.constructEvent(
-      body.toString("utf8"),
+      body,
       stripeSignature,
       process.env.STRIPE_WEBHOOK_SECRET,
     );
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    // On error, log and return the error message.
+    if (err! instanceof Error) console.log(err);
     console.log(`❌ Error message: ${errorMessage}`);
     return NextResponse.json(
       { message: `Webhook Error: ${errorMessage}` },
@@ -50,37 +49,11 @@ export async function POST(req: Request) {
   // Successfully constructed event.
   console.log("✅ Success:", event.id);
 
-  const permittedEvents: string[] = [
-    "checkout.session.completed",
-    "payment_intent.created",
-    "payment_intent.succeeded",
-    "payment_intent.payment_failed",
-  ];
-
-  if (permittedEvents.includes(event.type)) {
-    let data;
-
+  if (event.type === "payment_intent.created") {
+    console.log("✨ PaymentIntent created:", event.data.object);
     try {
-      switch (event.type) {
-        case "checkout.session.completed":
-          data = event.data.object as Stripe.Checkout.Session;
-          console.log(`💰 CheckoutSession status: ${data.payment_status}`);
-          break;
-        case "payment_intent.created":
-          data = event.data.object as Stripe.PaymentIntent;
-          console.log(`✨ PaymentIntent created: ${data.id}`);
-          break;
-        case "payment_intent.payment_failed":
-          data = event.data.object as Stripe.PaymentIntent;
-          console.log(`❌ Payment failed: ${data.last_payment_error?.message}`);
-          break;
-        case "payment_intent.succeeded":
-          data = event.data.object as Stripe.PaymentIntent;
-          console.log(`💰 PaymentIntent status: ${data.status}`);
-          break;
-        default:
-          throw new Error(`Unhandled event: ${event.type}`);
-      }
+      const data = event.data.object;
+      console.log(`💰 CheckoutSession status: ${data.amount}`);
     } catch (error) {
       console.log(error);
       return NextResponse.json(
@@ -88,6 +61,12 @@ export async function POST(req: Request) {
         { status: 500 },
       );
     }
+  } else {
+    console.log(`❌ Unhandled event: ${event.type}`);
+    return NextResponse.json(
+      { message: `Unhandled event: ${event.type}` },
+      { status: 400 },
+    );
   }
 
   // Return a response to acknowledge receipt of the event.
