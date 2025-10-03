@@ -13,3 +13,5 @@ export const CONSTANTS = {
   DAFOLO_URL:
     "https://dafololager.dk/dafololagerhotel/WebForms/_!Dafolo_45152383.asp",
 } as const;
+export const DEV_DOMAIN = "http://localhost:3000";
+export const PROD_DOMAIN = "https://www.forlagetdit.dk";
