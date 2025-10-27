@@ -8,16 +8,15 @@ import { nodeServerAppPaths } from "next/dist/build/webpack/plugins/pages-manife
 import { env } from "process";
 
 async function sendOrderConfirmationEmail(recipient: string, amount: number) {
-  const parsedRecipient = env.production ? recipient : "jgbalin@gmail.com";
 
-  console.log("Sending order confirmation email to", parsedRecipient);
+  console.log("Sending order confirmation email to", recipient);
   const { data, error } = await resend.emails.send({
     from: "Forlaget DIT <noreply@forlagetdit.dk>", // Change this to your verified domain
-    to: [parsedRecipient],
+    to: [recipient],
     subject: "Ordrebekræftelse - Forlaget DIT",
     react: OrderConfirmationEmail({
       amount,
-      customerEmail: parsedRecipient,
+      customerEmail: recipient,
     }),
   });
   if (error) {

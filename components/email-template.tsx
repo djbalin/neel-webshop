@@ -46,9 +46,6 @@ export function OrderConfirmationEmail({
           <Heading style={heading}>Ordrebekræftelse</Heading>
 
           <Text style={paragraph}>
-            Kære kunde,
-            <br />
-            <br />
             Tak for din bestilling hos Forlaget DIT. Vi har modtaget din ordre
             og vil pakke og afsende den inden for 7 hverdage. Du vil få besked,
             når din ordre er afsendt.
@@ -58,10 +55,10 @@ export function OrderConfirmationEmail({
             <Section style={orderSection}>
               <Text style={orderTitle}>Ordredetaljer</Text>
               <Text style={orderText}>
-                <strong>Total beløb:</strong> {formattedAmount}
+                <strong>Beløb:</strong> {formattedAmount}
               </Text>
               <Text style={orderText}>
-                <strong>Sendt til:</strong> {customerEmail}
+                <strong>E-mail:</strong> {customerEmail}
               </Text>
             </Section>
           )}
