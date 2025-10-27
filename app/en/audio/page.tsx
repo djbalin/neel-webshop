@@ -110,9 +110,9 @@ export default function AudioPage() {
 
       <div className="h-full w-full xl:min-w-[700px] border-gray-100 mt-10 xl:mt-0 border-2 shadow-lg rounded-lg">
         <div className="bg-gray-200 space-y-2 p-2 border-b-2 border-gray-200 text-center">
-          <h3 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
             Audio player
-          </h3>
+          </h2>
         </div>
         <div className="h-full max-h-[600px] space-y-6 scrollable p-6 overflow-auto">
           <AudioPlayer
