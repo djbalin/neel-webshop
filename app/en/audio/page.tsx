@@ -1,11 +1,6 @@
 import { readdirSync, statSync } from "fs";
 import path from "path";
-import dynamic from "next/dynamic";
-
-// Import AudioPlayer with dynamic import and no SSR since it uses browser APIs
-const AudioPlayer = dynamic(() => import("../../components/AudioPlayer"), {
-  ssr: false,
-});
+import AudioPlayer from "../../components/AudioPlayer";
 
 export default function AudioPage() {
   const audioDir = path.join(process.cwd(), "public/audio");
@@ -58,7 +53,7 @@ export default function AudioPage() {
         // Get audio files for each exercise
         const files = readdirSync(exercisePath)
           .filter(
-            (file) => !statSync(path.join(exercisePath, file)).isDirectory()
+            (file) => !statSync(path.join(exercisePath, file)).isDirectory(),
           )
           .sort((a, b) => {
             // Sort by the number before the underscore
@@ -115,9 +110,9 @@ export default function AudioPage() {
 
       <div className="h-full w-full xl:min-w-[700px] border-gray-100 mt-10 xl:mt-0 border-2 shadow-lg rounded-lg">
         <div className="bg-gray-200 space-y-2 p-2 border-b-2 border-gray-200 text-center">
-          <h3 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
             Audio player
-          </h3>
+          </h2>
         </div>
         <div className="h-full max-h-[600px] space-y-6 scrollable p-6 overflow-auto">
           <AudioPlayer
@@ -131,3 +126,5 @@ export default function AudioPage() {
     </div>
   );
 }
+
+// comment

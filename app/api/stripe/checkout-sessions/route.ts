@@ -1,9 +1,7 @@
+import { PROD_DOMAIN, DEV_DOMAIN } from "@/app/constants";
 import { stripe } from "@/app/stripe";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-
-const DEV_DOMAIN = "http://localhost:3000";
-const PROD_DOMAIN = "https://www.forlagetdit.dk";
 
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
 const PRICE_ID =
