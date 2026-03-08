@@ -2,23 +2,89 @@ import { stripe } from "@/app/stripe";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
-import { OrderConfirmationEmail } from "@/components/email-template";
+import {
+  OrderConfirmationEmail,
+  type OrderConfirmationEmailProps,
+} from "@/components/email-template";
 import { resend } from "@/app/resend";
-import { nodeServerAppPaths } from "next/dist/build/webpack/plugins/pages-manifest-plugin";
-import { env } from "process";
 
-async function sendOrderConfirmationEmail(recipient: string, amount: number) {
+const ORDER_CONFIRMATION_FROM_EMAIL =
+  "Forlaget DIT <noreply@forlagetdit.dk>";
+const ORDER_CONFIRMATION_REPLY_TO = "forlagetdit@gmail.com";
+
+function normalizeLocale(
+  locale: Stripe.Checkout.Session.Locale | null | undefined,
+): "da" | "en" {
+  return locale === "en" ? "en" : "da";
+}
+
+function formatOrderReference(orderId: string) {
+  return orderId.slice(-8).toUpperCase();
+}
+
+function buildEmailSubject(order: OrderConfirmationEmailProps) {
+  return order.locale === "en"
+    ? `Order confirmation #${order.orderReference} - Forlaget DIT`
+    : `Ordrebekraeftelse #${order.orderReference} - Forlaget DIT`;
+}
+
+async function getOrderConfirmationData(
+  session: Stripe.Checkout.Session,
+): Promise<OrderConfirmationEmailProps> {
+  const lineItems = await stripe.checkout.sessions.listLineItems(session.id, {
+    limit: 100,
+  });
+
+  const customerEmail = session.customer_details?.email ?? session.customer_email;
+  if (!customerEmail) {
+    throw new Error("No customer email found in checkout session");
+  }
+
+  if (session.amount_total == null) {
+    throw new Error("No amount found in checkout session");
+  }
+
+  return {
+    locale: normalizeLocale(session.locale),
+    orderId: session.id,
+    orderReference: formatOrderReference(session.id),
+    customerEmail,
+    customerName: session.customer_details?.name,
+    customerPhone: session.customer_details?.phone,
+    shippingName: session.shipping_details?.name,
+    shippingAddress:
+      session.shipping_details?.address ?? session.customer_details?.address,
+    currency: session.currency,
+    subtotalAmount: session.amount_subtotal,
+    shippingAmount: session.total_details?.amount_shipping,
+    taxAmount: session.total_details?.amount_tax,
+    totalAmount: session.amount_total,
+    items: lineItems.data.map((item) => ({
+      description: item.description ?? "Item",
+      quantity: item.quantity,
+      totalAmount: item.amount_total ?? item.amount_subtotal,
+    })),
+  };
+}
+
+async function sendOrderConfirmationEmail(
+  recipient: string,
+  order: OrderConfirmationEmailProps,
+) {
 
   console.log("Sending order confirmation email to", recipient);
-  const { data, error } = await resend.emails.send({
-    from: "Forlaget DIT <noreply@forlagetdit.dk>", // Change this to your verified domain
-    to: [recipient],
-    subject: "Ordrebekræftelse - Forlaget DIT",
-    react: OrderConfirmationEmail({
-      amount,
-      customerEmail: recipient,
-    }),
-  });
+  const { data, error } = await resend.emails.send(
+    {
+      from: ORDER_CONFIRMATION_FROM_EMAIL,
+      to: [recipient],
+      replyTo: ORDER_CONFIRMATION_REPLY_TO,
+      subject: buildEmailSubject(order),
+      react: OrderConfirmationEmail(order),
+    },
+    {
+      idempotencyKey: `order-confirmation/${order.orderId}`,
+    },
+  );
   if (error) {
     console.error("Email error:", error);
     throw error;
@@ -56,7 +122,7 @@ export async function POST(req: Request) {
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : "Unknown error";
     // On error, log and return the error message.
-    if (err! instanceof Error) console.log(err);
+    if (!(err instanceof Error)) console.log(err);
     console.log(`❌ Error message: ${errorMessage}`);
     return NextResponse.json(
       { message: `Webhook Error: ${errorMessage}` },
@@ -71,31 +137,13 @@ export async function POST(req: Request) {
     console.log("✨ Checkout session completed:", event.data.object.id);
     try {
       const session = event.data.object as Stripe.Checkout.Session;
-      const customerEmail = session.customer_details?.email;
-      const amount = session.amount_total;
-      const orderId = session.id;
-
-      if (!customerEmail) {
-        console.error("No customer email found in checkout session");
-        return NextResponse.json(
-          { message: "No customer email found" },
-          { status: 400 },
-        );
-      }
-
-      if (!amount) {
-        console.error("No amount found in checkout session");
-        return NextResponse.json(
-          { message: "No amount found" },
-          { status: 400 },
-        );
-      }
+      const order = await getOrderConfirmationData(session);
 
       console.log(
-        `💰 Order details - Email: ${customerEmail}, Amount: ${amount}, Order ID: ${orderId}`,
+        `💰 Order details - Email: ${order.customerEmail}, Amount: ${order.totalAmount}, Order ID: ${order.orderId}`,
       );
 
-      await sendOrderConfirmationEmail(customerEmail, amount);
+      await sendOrderConfirmationEmail(order.customerEmail, order);
     } catch (error) {
       console.error("Error in webhook handler:", error);
       return NextResponse.json(

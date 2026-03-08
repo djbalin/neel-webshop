@@ -4,18 +4,21 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
-const PRICE_ID =
-  process.env.NODE_ENV === "development"
-    ? "price_1RHnljRrN8SMS2hTFbQ7wrNp"
-    : "price_1RP8mWRrN8SMS2hT7HgPkzEd";
-
-const SHIPPING_ID =
-  process.env.NODE_ENV === "development"
-    ? "shr_1RTj07RrN8SMS2hTXI2DpH0c"
-    : "shr_1ROmGlRrN8SMS2hT0GhqEvLq";
+const PRICE_ID = process.env.STRIPE_PRICE_ID;
+const SHIPPING_ID = process.env.STRIPE_SHIPPING_RATE_ID;
 
 export async function POST(req: Request): Promise<Response> {
   try {
+    if (!PRICE_ID || !SHIPPING_ID) {
+      return NextResponse.json(
+        {
+          message:
+            "Missing Stripe checkout config. Set STRIPE_PRICE_ID and STRIPE_SHIPPING_RATE_ID for this environment.",
+        },
+        { status: 500 },
+      );
+    }
+
     const formdata = await req.formData();
 
     const quantity = formdata.get("quantity");
@@ -25,7 +28,7 @@ export async function POST(req: Request): Promise<Response> {
     const localeParsedAsLocale =
       locale as Stripe.Checkout.SessionCreateParams.Locale;
 
-    if (!quantity || !locale) {
+    if (!quantity || !locale || Number.isNaN(quantityParsedAsNumber)) {
       return new Response("Incorrectly formatted request", { status: 400 });
     }
 
@@ -81,9 +84,12 @@ export async function POST(req: Request): Promise<Response> {
 
     return NextResponse.redirect(session.url, 303);
   } catch (err) {
+    const message =
+      err instanceof Error ? err.message : "Unknown Stripe checkout error";
+
     return NextResponse.json(
       {
-        message: err,
+        message,
       },
       { status: 500 },
     );
