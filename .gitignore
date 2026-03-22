@@ -30,6 +30,7 @@ yarn-error.log*
 .env*.local
 .env.development
 .env.production
+.env.prod
 
 # vercel
 .vercel
@@ -40,3 +41,9 @@ next-env.d.ts
 
 # Million Lint
 .million
+.env.local.test
+AGENTS.md
+.env.prod
+
+.agents
+.claude
