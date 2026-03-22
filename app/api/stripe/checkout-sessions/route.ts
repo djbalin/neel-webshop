@@ -4,21 +4,11 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
-const PRICE_ID = process.env.STRIPE_PRICE_ID;
-const SHIPPING_ID = process.env.STRIPE_SHIPPING_RATE_ID;
+const PRICE_ID = "price_1T47CDRrVs9gsEaF5UxZOzgj";
+const SHIPPING_ID = "shr_1T47CJRrVs9gsEaFFU6hn4ez";
 
 export async function POST(req: Request): Promise<Response> {
   try {
-    if (!PRICE_ID || !SHIPPING_ID) {
-      return NextResponse.json(
-        {
-          message:
-            "Missing Stripe checkout config. Set STRIPE_PRICE_ID and STRIPE_SHIPPING_RATE_ID for this environment.",
-        },
-        { status: 500 },
-      );
-    }
-
     const formdata = await req.formData();
 
     const quantity = formdata.get("quantity");
