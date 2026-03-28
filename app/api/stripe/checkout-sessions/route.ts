@@ -4,8 +4,14 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
-const PRICE_ID = "price_1T47CDRrVs9gsEaF5UxZOzgj";
-const SHIPPING_ID = "shr_1T47CJRrVs9gsEaFFU6hn4ez";
+const PRICE_ID =
+  process.env.NODE_ENV === "production"
+    ? "price_1ROm5sRrN8SMS2hTIcAeR199"
+    : "price_1RHnljRrN8SMS2hTFbQ7wrNp";
+const SHIPPING_ID =
+  process.env.NODE_ENV === "production"
+    ? "shr_1ROmGlRrN8SMS2hT0GhqEvLq"
+    : "shr_1RTj07RrN8SMS2hTXI2DpH0c";
 
 export async function POST(req: Request): Promise<Response> {
   try {
