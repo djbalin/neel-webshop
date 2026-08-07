@@ -100,17 +100,17 @@ export default function AudioPlayer({
                           return (
                             <div
                               key={idx}
-                              className="space-y-1 flex flex-row  place-items-center"
+                              className="space-y-1 flex flex-col sm:flex-row place-items-center  "
                             >
-                              <div className="flex w-2/5 flex-col">
-                                <span className="">
-                                  {displayName.replace(".m4a", "")}
-                                </span>
+                              <div className="flex w-full sm:w-2/5 flex-row sm:flex-col">
+                                {/* <span className=""> */}
+                                {displayName.replace(".m4a", "")}
+                                {/* </span> */}
                               </div>
                               <audio
                                 controls
                                 src={audioPath}
-                                className="text-sm h-12 w-3/5"
+                                className="text-sm h-12 w-full sm:w-3/5"
                               />
                             </div>
                           );
