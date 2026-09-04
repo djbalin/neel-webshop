@@ -27,38 +27,55 @@ const SHIPPING_ID = IS_PROD
   ? "shr_1ROmGlRrN8SMS2hT0GhqEvLq"
   : "shr_1RTj07RrN8SMS2hTXI2DpH0c";
 
+function parseQuantity(value: FormDataEntryValue | null): number {
+  if (value == null) return 0;
+  const parsed = parseInt(value as string, 10);
+  return Number.isNaN(parsed) || parsed < 0 ? 0 : parsed;
+}
+
 export async function POST(req: Request): Promise<Response> {
   try {
     const formdata = await req.formData();
 
-    const quantity = formdata.get("quantity");
     const locale = formdata.get("locale");
-    const product = (formdata.get("product") as string | null) ?? "facet";
-
-    const quantityParsedAsNumber = parseInt(quantity as string, 10);
     const localeParsedAsLocale =
       locale as Stripe.Checkout.SessionCreateParams.Locale;
 
-    if (!quantity || !locale || Number.isNaN(quantityParsedAsNumber)) {
+    if (!locale) {
       return new Response("Incorrectly formatted request", { status: 400 });
     }
 
-    if (product !== "facet" && product !== "komplet") {
-      return new Response("Unknown product", { status: 400 });
+    // Per-product quantities. Falls back to the legacy single `product` +
+    // `quantity` fields (still used by the English cart page).
+    const quantities: Record<Product, number> = {
+      facet: parseQuantity(formdata.get("facetQuantity")),
+      komplet: parseQuantity(formdata.get("kompletQuantity")),
+    };
+
+    const legacyProduct = formdata.get("product") as string | null;
+    const legacyQuantity = formdata.get("quantity");
+    if (legacyProduct && legacyQuantity != null) {
+      if (legacyProduct !== "facet" && legacyProduct !== "komplet") {
+        return new Response("Unknown product", { status: 400 });
+      }
+      quantities[legacyProduct] += parseQuantity(legacyQuantity);
     }
 
-    const PRICE_ID = getPriceId(product);
+    const line_items = (Object.keys(quantities) as Product[])
+      .filter((product) => quantities[product] > 0)
+      .map((product) => ({
+        price: getPriceId(product),
+        quantity: quantities[product],
+      }));
+
+    if (line_items.length === 0) {
+      return new Response("Cart is empty", { status: 400 });
+    }
 
     const session = await stripe.checkout.sessions.create({
       locale: localeParsedAsLocale,
 
-      line_items: [
-        {
-          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: PRICE_ID,
-          quantity: quantityParsedAsNumber,
-        },
-      ],
+      line_items,
       automatic_tax: {
         enabled: true,
       },

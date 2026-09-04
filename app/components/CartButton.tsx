@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
 
 const CartButton = ({ isEn }: { isEn: boolean }) => {
-  const { amount } = useCartContext();
+  const { totalItems: amount } = useCartContext();
 
   return (
     <div className="relative">
