@@ -7,9 +7,9 @@ import {
   type OrderConfirmationEmailProps,
 } from "@/components/email-template";
 import { resend } from "@/app/resend";
+import { devLog } from "@/app/devLog";
 
-const ORDER_CONFIRMATION_FROM_EMAIL =
-  "Forlaget DIT <noreply@forlagetdit.dk>";
+const ORDER_CONFIRMATION_FROM_EMAIL = "Forlaget DIT <noreply@forlagetdit.dk>";
 const ORDER_CONFIRMATION_REPLY_TO = "forlagetdit@gmail.com";
 
 function normalizeLocale(
@@ -35,7 +35,8 @@ async function getOrderConfirmationData(
     limit: 100,
   });
 
-  const customerEmail = session.customer_details?.email ?? session.customer_email;
+  const customerEmail =
+    session.customer_details?.email ?? session.customer_email;
   if (!customerEmail) {
     throw new Error("No customer email found in checkout session");
   }
@@ -71,8 +72,7 @@ async function sendOrderConfirmationEmail(
   recipient: string,
   order: OrderConfirmationEmailProps,
 ) {
-
-  console.log("Sending order confirmation email to", recipient);
+  devLog("Sending order confirmation email to", recipient);
   const { data, error } = await resend.emails.send(
     {
       from: ORDER_CONFIRMATION_FROM_EMAIL,
@@ -89,7 +89,7 @@ async function sendOrderConfirmationEmail(
     console.error("Email error:", error);
     throw error;
   }
-  console.log("Email sent successfully:", data);
+  devLog("Email sent successfully:", data);
   return data;
 }
 
@@ -122,8 +122,8 @@ export async function POST(req: Request) {
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : "Unknown error";
     // On error, log and return the error message.
-    if (!(err instanceof Error)) console.log(err);
-    console.log(`❌ Error message: ${errorMessage}`);
+    if (!(err instanceof Error)) devLog(err);
+    devLog(`❌ Error message: ${errorMessage}`);
     return NextResponse.json(
       { message: `Webhook Error: ${errorMessage}` },
       { status: 400 },
@@ -131,15 +131,15 @@ export async function POST(req: Request) {
   }
 
   // Successfully constructed event.
-  console.log("✅ Success:", event.id);
+  devLog("✅ Success:", event.id);
 
   if (event.type === "checkout.session.completed") {
-    console.log("✨ Checkout session completed:", event.data.object.id);
+    devLog("✨ Checkout session completed:", event.data.object.id);
     try {
       const session = event.data.object as Stripe.Checkout.Session;
       const order = await getOrderConfirmationData(session);
 
-      console.log(
+      devLog(
         `💰 Order details - Email: ${order.customerEmail}, Amount: ${order.totalAmount}, Order ID: ${order.orderId}`,
       );
 
@@ -152,7 +152,7 @@ export async function POST(req: Request) {
       );
     }
   } else {
-    console.log(`ℹ️ Unhandled event: ${event.type}`);
+    devLog(`ℹ️ Unhandled event: ${event.type}`);
     // Return 200 for unhandled events so Stripe doesn't retry
   }
 

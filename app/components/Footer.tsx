@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer
-      className={`flex full-bleed justify-center w-full space-x-6 py-4 place-items-center  bg-orange text-center`}
+      className={`flex full-bleed justify-center w-full space-x-6 py-1 place-items-center  bg-orange text-center`}
     >
       <span className="font-lighter  tracking-wide text-xs sm:text-sm">
         Forlaget DIT | +45 60550776 | forlagetdit.dk | forlagetdit@gmail.com |
