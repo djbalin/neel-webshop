@@ -2,22 +2,60 @@ import Logo from "@/app/components/Logo";
 import Image from "next/image";
 import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
+import NyhedBurst from "@/app/components/NyhedBurst";
+
 export default async function HomePage() {
   return (
     <>
-      {/* Hero section */}
-      <section className="flex flex-col md:flex-row max-w-7xl mx-auto mb-16 xs:pb-10">
-        <div className="md:w-3/5">
-          <header className="mb-4 md:mb-8">
+      {/* Hero section - two books */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 max-w-7xl mx-auto mb-16 xs:pb-10">
+        {/* Komplet - ny bog */}
+        <article className="flex flex-col">
+          <header className="mb-4 md:mb-6">
+            <h1 className="header mb-2">Komplet</h1>
+            <h2 className="text-lg xs:text-2xl font-medium xs:font-normal">
+              Grundbog i dansk til DU2 • Modul 6
+            </h2>
+          </header>
+
+          <div className="flex justify-center mb-6">
+            <div className="relative aspect-[3/4] w-2/3 max-w-[280px]">
+              <Image
+                src="/images/komplet-forside.avif"
+                alt="Komplet lærebog"
+                fill
+                className="object-contain"
+                priority
+              />
+              <NyhedBurst className="absolute -top-8 -right-9" />
+            </div>
+          </div>
+
+          <div className="space-y-4 flex-1">
+            <p>
+              <b>Komplet</b> er en grundbog til kursister på Danskuddannelse 2
+              modul 6, der er på vej mod Prøve i Dansk 2.
+            </p>
+            <p className="text-gray-600 italic">Udkommer 10. september.</p>
+          </div>
+          <div className="flex justify-center">
+            <button className="mt-6 clickable rounded-xl bg-orange text-white px-8 py-1 text-lg font-medium">
+              <Link href={CONSTANTS.LINKS.BOOKS.da}>Læs mere</Link>
+            </button>
+          </div>
+        </article>
+
+        {/* Facet */}
+        <article className="flex flex-col">
+          <header className="mb-4 md:mb-6">
             <h1 className="header mb-2">Facet</h1>
             <h2 className="text-lg xs:text-2xl font-medium xs:font-normal">
               Grundbog i dansk til DU3 • Modul 5
             </h2>
           </header>
 
-          {/* Mobile book image - only shows on small screens */}
-          <div className="flex justify-center mb-8 md:hidden">
-            <div className="relative aspect-[3/4] w-2/3 max-w-[300px]">
+          <div className="flex justify-center mb-6">
+            <div className="relative aspect-[3/4] w-2/3 max-w-[280px]">
               <Image
                 src="/images/forside.avif"
                 alt="Facet lærebog"
@@ -28,7 +66,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 flex-1">
             <p>
               <b>Facet</b> er en grundbog til kursister på Danskuddannelse 3
               modul 5, der er på vej mod Prøve i Dansk 3.
@@ -41,24 +79,12 @@ export default async function HomePage() {
               til Prøve i Dansk 3 med en lang række PD3-lignende opgaver.
             </p>
           </div>
-          <div className="flex justify-center md:justify-start">
-            <button className="mt-6 clickable rounded-xl bg-orange  text-white px-8 py-1 text-lg font-medium">
+          <div className="flex justify-center">
+            <button className="mt-6 clickable rounded-xl bg-orange text-white px-8 py-1 text-lg font-medium">
               <Link href={CONSTANTS.LINKS.BOOKS.da}>Læs mere</Link>
             </button>
           </div>
-        </div>
-        {/* Desktop book image - only shows on medium screens and up */}
-        <div className="hidden md:flex md:w-2/5 px-6 items-center justify-center">
-          <div className="relative aspect-[3/4] w-2/3 max-w-none">
-            <Image
-              src="/images/forside.avif"
-              alt="Facet lærebog"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-        </div>
+        </article>
       </section>
 
       {/* Full-width green section */}
@@ -66,7 +92,7 @@ export default async function HomePage() {
         <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
           <div className="bg-orange max-w-md rounded-xl text-white p-4 sm:p-6 md:w-2/5 mb-4 md:mb-0">
             <h2 className="text-xl md:text-2xl font-normal mb-4 md:mb-6">
-              Læseprøve
+              Læseprøve – Facet
             </h2>
             <p className="mb-4 md:mb-8">
               Få et smugkig i bogen - se indholdsfortegnelsen og læs de første

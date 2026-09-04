@@ -4,6 +4,7 @@ import { Check, Minus, Plus } from "lucide-react";
 import { CONSTANTS } from "@/app/constants";
 import { useState } from "react";
 import { useCartContext } from "@/contexts/CartContext";
+import NyhedBurst from "@/app/components/NyhedBurst";
 
 function usePurchaseControls() {
   const [purchaseAmount, setPurchaseAmount] = useState(1);
@@ -54,6 +55,8 @@ export default function BookHeroSection() {
   } = usePurchaseControls();
 
   return (
+    <>
+      <KompletHeroSection />
     <section className="flex flex-col md:flex-row pb-4">
       <div className="md:w-3/5">
         <h1 className="header mb-1">Facet</h1>
@@ -163,6 +166,61 @@ export default function BookHeroSection() {
             className="object-contain"
             priority
           />
+        </div>
+      </div>
+    </section>
+    </>
+  );
+}
+
+function KompletHeroSection() {
+  return (
+    <section className="flex flex-col md:flex-row pb-10 mb-10 border-b border-gray-200">
+      <div className="md:w-3/5">
+        <h1 className="header mb-1">Komplet</h1>
+        <span className="text-sm text-gray-500">
+          Af{" "}
+          <a
+            href={CONSTANTS.LINKS.ABOUT.da}
+            className="underline font-medium text-gray-700"
+          >
+            Fanny Slotorub
+          </a>{" "}
+          &{" "}
+          <a
+            href={CONSTANTS.LINKS.ABOUT.da}
+            className="underline font-medium text-gray-700"
+          >
+            Neel Jersild Moreira
+          </a>
+        </span>
+        <p className="font-normal my-4 w-4/5">
+          <b>Komplet</b> er en grundbog til kursister på Danskuddannelse 2 modul
+          6, der er på vej mod Prøve i Dansk 2.
+        </p>
+
+        <p className="gap-x-2 flex mb-2 flex-row items-baseline">
+          <span className="text-4xl font-semibold">299</span>
+          <span className="text-2xl font-normal">DKK</span>
+          <span className="font-light">excl. moms</span>
+        </p>
+
+        <div className="inline-flex items-center gap-x-2 bg-green text-white font-medium py-2 px-4 rounded-md">
+          Udkommer 10. september
+        </div>
+      </div>
+
+      {/* Book Image Column */}
+      <div className="hidden md:flex md:w-2/5 ">
+        <div className="relative aspect-[3/4] w-2/3 ">
+          <Image
+            src="/images/komplet-forside.avif"
+            alt="Komplet lærebog"
+            fill
+            className="object-contain"
+            priority
+          />
+          <NyhedBurst className="absolute -top-5 -right-5" />
         </div>
       </div>
     </section>
