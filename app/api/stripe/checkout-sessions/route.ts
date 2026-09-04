@@ -15,7 +15,7 @@ const PRICE_IDS: Record<Product, { dev: string; prod: string }> = {
   },
   komplet: {
     dev: "price_1UBuM4RrN8SMS2hTVOh5lnbX",
-    prod: "REPLACE_WITH_KOMPLET_PROD_PRICE_ID",
+    prod: "price_1UBvTCRrN8SMS2hTqf7nDhuq",
   },
 };
 
