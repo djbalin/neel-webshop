@@ -45,6 +45,8 @@ export async function POST(req: Request): Promise<Response> {
       return new Response("Incorrectly formatted request", { status: 400 });
     }
 
+    const returnBase = locale === "en" ? "/en/return" : "/return";
+
     // Per-product quantities. Falls back to the legacy single `product` +
     // `quantity` fields (still used by the English cart page).
     const quantities: Record<Product, number> = {
@@ -105,8 +107,8 @@ export async function POST(req: Request): Promise<Response> {
       },
       allow_promotion_codes: true,
       mode: "payment",
-      success_url: `${URL}/return/?success=true`,
-      cancel_url: `${URL}/return/?canceled=true`,
+      success_url: `${URL}${returnBase}/?success=true`,
+      cancel_url: `${URL}${returnBase}/?canceled=true`,
     });
 
     if (!session.url) {
