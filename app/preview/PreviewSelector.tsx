@@ -6,8 +6,8 @@ import { CONSTANTS } from "@/app/constants";
 import type { ProductKey } from "@/contexts/CartContext";
 
 const PREVIEW_PDF: Record<ProductKey, string | null> = {
-  facet: "/pdf/book-preview.pdf",
-  komplet: null,
+  facet: "/pdf/facet-preview.pdf",
+  komplet: "/pdf/komplet-preview.pdf",
 };
 
 const ACTIVE_BORDER: Record<ProductKey, string> = {
@@ -15,10 +15,10 @@ const ACTIVE_BORDER: Record<ProductKey, string> = {
   komplet: "border-blueCustom bg-blueCustom/10",
 };
 
-const BOOKS: ProductKey[] = ["facet", "komplet"];
+const BOOKS: ProductKey[] = ["komplet", "facet"];
 
 export default function PreviewSelector({
-  initial = "facet",
+  initial = "komplet",
 }: {
   initial?: ProductKey;
 }) {
@@ -31,7 +31,7 @@ export default function PreviewSelector({
       <p className="text-sm mt-2">
         Hvis læseprøven ikke indlæses forneden, kan den downloades{" "}
         <a
-          href={pdf ?? "/pdf/book-preview.pdf"}
+          href={pdf ?? "/pdf/facet-preview.pdf"}
           className="underline font-medium text-blue-600"
           target="_blank"
           rel="noopener noreferrer"

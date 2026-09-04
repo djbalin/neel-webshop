@@ -15,7 +15,6 @@ type BookHeroProps = {
   imageAlt: string;
   deliveryText: string;
   previewHref?: string;
-  previewLinkClassName?: string;
   preorder?: boolean;
   showNyhed?: boolean;
 };
@@ -29,7 +28,6 @@ export function BookHero({
   imageAlt,
   deliveryText,
   previewHref,
-  previewLinkClassName = "text-blue-600",
   preorder = false,
   showNyhed = false,
 }: BookHeroProps) {
@@ -154,7 +152,7 @@ export function BookHero({
         {previewHref && (
           <a
             href={previewHref}
-            className={`${previewLinkClassName} underline text-sm`}
+            className={`text-blue-600 font-medium underline text-sm`}
           >
             Læseprøve →
           </a>

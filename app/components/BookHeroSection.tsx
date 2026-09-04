@@ -19,7 +19,6 @@ export function BookHeroSection() {
         imageAlt="Komplet lærebog"
         deliveryText="Udkommer 10. september – forudbestil nu"
         previewHref={CONSTANTS.LINKS.PREVIEW_KOMPLET.da}
-        previewLinkClassName="text-orange font-medium"
         preorder
         showNyhed
       />
