@@ -18,7 +18,7 @@ export default function BookHeroSection_EN() {
         price={CONSTANTS.PRODUCTS.komplet.priceExclMoms}
         image={CONSTANTS.PRODUCTS.komplet.image}
         imageAlt="Komplet textbook"
-        deliveryText="Publishes 10 September – pre-order now"
+        deliveryText="Available 10 September – pre-order now"
         previewHref={CONSTANTS.LINKS.PREVIEW_KOMPLET.en}
         preorder
         showNyhed

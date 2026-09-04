@@ -36,7 +36,7 @@ export default async function HomePage() {
               <em>Komplet</em> is a textbook for learners in Danish Education 2,
               Module 6, who are preparing for the Danish Exam 2.
             </p>
-            <p className="text-gray-600 italic">Publishes 10 September.</p>
+            <p className="text-gray-600 italic">Available 10 September.</p>
           </div>
           <div className="flex justify-center">
             <button className="mt-6 clickable rounded-xl bg-orange text-white px-8 py-1 text-lg font-medium">
@@ -74,9 +74,9 @@ export default async function HomePage() {
             <p>
               <em>Facet</em> creates active and dynamic teaching in which the
               many facets of the language come into play as learners work with
-              the varied task types that cover all four skills thoroughly. At the
-              same time, learners are optimally prepared for the Danish Exam 3
-              through a wide range of PD3-style exercises.
+              the varied task types that cover all four skills thoroughly. At
+              the same time, learners are optimally prepared for the Danish Exam
+              3 through a wide range of PD3-style exercises.
             </p>
           </div>
           <div className="flex justify-center">
@@ -91,7 +91,7 @@ export default async function HomePage() {
       <div className="full-bleed bg-green px-8 sm:px-8 lg:px-20 mx-auto flex w-full justify-center py-4">
         <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
           <div className="max-w-md md:w-2/5 mb-4 md:mb-0 space-y-4">
-            <div className="bg-blueCustom rounded-xl text-white p-4 sm:p-6">
+            <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
               <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
                 Preview – Komplet
               </h2>
@@ -108,7 +108,7 @@ export default async function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
+            <div className="bg-ditBlue rounded-xl text-white p-4 sm:p-6">
               <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
                 Preview – Facet
               </h2>
@@ -119,7 +119,7 @@ export default async function HomePage() {
               <div className="flex justify-center">
                 <Link
                   href={CONSTANTS.LINKS.PREVIEW.en}
-                  className="clickable inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
+                  className="clickable inline-block rounded-xl bg-orange text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
                 >
                   Read the sample here
                 </Link>

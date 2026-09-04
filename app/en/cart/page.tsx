@@ -100,9 +100,7 @@ export default function CartPage() {
                         {PRODUCT_TITLES[line.key]}
                       </span>
                       <span className="text-xs text-gray-400 whitespace-nowrap mt-1">
-                        {inCart
-                          ? `${line.quantity} in cart`
-                          : "Not in cart"}
+                        {inCart ? `${line.quantity} in cart` : "Not in cart"}
                       </span>
                     </div>
                     <p className="text-sm text-gray-500 mt-0.5">
@@ -110,7 +108,7 @@ export default function CartPage() {
                     </p>
                     {line.product.preorder && (
                       <span className="inline-block mt-2 text-xs font-medium bg-green text-white rounded-full py-0.5 px-2.5">
-                        Pre-order · publishes 10 September
+                        Pre-order · available 10 September
                       </span>
                     )}
                   </div>
@@ -213,8 +211,8 @@ export default function CartPage() {
               </p>
               {hasPreorder && (
                 <p className="text-xs text-gray-500">
-                  Pre-ordered books are shipped as soon as they are published. If
-                  you also order books that are in stock, the entire order is
+                  Pre-ordered books are shipped as soon as they are published.
+                  If you also order books that are in stock, the entire order is
                   shipped together.
                 </p>
               )}

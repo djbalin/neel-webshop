@@ -128,42 +128,36 @@ function KompletBook() {
             ))}
           </div>
           <p className="paragraph">
-            <b>Komplet</b> is a clear and complete set of teaching materials that
-            contains everything needed to prepare learners optimally for PD2.
+            <b>Komplet</b> is the perfect textbook for learners in Danish
+            Education 2, Module 6, who aim to achieve excellent results in the
+            Danish Exam 2 (PD2).
           </p>
           <p className="paragraph">
-            Working with the topics, which learners explore in a thorough and
-            relevant way, helps give learners a greater knowledge of Danish
-            society while they build a solid vocabulary within topics that
-            frequently occur in the PD2 exam.
+            The book offers thorough preparation for the Danish Exam 2 through a
+            wide selection of PD2-style exercises, while helping learners develop
+            a solid vocabulary related to topics that frequently occur in the PD2
+            exam.
           </p>
           <p className="paragraph">
-            Each chapter is divided into 3 parts: <b>Reading, Writing</b> and{" "}
-            <b>Oral communication.</b> Here learners work thoroughly and
-            systematically with all parts of the exam and with tasks of the same
-            type as those found in PD2, so that they acquire the strategies and
-            techniques that enable them to pass the exam with a strong result.
+            Learners work systematically and thoroughly with all parts of the
+            exam and acquire the strategies and techniques they need to approach
+            the exam with confidence and achieve a strong result.
           </p>
           <p className="paragraph">
-            Throughout the book, there is a focus on <b>grammar</b> and{" "}
-            <b>listening comprehension,</b> as an always integrated part of the
-            topics being worked on.
+            Throughout the book, <b>grammar</b> and{" "}
+            <b>listening comprehension</b> are integrated into the topics and
+            activities, ensuring that these areas are practised in a meaningful
+            context.
           </p>
           <p className="paragraph">
-            <b>Komplet</b> creates active and dynamic teaching as learners work
-            with the many varied task types, and they get ample opportunity to
-            speak up themselves and use the language actively in interaction with
-            others.
+            The reference section at the back of the book contains a range of
+            useful resources, including a comprehensive overview of the Prøve i
+            Dansk 2, relevant expressions and phrases for written and oral
+            communication, model texts, and valuable tips and advice.
           </p>
           <p className="paragraph">
-            At the back of the book you will find useful reference pages with,
-            among other things, conjunctions, a comprehensive overview of the
-            Prøve i Dansk 2, relevant expressions and phrases for both written
-            and oral use, model texts, and invaluable tips and advice.
-          </p>
-          <p className="paragraph">
-            The book is particularly well suited to exam preparation classes, but
-            it can also be used for self-study.
+            <b>Komplet</b> is particularly well suited to classes preparing for
+            the PD2 exam, but it can also be used for self-study.
           </p>
           <p className="paragraph bg-white py-2 px-3 text-black">
             <a href={CONSTANTS.LINKS.AUDIO.en} className="anchorTag font-bold">
