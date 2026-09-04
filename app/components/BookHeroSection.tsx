@@ -1,10 +1,10 @@
 "use client";
 import { CONSTANTS } from "@/app/constants";
-import BookHero from "@/app/components/BookHero";
+import { BookHero } from "@/app/components/BookHero";
 
-export default function BookHeroSection() {
+export function BookHeroSection() {
   return (
-    <>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 pb-10">
       <BookHero
         productKey="komplet"
         title="Komplet"
@@ -18,9 +18,10 @@ export default function BookHeroSection() {
         image={CONSTANTS.PRODUCTS.komplet.image}
         imageAlt="Komplet lærebog"
         deliveryText="Udkommer 10. september – forudbestil nu"
+        previewHref={CONSTANTS.LINKS.PREVIEW_KOMPLET.da}
+        previewLinkClassName="text-orange font-medium"
         preorder
         showNyhed
-        className="pb-10 mb-10 border-b border-gray-200"
       />
       <BookHero
         productKey="facet"
@@ -36,8 +37,7 @@ export default function BookHeroSection() {
         imageAlt="Facet lærebog"
         deliveryText="Forventet leveringstid: 3-4 arbejdsdage"
         previewHref={CONSTANTS.LINKS.PREVIEW.da}
-        className="pb-4"
       />
-    </>
+    </div>
   );
 }

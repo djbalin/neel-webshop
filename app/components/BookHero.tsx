@@ -15,12 +15,12 @@ type BookHeroProps = {
   imageAlt: string;
   deliveryText: string;
   previewHref?: string;
+  previewLinkClassName?: string;
   preorder?: boolean;
   showNyhed?: boolean;
-  className?: string;
 };
 
-export default function BookHero({
+export function BookHero({
   productKey,
   title,
   description,
@@ -29,9 +29,9 @@ export default function BookHero({
   imageAlt,
   deliveryText,
   previewHref,
+  previewLinkClassName = "text-blue-600",
   preorder = false,
   showNyhed = false,
-  className = "",
 }: BookHeroProps) {
   const { setQuantity } = useCartContext();
   const [purchaseAmount, setPurchaseAmount] = useState(1);
@@ -62,100 +62,27 @@ export default function BookHero({
   }
 
   return (
-    <section className={`flex flex-col md:flex-row ${className}`}>
-      <div className="md:w-3/5">
-        <h1 className="header mb-1">{title}</h1>
-        <span className="text-sm text-gray-500">
-          Af{" "}
-          <a
-            href={CONSTANTS.LINKS.ABOUT.da}
-            className="underline font-medium text-gray-700"
-          >
-            Fanny Slotorub
-          </a>{" "}
-          &{" "}
-          <a
-            href={CONSTANTS.LINKS.ABOUT.da}
-            className="underline font-medium text-gray-700"
-          >
-            Neel Jersild Moreira
-          </a>
-        </span>
-        <p className="font-normal my-4 w-4/5">{description}</p>
+    <section className="flex flex-col">
+      <h1 className="header mb-1">{title}</h1>
+      <span className="text-sm text-gray-500">
+        Af{" "}
+        <a
+          href={CONSTANTS.LINKS.ABOUT.da}
+          className="underline font-medium text-gray-700"
+        >
+          Fanny Slotorub
+        </a>{" "}
+        &{" "}
+        <a
+          href={CONSTANTS.LINKS.ABOUT.da}
+          className="underline font-medium text-gray-700"
+        >
+          Neel Jersild Moreira
+        </a>
+      </span>
 
-        {/* Purchase Controls */}
-        <div className="rounded-xl flex flex-col md:flex-row w-full gap-6">
-          <div className="flex flex-col gap-y-2 w-full">
-            <p className="gap-x-2 flex mb-4 flex-row items-baseline">
-              <span className="text-4xl font-semibold">{price}</span>
-              <span className="text-2xl font-normal">DKK</span>
-              <span className="font-light">excl. moms</span>
-            </p>
-            <div className="flex gap-2 flex-col md:flex-row w-full gap-x-6">
-              <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
-                <button
-                  onClick={() => handleChangeAmount("m")}
-                  className="text-3xl"
-                  aria-label="Færre"
-                >
-                  <Minus />
-                </button>
-                <input
-                  type="text"
-                  className="text-3xl w-14 text-center"
-                  onChange={handleTypeAmount}
-                  value={purchaseAmount}
-                />
-                <button
-                  onClick={() => handleChangeAmount("p")}
-                  className="text-3xl"
-                  aria-label="Flere"
-                >
-                  <Plus />
-                </button>
-              </div>
-              <button
-                onClick={handleAddToCart}
-                className="justify-center max-w-sm items-center py-2 stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white"
-              >
-                {isItemsAdded ? (
-                  <>
-                    <Check /> {addedLabel}
-                  </>
-                ) : (
-                  <>
-                    <Image
-                      src={"/images/basket_white.svg"}
-                      alt="book"
-                      width={25}
-                      height={25}
-                    />
-                    {addLabel}
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-y-2 mt-2">
-          <span className="text-gray-700 text-xs sm:text-sm">
-            {deliveryText}
-          </span>
-          {previewHref && (
-            <a
-              href={previewHref}
-              className="text-blue-600 underline text-sm"
-            >
-              Læseprøve →
-            </a>
-          )}
-        </div>
-      </div>
-
-      {/* Book Image Column */}
-      <div className="hidden md:flex md:w-2/5 ">
-        <div className="relative aspect-[3/4] w-2/3 ">
+      <div className="flex justify-center my-6">
+        <div className="relative aspect-[3/4] w-2/3 max-w-[280px]">
           <Image
             src={image}
             alt={imageAlt}
@@ -165,6 +92,73 @@ export default function BookHero({
           />
           {showNyhed && <NyhedBurst className="absolute -top-8 -right-9" />}
         </div>
+      </div>
+
+      <p className="font-normal mb-4">{description}</p>
+
+      {/* Purchase Controls */}
+      <div className="flex flex-col gap-y-2 w-full mt-auto">
+        <p className="gap-x-2 flex mb-2 flex-row items-baseline">
+          <span className="text-4xl font-semibold">{price}</span>
+          <span className="text-2xl font-normal">DKK</span>
+          <span className="font-light">excl. moms</span>
+        </p>
+        <div className="flex gap-2 flex-col sm:flex-row w-full gap-x-4">
+          <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
+            <button
+              onClick={() => handleChangeAmount("m")}
+              className="text-3xl"
+              aria-label="Færre"
+            >
+              <Minus />
+            </button>
+            <input
+              type="text"
+              className="text-3xl w-14 text-center"
+              onChange={handleTypeAmount}
+              value={purchaseAmount}
+            />
+            <button
+              onClick={() => handleChangeAmount("p")}
+              className="text-3xl"
+              aria-label="Flere"
+            >
+              <Plus />
+            </button>
+          </div>
+          <button
+            onClick={handleAddToCart}
+            className="justify-center max-w-sm items-center py-2 stroke-white px-6 flex flex-row gap-x-2 bg-orange text-white"
+          >
+            {isItemsAdded ? (
+              <>
+                <Check /> {addedLabel}
+              </>
+            ) : (
+              <>
+                <Image
+                  src={"/images/basket_white.svg"}
+                  alt="book"
+                  width={25}
+                  height={25}
+                />
+                {addLabel}
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-y-2 mt-2">
+        <span className="text-gray-700 text-xs sm:text-sm">{deliveryText}</span>
+        {previewHref && (
+          <a
+            href={previewHref}
+            className={`${previewLinkClassName} underline text-sm`}
+          >
+            Læseprøve →
+          </a>
+        )}
       </div>
     </section>
   );

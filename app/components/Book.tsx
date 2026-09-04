@@ -10,7 +10,7 @@ export function Book() {
       <div className="place-items-center  pt-16 px-8 lg:px-0 lg:w-2/3 max-w-[800px] mx-auto">
         <article className="space-y-8 ">
           <header className="place-items-center space-y-2 sm:space-y-6">
-            <h2 className="text-5xl font-normal text-orange">Om bogen</h2>
+            <h2 className="text-5xl font-normal text-orange">Om Facet</h2>
             <h3 className="text-lg text-center sm:text-left sm:text-3xl font-normal">
               Facet består af 4 kapitler med temaerne:
             </h3>
@@ -107,30 +107,30 @@ function KompletBook() {
     "Rundt om livskvalitet",
   ];
   return (
-    <section className="pb-10 full-bleed bg-white text-black">
+    <section className="pb-10 full-bleed bg-orange text-white">
       <div className="place-items-center pt-16 px-8 lg:px-0 lg:w-2/3 max-w-[800px] mx-auto">
         <article className="space-y-8">
           <header className="place-items-center space-y-2 sm:space-y-6">
-            <h2 className="text-5xl font-normal text-orange">Om bogen</h2>
+            <h2 className="text-5xl font-normal text-ditBlue">Om Komplet</h2>
             <h3 className="text-lg text-center sm:text-left sm:text-3xl font-normal">
               Komplet består af 4 kapitler med temaerne:
             </h3>
           </header>
-          <p className="paragraph">
-            <b>Komplet</b> er et overskueligt og komplet undervisningsmateriale,
-            som indeholder alt det, der skal til for at forberede kursisterne
-            optimalt til PD2.
-          </p>
           <div className="flex flex-wrap justify-center space-x-2 gap-y-2 font-medium uppercase text-sm">
             {temaer.map((tema, i) => (
               <span
                 key={tema}
-                className="px-3 py-1 tracking-wide rounded-md bg-orange text-ditBlue"
+                className="px-3 py-1 tracking-wide rounded-md bg-ditBlue text-white"
               >
                 <span className="font-extrabold">{i + 1}</span> {tema}
               </span>
             ))}
           </div>
+          <p className="paragraph">
+            <b>Komplet</b> er et overskueligt og komplet undervisningsmateriale,
+            som indeholder alt det, der skal til for at forberede kursisterne
+            optimalt til PD2.
+          </p>
           <p className="paragraph">
             Arbejdet med emnerne, som kursisterne kommer rundt om på en grundig
             og relevant måde, er med til at give kursisterne en større viden om
@@ -165,7 +165,7 @@ function KompletBook() {
             Bogen er særdeles velegnet til prøveforberedende hold, men kan også
             benyttes af selvstuderende.
           </p>
-          <p className="paragraph bg-ditBlue py-2 px-3 text-white">
+          <p className="paragraph bg-white py-2 px-3 text-black">
             <a href={CONSTANTS.LINKS.AUDIO.da} className="anchorTag font-bold">
               Lydfiler,
             </a>{" "}

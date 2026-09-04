@@ -25,6 +25,7 @@ export const CONSTANTS = {
     BOOKS: { da: "/boeger", en: "/en/books" },
     CONTACT: { da: "/kontakt", en: "/en/contact" },
     PREVIEW: { da: "/preview", en: "/en/preview" },
+    PREVIEW_KOMPLET: { da: "/preview?bog=komplet", en: "/en/preview" },
     LAERERVEJLEDNING: { da: "/laerervejledning", en: "/en/guide" },
     AUDIO: { da: "/audio", en: "/en/audio" },
     CART: { da: "/kurv", en: "/en/cart" },

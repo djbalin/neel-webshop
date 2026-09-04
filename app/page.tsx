@@ -90,21 +90,40 @@ export default async function HomePage() {
       {/* Full-width green section */}
       <div className="full-bleed bg-green px-8 sm:px-8 lg:px-20 mx-auto flex w-full justify-center py-4">
         <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
-          <div className="bg-orange max-w-md rounded-xl text-white p-4 sm:p-6 md:w-2/5 mb-4 md:mb-0">
-            <h2 className="text-xl md:text-2xl font-normal mb-4 md:mb-6">
-              Læseprøve – Facet
-            </h2>
-            <p className="mb-4 md:mb-8">
-              Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
-              sider af kapitel 1.
-            </p>
-            <div className="flex justify-center">
-              <Link
-                href={CONSTANTS.LINKS.PREVIEW.da}
-                className="clickable inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
-              >
-                Læs læseprøven her
-              </Link>
+          <div className="max-w-md md:w-2/5 mb-4 md:mb-0 space-y-4">
+            <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
+              <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
+                Læseprøve – Komplet
+              </h2>
+              <p className="mb-4 md:mb-6">
+                Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
+                sider af kapitel 1.
+              </p>
+              <div className="flex justify-center">
+                <Link
+                  href={CONSTANTS.LINKS.PREVIEW_KOMPLET.da}
+                  className="clickable inline-block rounded-xl bg-ditBlue text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
+                >
+                  Læs læseprøven her
+                </Link>
+              </div>
+            </div>
+            <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
+              <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
+                Læseprøve – Facet
+              </h2>
+              <p className="mb-4 md:mb-6">
+                Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
+                sider af kapitel 1.
+              </p>
+              <div className="flex justify-center">
+                <Link
+                  href={CONSTANTS.LINKS.PREVIEW.da}
+                  className="clickable inline-block rounded-xl bg-blue-900 text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
+                >
+                  Læs læseprøven her
+                </Link>
+              </div>
             </div>
           </div>
           <div className="w-full md:w-3/5 flex items-center justify-center">

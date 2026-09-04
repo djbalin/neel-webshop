@@ -79,10 +79,7 @@ export default function CartPage() {
           {lines.map((line) => {
             const inCart = line.quantity > 0;
             return (
-              <li
-                key={line.key}
-                className={`flex gap-4 p-5 sm:p-6 ${inCart ? "" : "opacity-60"}`}
-              >
+              <li key={line.key} className="flex gap-4 p-5 sm:p-6">
                 <div className="relative h-24 w-20 shrink-0">
                   <Image
                     src={line.product.image}
