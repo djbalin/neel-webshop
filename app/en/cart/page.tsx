@@ -172,6 +172,7 @@ export default function CartPage() {
               </button>
               <input type="hidden" name="quantity" value={amount} />
               <input type="hidden" name="locale" value="en" />
+              <input type="hidden" name="product" value="facet" />
             </form>
           </>
         )}

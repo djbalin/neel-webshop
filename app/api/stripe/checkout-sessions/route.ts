@@ -4,14 +4,28 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const URL = process.env.NODE_ENV === "production" ? PROD_DOMAIN : DEV_DOMAIN;
-const PRICE_ID =
-  process.env.NODE_ENV === "production"
-    ? "price_1ROm5sRrN8SMS2hTIcAeR199"
-    : "price_1RHnljRrN8SMS2hTFbQ7wrNp";
-const SHIPPING_ID =
-  process.env.NODE_ENV === "production"
-    ? "shr_1ROmGlRrN8SMS2hT0GhqEvLq"
-    : "shr_1RTj07RrN8SMS2hTXI2DpH0c";
+const IS_PROD = process.env.NODE_ENV === "production";
+
+type Product = "facet" | "komplet";
+
+const PRICE_IDS: Record<Product, { dev: string; prod: string }> = {
+  facet: {
+    dev: "price_1RHnljRrN8SMS2hTFbQ7wrNp",
+    prod: "price_1ROm5sRrN8SMS2hTIcAeR199",
+  },
+  komplet: {
+    dev: "price_1UBuM4RrN8SMS2hTVOh5lnbX",
+    prod: "REPLACE_WITH_KOMPLET_PROD_PRICE_ID",
+  },
+};
+
+function getPriceId(product: Product): string {
+  return IS_PROD ? PRICE_IDS[product].prod : PRICE_IDS[product].dev;
+}
+
+const SHIPPING_ID = IS_PROD
+  ? "shr_1ROmGlRrN8SMS2hT0GhqEvLq"
+  : "shr_1RTj07RrN8SMS2hTXI2DpH0c";
 
 export async function POST(req: Request): Promise<Response> {
   try {
@@ -19,6 +33,7 @@ export async function POST(req: Request): Promise<Response> {
 
     const quantity = formdata.get("quantity");
     const locale = formdata.get("locale");
+    const product = (formdata.get("product") as string | null) ?? "facet";
 
     const quantityParsedAsNumber = parseInt(quantity as string, 10);
     const localeParsedAsLocale =
@@ -27,6 +42,12 @@ export async function POST(req: Request): Promise<Response> {
     if (!quantity || !locale || Number.isNaN(quantityParsedAsNumber)) {
       return new Response("Incorrectly formatted request", { status: 400 });
     }
+
+    if (product !== "facet" && product !== "komplet") {
+      return new Response("Unknown product", { status: 400 });
+    }
+
+    const PRICE_ID = getPriceId(product);
 
     const session = await stripe.checkout.sessions.create({
       locale: localeParsedAsLocale,
