@@ -18,9 +18,9 @@ const DA_LINKS = {
 };
 
 const EN_LINKS = {
-  [CONSTANTS.LINKS.BOOKS.en]: "Book",
+  [CONSTANTS.LINKS.BOOKS.en]: "Books",
   [CONSTANTS.LINKS.PREVIEW.en]: "Preview",
-  [CONSTANTS.LINKS.AUDIO.en]: "Sound files",
+  [CONSTANTS.LINKS.AUDIO.en]: "Audio files",
   [CONSTANTS.LINKS.LAERERVEJLEDNING.en]: "Teacher's guide",
   [CONSTANTS.LINKS.ABOUT.en]: "The authors",
   [CONSTANTS.LINKS.CONTACT.en]: "Contact",

@@ -102,7 +102,7 @@ export default function AudioPage() {
             Audio files
           </h1>
           <p className="text-lg text-center md:text-left">
-            Audio files for <em>Facet</em> are available to play and download at
+            Audio files for <em>Facet</em> are available to play and download
             from this website, free of charge.
           </p>
         </header>

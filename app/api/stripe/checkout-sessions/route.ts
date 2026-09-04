@@ -15,7 +15,7 @@ const PRICE_IDS: Record<Product, { dev: string; prod: string }> = {
   },
   komplet: {
     dev: "price_1UBuM4RrN8SMS2hTVOh5lnbX",
-    prod: "REPLACE_WITH_KOMPLET_PROD_PRICE_ID",
+    prod: "price_1UBvTCRrN8SMS2hTqf7nDhuq",
   },
 };
 
@@ -44,6 +44,8 @@ export async function POST(req: Request): Promise<Response> {
     if (!locale) {
       return new Response("Incorrectly formatted request", { status: 400 });
     }
+
+    const returnBase = locale === "en" ? "/en/return" : "/return";
 
     // Per-product quantities. Falls back to the legacy single `product` +
     // `quantity` fields (still used by the English cart page).
@@ -105,8 +107,8 @@ export async function POST(req: Request): Promise<Response> {
       },
       allow_promotion_codes: true,
       mode: "payment",
-      success_url: `${URL}/return/?success=true`,
-      cancel_url: `${URL}/return/?canceled=true`,
+      success_url: `${URL}${returnBase}/?success=true`,
+      cancel_url: `${URL}${returnBase}/?canceled=true`,
     });
 
     if (!session.url) {
