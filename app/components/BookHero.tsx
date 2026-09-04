@@ -17,6 +17,7 @@ type BookHeroProps = {
   previewHref?: string;
   preorder?: boolean;
   showNyhed?: boolean;
+  isEn?: boolean;
 };
 
 export function BookHero({
@@ -30,13 +31,36 @@ export function BookHero({
   previewHref,
   preorder = false,
   showNyhed = false,
+  isEn = false,
 }: BookHeroProps) {
   const { setQuantity } = useCartContext();
   const [purchaseAmount, setPurchaseAmount] = useState(1);
   const [isItemsAdded, setIsItemsAdded] = useState(false);
 
-  const addLabel = preorder ? "Forudbestil" : "Føj til kurv";
-  const addedLabel = preorder ? "Forudbestilt!" : "Kurv opdateret!";
+  const t = isEn
+    ? {
+        by: "By",
+        priceSuffix: "excl. VAT",
+        add: preorder ? "Pre-order" : "Add to cart",
+        added: preorder ? "Pre-ordered!" : "Cart updated!",
+        less: "Fewer",
+        more: "More",
+        preview: "Preview →",
+      }
+    : {
+        by: "Af",
+        priceSuffix: "excl. moms",
+        add: preorder ? "Forudbestil" : "Føj til kurv",
+        added: preorder ? "Forudbestilt!" : "Kurv opdateret!",
+        less: "Færre",
+        more: "Flere",
+        preview: "Læseprøve →",
+      };
+
+  const aboutHref = isEn ? CONSTANTS.LINKS.ABOUT.en : CONSTANTS.LINKS.ABOUT.da;
+
+  const addLabel = t.add;
+  const addedLabel = t.added;
 
   function handleAddToCart() {
     setQuantity(productKey, purchaseAmount);
@@ -63,16 +87,16 @@ export function BookHero({
     <section className="flex flex-col">
       <h1 className="header mb-1">{title}</h1>
       <span className="text-sm text-gray-500">
-        Af{" "}
+        {t.by}{" "}
         <a
-          href={CONSTANTS.LINKS.ABOUT.da}
+          href={aboutHref}
           className="underline font-medium text-gray-700"
         >
           Fanny Slotorub
         </a>{" "}
         &{" "}
         <a
-          href={CONSTANTS.LINKS.ABOUT.da}
+          href={aboutHref}
           className="underline font-medium text-gray-700"
         >
           Neel Jersild Moreira
@@ -88,7 +112,12 @@ export function BookHero({
             className="object-contain"
             priority
           />
-          {showNyhed && <NyhedBurst className="absolute -top-8 -right-9" />}
+          {showNyhed && (
+            <NyhedBurst
+              className="absolute -top-8 -right-9"
+              label={isEn ? "New" : "Nyhed"}
+            />
+          )}
         </div>
       </div>
 
@@ -99,14 +128,14 @@ export function BookHero({
         <p className="gap-x-2 flex mb-2 flex-row items-baseline">
           <span className="text-4xl font-semibold">{price}</span>
           <span className="text-2xl font-normal">DKK</span>
-          <span className="font-light">excl. moms</span>
+          <span className="font-light">{t.priceSuffix}</span>
         </p>
         <div className="flex gap-2 flex-col sm:flex-row w-full gap-x-4">
           <div className="bg-white justify-between w-32 px-2 flex flex-row items-center rounded-md border-2 border-black">
             <button
               onClick={() => handleChangeAmount("m")}
               className="text-3xl"
-              aria-label="Færre"
+              aria-label={t.less}
             >
               <Minus />
             </button>
@@ -119,7 +148,7 @@ export function BookHero({
             <button
               onClick={() => handleChangeAmount("p")}
               className="text-3xl"
-              aria-label="Flere"
+              aria-label={t.more}
             >
               <Plus />
             </button>
@@ -154,7 +183,7 @@ export function BookHero({
             href={previewHref}
             className={`text-blue-600 font-medium underline text-sm`}
           >
-            Læseprøve →
+            {t.preview}
           </a>
         )}
       </div>

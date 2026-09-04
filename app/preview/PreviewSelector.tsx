@@ -19,24 +19,41 @@ const BOOKS: ProductKey[] = ["komplet", "facet"];
 
 export default function PreviewSelector({
   initial = "komplet",
+  isEn = false,
 }: {
   initial?: ProductKey;
+  isEn?: boolean;
 }) {
   const [selected, setSelected] = useState<ProductKey>(initial);
   const pdf = PREVIEW_PDF[selected];
 
+  const t = isEn
+    ? {
+        heading: "Preview",
+        fallbackPre: "If the preview does not load below, you can download it ",
+        fallbackLink: "by clicking here",
+        comingSoon: "Coming soon",
+      }
+    : {
+        heading: "Læseprøve",
+        fallbackPre:
+          "Hvis læseprøven ikke indlæses forneden, kan den downloades ",
+        fallbackLink: "ved at trykke her",
+        comingSoon: "Kommer snart",
+      };
+
   return (
     <section className="flex flex-col pb-16">
-      <h1 className="header">Læseprøve</h1>
+      <h1 className="header">{t.heading}</h1>
       <p className="text-sm mt-2">
-        Hvis læseprøven ikke indlæses forneden, kan den downloades{" "}
+        {t.fallbackPre}
         <a
           href={pdf ?? "/pdf/facet-preview.pdf"}
           className="underline font-medium text-blue-600"
           target="_blank"
           rel="noopener noreferrer"
         >
-          ved at trykke her
+          {t.fallbackLink}
         </a>
         .
       </p>
@@ -86,7 +103,7 @@ export default function PreviewSelector({
       ) : (
         <div className="mt-6 rounded-lg border-2 border-dashed border-gray-200 p-6 text-center">
           <span className="inline-block rounded-full bg-orange px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-white">
-            Kommer snart
+            {t.comingSoon}
           </span>
         </div>
       )}

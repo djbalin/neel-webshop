@@ -1,7 +1,9 @@
 export default function NyhedBurst({
   className = "",
+  label = "Nyhed",
 }: {
   className?: string;
+  label?: string;
 }) {
   const spikes = 12;
   const outer = 48;
@@ -28,7 +30,7 @@ export default function NyhedBurst({
         />
       </svg>
       <span className="absolute inset-0 flex -rotate-[8deg] items-center justify-center text-sm font-extrabold uppercase tracking-wide text-white sm:text-base">
-        Nyhed
+        {label}
       </span>
     </div>
   );
