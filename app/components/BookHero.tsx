@@ -36,7 +36,7 @@ export function BookHero({
   const [isItemsAdded, setIsItemsAdded] = useState(false);
 
   const addLabel = preorder ? "Forudbestil" : "Føj til kurv";
-  const addedLabel = preorder ? "Forudbestilt!" : "Kurv opdateret!";
+  const addedLabel = "Kurv opdateret!";
 
   function handleAddToCart() {
     setQuantity(productKey, purchaseAmount);
