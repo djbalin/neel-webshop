@@ -36,7 +36,15 @@ export default async function HomePage() {
               <b>Komplet</b> er en grundbog til kursister på Danskuddannelse 2
               modul 6, der er på vej mod Prøve i Dansk 2.
             </p>
-            <p className="text-gray-600 italic">Udkommer 10. september.</p>
+            <p>
+              <b>Komplet</b> er et overskueligt og komplet
+              undervisningsmateriale, som indeholder alt det, der skal til for
+              at forberede kursisterne optimalt til PD2. Kursisterne tilegner
+              sig, trin for trin, de færdigheder og strategier, som skal til for
+              at bestå PD2 med et godt resultat. Kursisterne får i{" "}
+              <b>Komplet</b> rig mulighed for selv at komme på banen og bruge
+              sproget aktivt i interaktion med andre.
+            </p>
           </div>
           <div className="flex justify-center">
             <button className="mt-6 clickable rounded-xl bg-orange text-white px-8 py-1 text-lg font-medium">

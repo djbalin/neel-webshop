@@ -25,6 +25,7 @@
     "@types/node": "^20.19.33",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "code-inspector-plugin": "^2.0.8",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.5.12",
     "postcss": "^8.5.6",
