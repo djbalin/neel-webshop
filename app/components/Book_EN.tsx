@@ -66,8 +66,8 @@ export function Book_EN() {
               </p>
               <p className="paragraph">
                 The book is particularly well suited to exam preparation classes
-                and encourages fun and inspiring pair and group exercises, but it
-                can also be used for self-study.
+                and encourages fun and inspiring pair and group exercises, but
+                it can also be used for self-study.
               </p>
               <p className="paragraph bg-white py-2 px-3 text-black">
                 <a
@@ -89,8 +89,8 @@ export function Book_EN() {
                 >
                   teacher&apos;s guide
                 </a>{" "}
-                with worksheets are available to download from this website, free
-                of charge.
+                with worksheets are available to download from this website,
+                free of charge.
               </p>
             </div>
           </article>
@@ -102,10 +102,10 @@ export function Book_EN() {
 
 function KompletBook() {
   const temaer = [
-    "All about work",
-    "All about family life",
-    "All about housing",
-    "All about quality of life",
+    "About work",
+    "About family life",
+    "About housing",
+    "About quality of life",
   ];
   return (
     <section className="pb-10 full-bleed bg-orange text-white">
@@ -134,9 +134,9 @@ function KompletBook() {
           </p>
           <p className="paragraph">
             The book offers thorough preparation for the Danish Exam 2 through a
-            wide selection of PD2-style exercises, while helping learners develop
-            a solid vocabulary related to topics that frequently occur in the PD2
-            exam.
+            wide selection of PD2-style exercises, while helping learners
+            develop a solid vocabulary related to topics that frequently occur
+            in the PD2 exam.
           </p>
           <p className="paragraph">
             Learners work systematically and thoroughly with all parts of the

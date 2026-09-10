@@ -97,8 +97,7 @@ export default async function HomePage() {
 
       {/* Full-width green section */}
       <div className="full-bleed bg-green px-8 sm:px-8 lg:px-20 mx-auto flex w-full justify-center py-4">
-        <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
-          <div className="max-w-md md:w-2/5 mb-4 md:mb-0 space-y-4">
+        <div className="max-w-4xl w-full grid gap-4 md:grid-cols-2">
             <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
               <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
                 Læseprøve – Komplet
@@ -133,17 +132,6 @@ export default async function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="w-full md:w-3/5 flex items-center justify-center">
-            <Image
-              className="max-w-full h-auto object-contain"
-              src={"/images/open_2.avif"}
-              alt={"Facet book example"}
-              priority
-              width={700}
-              height={400}
-            />
-          </div>
         </div>
       </div>
 
