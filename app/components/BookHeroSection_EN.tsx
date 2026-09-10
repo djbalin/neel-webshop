@@ -12,7 +12,7 @@ export default function BookHeroSection_EN() {
         description={
           <>
             <em>Komplet</em> is a textbook for learners in Danish Education 2,
-            Module 6, who are preparing for the Danish Exam 2.
+            Module 6, who are preparing for Prøve i Dansk 2 (PD2).
           </>
         }
         price={CONSTANTS.PRODUCTS.komplet.priceExclMoms}
@@ -30,7 +30,7 @@ export default function BookHeroSection_EN() {
         description={
           <>
             <em>Facet</em> is a textbook for learners in Danish Education 3,
-            Module 5, who are preparing for the Danish Exam 3.
+            Module 5, who are preparing for Prøve i Dansk 3 (PD3).
           </>
         }
         price={CONSTANTS.PRODUCTS.facet.priceExclMoms}

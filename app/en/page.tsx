@@ -36,7 +36,14 @@ export default async function HomePage() {
               <em>Komplet</em> is a textbook for learners in Danish Education 2,
               Module 6, who are preparing for the Danish Exam 2.
             </p>
-            <p className="text-gray-600 italic">Available 10 September.</p>
+            <p>
+              <em>Komplet</em> is a comprehensive textbook containing everything
+              needed to optimally prepare learners for the PD2 exam. Step by
+              step, learners acquire the skills and strategies required to pass
+              PD2 with good results. <em>Komplet</em> offers learners great
+              opportunities to actively use the language in interaction with
+              others.
+            </p>
           </div>
           <div className="flex justify-center">
             <button className="mt-6 clickable rounded-xl bg-orange text-white px-8 py-1 text-lg font-medium">
@@ -89,8 +96,7 @@ export default async function HomePage() {
 
       {/* Full-width green section */}
       <div className="full-bleed bg-green px-8 sm:px-8 lg:px-20 mx-auto flex w-full justify-center py-4">
-        <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
-          <div className="max-w-md md:w-2/5 mb-4 md:mb-0 space-y-4">
+        <div className="max-w-4xl w-full grid gap-4 md:grid-cols-2">
             <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
               <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
                 Preview – Komplet
@@ -125,17 +131,6 @@ export default async function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="w-full md:w-3/5 flex items-center justify-center">
-            <Image
-              className="max-w-full h-auto object-contain"
-              src={"/images/open_2.avif"}
-              alt={"Facet book example"}
-              priority
-              width={700}
-              height={400}
-            />
-          </div>
         </div>
       </div>
 
