@@ -17,14 +17,8 @@ const ACTIVE_BORDER: Record<ProductKey, string> = {
 
 const BOOKS: ProductKey[] = ["komplet", "facet"];
 
-export default function PreviewSelector({
-  initial = "komplet",
-  isEn = false,
-}: {
-  initial?: ProductKey;
-  isEn?: boolean;
-}) {
-  const [selected, setSelected] = useState<ProductKey>(initial);
+export default function PreviewSelector({ isEn = false }: { isEn?: boolean }) {
+  const [selected, setSelected] = useState<ProductKey>("komplet");
   const pdf = PREVIEW_PDF[selected];
 
   const t = isEn
