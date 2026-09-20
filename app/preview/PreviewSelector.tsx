@@ -11,8 +11,8 @@ const PREVIEW_PDF: Record<ProductKey, string | null> = {
 };
 
 const ACTIVE_BORDER: Record<ProductKey, string> = {
-  facet: "border-orange bg-orange/10",
-  komplet: "border-blueCustom bg-blueCustom/10",
+  facet: "border-ditBlue bg-ditBlue/10",
+  komplet: "border-orange bg-orange/10",
 };
 
 const BOOKS: ProductKey[] = ["komplet", "facet"];

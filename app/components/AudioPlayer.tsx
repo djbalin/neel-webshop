@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 interface AudioPlayerProps {
   chapters: string[];
@@ -12,6 +12,7 @@ interface AudioPlayerProps {
       };
     };
   };
+  basePath?: string;
 }
 
 export default function AudioPlayer({
@@ -19,8 +20,21 @@ export default function AudioPlayer({
   chapterTitles,
   audioStructure,
   sectionTitles,
+  basePath = "/audio",
 }: AudioPlayerProps) {
   const [selectedChapter, setSelectedChapter] = useState(chapters[0]);
+  const currentlyPlayingRef = useRef<HTMLAudioElement | null>(null);
+
+  const handlePlay = (e: React.SyntheticEvent<HTMLAudioElement>) => {
+    const audio = e.currentTarget;
+    if (
+      currentlyPlayingRef.current &&
+      currentlyPlayingRef.current !== audio
+    ) {
+      currentlyPlayingRef.current.pause();
+    }
+    currentlyPlayingRef.current = audio;
+  };
 
   return (
     <div className="space-y-6">
@@ -88,14 +102,16 @@ export default function AudioPlayer({
                     <div className="space-y-2 sm:ml-4">
                       {audioStructure[selectedChapter][section][exercise].map(
                         (fileName, idx) => {
-                          const fileNameParts = fileName
-                            .split(".")[0]
-                            .split("_");
+                          const nameWithoutExt = fileName.replace(
+                            /\.[^.]+$/,
+                            "",
+                          );
+                          const fileNameParts = nameWithoutExt.split("_");
                           const displayName =
                             fileNameParts.length > 1
                               ? fileNameParts[1]
-                              : fileName;
-                          const audioPath = `/audio/${selectedChapter}/${section}/${exercise}/${fileName}`;
+                              : nameWithoutExt;
+                          const audioPath = `${basePath}/${selectedChapter}/${section}/${exercise}/${encodeURIComponent(fileName)}`;
 
                           return (
                             <div
@@ -103,13 +119,12 @@ export default function AudioPlayer({
                               className="space-y-1 flex flex-col sm:flex-row place-items-center  "
                             >
                               <div className="flex w-full sm:w-2/5 flex-row sm:flex-col">
-                                {/* <span className=""> */}
-                                {displayName.replace(".m4a", "")}
-                                {/* </span> */}
+                                {displayName}
                               </div>
                               <audio
                                 controls
                                 src={audioPath}
+                                onPlay={handlePlay}
                                 className="text-sm h-12 w-full sm:w-3/5"
                               />
                             </div>

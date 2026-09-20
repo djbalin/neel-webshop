@@ -1,34 +1,31 @@
 import { readdirSync, statSync } from "fs";
 import path from "path";
-import AudioPlayer from "../components/AudioPlayer";
+import AudioSelector from "./AudioSelector";
 
-export default function AudioPage() {
-  const audioDir = path.join(process.cwd(), "public/audio");
+type AudioStructure = {
+  [chapter: string]: {
+    [section: string]: {
+      [exercise: string]: string[];
+    };
+  };
+};
 
+function readAudioStructure(audioDir: string, chapterPrefix: string) {
   // Get all chapter directories
   const chapterDirs = readdirSync(audioDir)
     .filter((dir) => statSync(path.join(audioDir, dir)).isDirectory())
     .sort((a, b) => {
-      // Sort chapters numerically
-      const numA = parseInt(a.replace("chp", ""));
-      const numB = parseInt(b.replace("chp", ""));
+      const numA = parseInt(a.replace(chapterPrefix, ""));
+      const numB = parseInt(b.replace(chapterPrefix, ""));
       return numA - numB;
     });
 
-  // Map chapters to their structure
-  const audioStructure: {
-    [chapter: string]: {
-      [section: string]: {
-        [exercise: string]: string[];
-      };
-    };
-  } = {};
+  const audioStructure: AudioStructure = {};
 
   chapterDirs.forEach((chapter) => {
     const chapterPath = path.join(audioDir, chapter);
     audioStructure[chapter] = {};
 
-    // Get sections for each chapter
     const sections = readdirSync(chapterPath)
       .filter((dir) => statSync(path.join(chapterPath, dir)).isDirectory())
       .sort();
@@ -37,11 +34,9 @@ export default function AudioPage() {
       const sectionPath = path.join(chapterPath, section);
       audioStructure[chapter][section] = {};
 
-      // Get exercises for each section
       const exercises = readdirSync(sectionPath)
         .filter((dir) => statSync(path.join(sectionPath, dir)).isDirectory())
         .sort((a, b) => {
-          // Sort exercises numerically
           const numA = parseInt(a.replace("opg", "")) || 0;
           const numB = parseInt(b.replace("opg", "")) || 0;
           return numA - numB;
@@ -50,13 +45,11 @@ export default function AudioPage() {
       exercises.forEach((exercise) => {
         const exercisePath = path.join(sectionPath, exercise);
 
-        // Get audio files for each exercise
         const files = readdirSync(exercisePath)
           .filter(
             (file) => !statSync(path.join(exercisePath, file)).isDirectory(),
           )
           .sort((a, b) => {
-            // Sort by the number before the underscore
             const numA = parseInt(a.split("_")[0]) || 0;
             const numB = parseInt(b.split("_")[0]) || 0;
             return numA - numB;
@@ -66,6 +59,15 @@ export default function AudioPage() {
       });
     });
   });
+
+  return { chapterDirs, audioStructure };
+}
+
+export default function AudioPage() {
+  const { chapterDirs, audioStructure } = readAudioStructure(
+    path.join(process.cwd(), "public/audio"),
+    "chp",
+  );
 
   const chapterTitles = {
     chp1: "Kapitel 1: Arbejde og identitet",
@@ -94,35 +96,51 @@ export default function AudioPage() {
     },
   };
 
-  return (
-    <div className="flex flex-col xl:flex-row justify-between pb-12">
-      <section className="flex flex-col lg:pr-8 ">
-        <header className="space-y-4 md:space-y-8">
-          <h1 className="header mb-4 lg:mb-0 text-center md:text-left">
-            Lydfiler
-          </h1>
-          <p className="text-lg text-center md:text-left">
-            Lydfiler til <b>Facet</b> kan frit afspilles og downloades her på
-            siden.
-          </p>
-        </header>
-      </section>
+  const {
+    chapterDirs: kompletChapterDirs,
+    audioStructure: kompletAudioStructure,
+  } = readAudioStructure(
+    path.join(process.cwd(), "public/audio-komplet"),
+    "chp",
+  );
 
-      <div className="h-full w-full xl:min-w-[700px] border-gray-100 mt-10 xl:mt-0 border-2 shadow-lg rounded-lg">
-        <div className="bg-gray-200 space-y-2 p-2 border-b-2 border-gray-200 text-center">
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
-            Lydafspiller
-          </h2>
-        </div>
-        <div className="h-full max-h-[600px] space-y-6 scrollable p-6 overflow-auto">
-          <AudioPlayer
-            chapters={chapterDirs}
-            chapterTitles={chapterTitles}
-            audioStructure={audioStructure}
-            sectionTitles={sectionTitles}
-          />
-        </div>
-      </div>
-    </div>
+  const kompletChapterTitles = {
+    chp1: "Kapitel 1: Rundt om arbejde",
+    chp2: "Kapitel 2: Rundt om familieliv",
+    chp3: "Kapitel 3: Rundt om bolig",
+    chp4: "Kapitel 4: Rundt om livskvalitet",
+  };
+
+  const kompletSectionTitles = {
+    chp1: {
+      secA: "A: LÆSNING",
+      secB: "B: SKRIVNING",
+      secC: "C: MUNDTLIG KOMMUNIKATION",
+    },
+    chp2: {
+      secA: "A: LÆSNING",
+      secB: "B: SKRIVNING",
+      secC: "C: MUNDTLIG KOMMUNIKATION",
+    },
+    chp3: {
+      secA: "A: LÆSNING",
+      secC: "C: MUNDTLIG KOMMUNIKATION",
+    },
+    chp4: {
+      secA: "A: LÆSNING",
+    },
+  };
+
+  return (
+    <AudioSelector
+      facetChapters={chapterDirs}
+      facetChapterTitles={chapterTitles}
+      facetAudioStructure={audioStructure}
+      facetSectionTitles={sectionTitles}
+      kompletChapters={kompletChapterDirs}
+      kompletChapterTitles={kompletChapterTitles}
+      kompletAudioStructure={kompletAudioStructure}
+      kompletSectionTitles={kompletSectionTitles}
+    />
   );
 }
