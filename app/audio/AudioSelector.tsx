@@ -3,28 +3,21 @@
 import Image from "next/image";
 import { useState } from "react";
 import AudioPlayer from "../components/AudioPlayer";
-import KompletAudioPlayer from "../components/KompletAudioPlayer";
 import { CONSTANTS } from "@/app/constants";
 import type { ProductKey } from "@/contexts/CartContext";
 
 const ACTIVE_BORDER: Record<ProductKey, string> = {
-  facet: "border-orange bg-orange/10",
-  komplet: "border-blueCustom bg-blueCustom/10",
+  facet: "border-ditBlue bg-ditBlue/10",
+  komplet: "border-orange bg-orange/10",
 };
 
 const BOOKS: ProductKey[] = ["komplet", "facet"];
 
-type FacetStructure = {
+type AudioStructure = {
   [chapter: string]: {
     [section: string]: {
       [exercise: string]: string[];
     };
-  };
-};
-
-type KompletStructure = {
-  [chapter: string]: {
-    [group: string]: string[];
   };
 };
 
@@ -36,14 +29,16 @@ export default function AudioSelector({
   kompletChapters,
   kompletChapterTitles,
   kompletAudioStructure,
+  kompletSectionTitles,
 }: {
   facetChapters: string[];
   facetChapterTitles: { [key: string]: string };
-  facetAudioStructure: FacetStructure;
+  facetAudioStructure: AudioStructure;
   facetSectionTitles: { [key: string]: { [key: string]: string } };
   kompletChapters: string[];
   kompletChapterTitles: { [key: string]: string };
-  kompletAudioStructure: KompletStructure;
+  kompletAudioStructure: AudioStructure;
+  kompletSectionTitles: { [key: string]: { [key: string]: string } };
 }) {
   const [selected, setSelected] = useState<ProductKey>("komplet");
 
@@ -107,10 +102,12 @@ export default function AudioSelector({
               sectionTitles={facetSectionTitles}
             />
           ) : (
-            <KompletAudioPlayer
+            <AudioPlayer
               chapters={kompletChapters}
               chapterTitles={kompletChapterTitles}
               audioStructure={kompletAudioStructure}
+              sectionTitles={kompletSectionTitles}
+              basePath="/audio-komplet"
             />
           )}
         </div>
