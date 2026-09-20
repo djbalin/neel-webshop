@@ -1,6 +1,8 @@
 import { readdirSync, statSync } from "fs";
 import path from "path";
-import AudioPlayer from "../components/AudioPlayer";
+import AudioSelector from "./AudioSelector";
+
+const ROOT_GROUP = "_root";
 
 export default function AudioPage() {
   const audioDir = path.join(process.cwd(), "public/audio");
@@ -94,35 +96,66 @@ export default function AudioPage() {
     },
   };
 
-  return (
-    <div className="flex flex-col xl:flex-row justify-between pb-12">
-      <section className="flex flex-col lg:pr-8 ">
-        <header className="space-y-4 md:space-y-8">
-          <h1 className="header mb-4 lg:mb-0 text-center md:text-left">
-            Lydfiler
-          </h1>
-          <p className="text-lg text-center md:text-left">
-            Lydfiler til <b>Facet</b> kan frit afspilles og downloades her på
-            siden.
-          </p>
-        </header>
-      </section>
+  // Komplet audio: simpler structure — chapter -> group (root files or a
+  // named subfolder) -> files.
+  const kompletAudioDir = path.join(process.cwd(), "public/audio-komplet");
 
-      <div className="h-full w-full xl:min-w-[700px] border-gray-100 mt-10 xl:mt-0 border-2 shadow-lg rounded-lg">
-        <div className="bg-gray-200 space-y-2 p-2 border-b-2 border-gray-200 text-center">
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-medium">
-            Lydafspiller
-          </h2>
-        </div>
-        <div className="h-full max-h-[600px] space-y-6 scrollable p-6 overflow-auto">
-          <AudioPlayer
-            chapters={chapterDirs}
-            chapterTitles={chapterTitles}
-            audioStructure={audioStructure}
-            sectionTitles={sectionTitles}
-          />
-        </div>
-      </div>
-    </div>
+  const kompletChapterDirs = readdirSync(kompletAudioDir)
+    .filter((dir) => statSync(path.join(kompletAudioDir, dir)).isDirectory())
+    .sort((a, b) => {
+      const numA = parseInt(a.replace("Kap", ""));
+      const numB = parseInt(b.replace("Kap", ""));
+      return numA - numB;
+    });
+
+  const kompletAudioStructure: {
+    [chapter: string]: {
+      [group: string]: string[];
+    };
+  } = {};
+
+  kompletChapterDirs.forEach((chapter) => {
+    const chapterPath = path.join(kompletAudioDir, chapter);
+    kompletAudioStructure[chapter] = {};
+
+    const entries = readdirSync(chapterPath).sort();
+
+    const rootFiles = entries.filter((entry) =>
+      statSync(path.join(chapterPath, entry)).isFile(),
+    );
+    if (rootFiles.length > 0) {
+      kompletAudioStructure[chapter][ROOT_GROUP] = rootFiles;
+    }
+
+    const subDirs = entries.filter((entry) =>
+      statSync(path.join(chapterPath, entry)).isDirectory(),
+    );
+    subDirs.forEach((subDir) => {
+      const subDirPath = path.join(chapterPath, subDir);
+      const files = readdirSync(subDirPath)
+        .filter((file) => statSync(path.join(subDirPath, file)).isFile())
+        .sort();
+      kompletAudioStructure[chapter][subDir] = files;
+    });
+  });
+
+  const kompletChapterTitles = kompletChapterDirs.reduce<{
+    [key: string]: string;
+  }>((acc, chapter) => {
+    const num = chapter.replace("Kap", "");
+    acc[chapter] = `Kapitel ${num}`;
+    return acc;
+  }, {});
+
+  return (
+    <AudioSelector
+      facetChapters={chapterDirs}
+      facetChapterTitles={chapterTitles}
+      facetAudioStructure={audioStructure}
+      facetSectionTitles={sectionTitles}
+      kompletChapters={kompletChapterDirs}
+      kompletChapterTitles={kompletChapterTitles}
+      kompletAudioStructure={kompletAudioStructure}
+    />
   );
 }
