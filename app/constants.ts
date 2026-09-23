@@ -8,7 +8,6 @@ export const CONSTANTS = {
       shortTitle: "Facet",
       priceExclMoms: 289,
       image: "/images/forside.avif",
-      preorder: false,
     },
     komplet: {
       key: "komplet",
@@ -16,7 +15,6 @@ export const CONSTANTS = {
       shortTitle: "Komplet",
       priceExclMoms: 299,
       image: "/images/komplet-forside.avif",
-      preorder: true,
     },
   },
   LINKS: {

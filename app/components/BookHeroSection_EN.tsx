@@ -18,9 +18,8 @@ export default function BookHeroSection_EN() {
         price={CONSTANTS.PRODUCTS.komplet.priceExclMoms}
         image={CONSTANTS.PRODUCTS.komplet.image}
         imageAlt="Komplet textbook"
-        deliveryText="Available 10 September – pre-order now"
+        deliveryText="Expected delivery time: 3-4 business days"
         previewHref={CONSTANTS.LINKS.PREVIEW_KOMPLET.en}
-        preorder
         showNyhed
       />
       <BookHero

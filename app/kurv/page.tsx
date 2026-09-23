@@ -53,9 +53,6 @@ export default function CartPage() {
   const momsPrice = grossPrice * 0.25;
   const isEmpty = totalItems === 0;
   const totalPrice = isEmpty ? 0 : grossPrice + momsPrice + deliveryPrice;
-  const hasPreorder = lines.some(
-    (line) => line.product.preorder && line.quantity > 0,
-  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,11 +98,6 @@ export default function CartPage() {
                     <p className="text-sm text-gray-500 mt-0.5">
                       {format(line.product.priceExclMoms)} DKK ekskl. moms
                     </p>
-                    {line.product.preorder && (
-                      <span className="inline-block mt-2 text-xs font-medium bg-green text-white rounded-full py-0.5 px-2.5">
-                        Forudbestilling · udkommer 10. september
-                      </span>
-                    )}
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -204,12 +196,6 @@ export default function CartPage() {
               <p className="text-xs text-gray-500">
                 Pakken leveres til din nærmeste pakkeshop.
               </p>
-              {hasPreorder && (
-                <p className="text-xs text-gray-500">
-                  Forudbestilte bøger sendes, så snart de udkommer. Bestiller du
-                  også bøger på lager, sendes hele ordren samlet.
-                </p>
-              )}
 
               <button
                 type="button"
