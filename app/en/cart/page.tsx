@@ -58,9 +58,6 @@ export default function CartPage() {
   const momsPrice = grossPrice * 0.25;
   const isEmpty = totalItems === 0;
   const totalPrice = isEmpty ? 0 : grossPrice + momsPrice + deliveryPrice;
-  const hasPreorder = lines.some(
-    (line) => line.product.preorder && line.quantity > 0,
-  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -106,11 +103,6 @@ export default function CartPage() {
                     <p className="text-sm text-gray-500 mt-0.5">
                       {format(line.product.priceExclMoms)} DKK excl. VAT
                     </p>
-                    {line.product.preorder && (
-                      <span className="inline-block mt-2 text-xs font-medium bg-green text-white rounded-full py-0.5 px-2.5">
-                        Pre-order · available 10 September
-                      </span>
-                    )}
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -209,13 +201,6 @@ export default function CartPage() {
               <p className="text-xs text-gray-500">
                 The package will be delivered to your nearest pickup point.
               </p>
-              {hasPreorder && (
-                <p className="text-xs text-gray-500">
-                  Pre-ordered books are shipped as soon as they are published.
-                  If you also order books that are in stock, the entire order is
-                  shipped together.
-                </p>
-              )}
 
               <button
                 type="button"

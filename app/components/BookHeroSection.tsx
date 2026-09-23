@@ -17,9 +17,8 @@ export function BookHeroSection() {
         price={CONSTANTS.PRODUCTS.komplet.priceExclMoms}
         image={CONSTANTS.PRODUCTS.komplet.image}
         imageAlt="Komplet lærebog"
-        deliveryText="Udkommer 10. september – forudbestil nu"
+        deliveryText="Forventet leveringstid: 3-4 arbejdsdage"
         previewHref={CONSTANTS.LINKS.PREVIEW_KOMPLET.da}
-        preorder
         showNyhed
       />
       <BookHero

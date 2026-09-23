@@ -33,14 +33,27 @@ const BUTTON_COLOR: Record<ProductKey, string> = {
 
 const BOOKS: ProductKey[] = ["komplet", "facet"];
 
-export default function GuideSelector() {
+export default function GuideSelector({ isEn = false }: { isEn?: boolean }) {
+  const t = isEn
+    ? {
+        heading: "Teacher's guide",
+        intro:
+          "The teacher's guide and answer key can be downloaded below, free of charge.",
+        guideButton: "Download teacher's guide",
+        answerKeyButton: "Download answer key for independent learners",
+      }
+    : {
+        heading: "Lærervejledning",
+        intro: "Lærervejledning og rettenøgle kan frit downloades nedenfor.",
+        guideButton: "Download lærervejledning",
+        answerKeyButton: "Download rettenøgle til selvstuderende",
+      };
+
   return (
     <section className="flex flex-col">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl">Lærervejledning</h1>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl">{t.heading}</h1>
       <header className="my-4">
-        <p className="font-normal text-lg md:text-left">
-          Lærervejledning og rettenøgle kan frit downloades nedenfor.
-        </p>
+        <p className="font-normal text-lg md:text-left">{t.intro}</p>
       </header>
 
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -69,7 +82,7 @@ export default function GuideSelector() {
               >
                 <span className="flex gap-x-4 items-center justify-center">
                   <DownloadIcon color="white" size={20} className="shrink-0" />
-                  Download lærervejledning
+                  {t.guideButton}
                 </span>
               </a>
               <a
@@ -79,7 +92,7 @@ export default function GuideSelector() {
               >
                 <span className="flex gap-x-4 items-center justify-center">
                   <DownloadIcon color="white" size={20} className="shrink-0" />
-                  Download rettenøgle til selvstuderende
+                  {t.answerKeyButton}
                 </span>
               </a>
             </div>

@@ -15,7 +15,6 @@ type BookHeroProps = {
   imageAlt: string;
   deliveryText: string;
   previewHref?: string;
-  preorder?: boolean;
   showNyhed?: boolean;
   isEn?: boolean;
 };
@@ -29,7 +28,6 @@ export function BookHero({
   imageAlt,
   deliveryText,
   previewHref,
-  preorder = false,
   showNyhed = false,
   isEn = false,
 }: BookHeroProps) {
@@ -41,8 +39,8 @@ export function BookHero({
     ? {
         by: "By",
         priceSuffix: "excl. VAT",
-        add: preorder ? "Pre-order" : "Add to cart",
-        added: preorder ? "Pre-ordered!" : "Cart updated!",
+        add: "Add to cart",
+        added: "Cart updated!",
         less: "Fewer",
         more: "More",
         preview: "Preview →",
@@ -50,8 +48,8 @@ export function BookHero({
     : {
         by: "Af",
         priceSuffix: "excl. moms",
-        add: preorder ? "Forudbestil" : "Føj til kurv",
-        added: preorder ? "Forudbestilt!" : "Kurv opdateret!",
+        add: "Føj til kurv",
+        added: "Kurv opdateret!",
         less: "Færre",
         more: "Flere",
         preview: "Læseprøve →",

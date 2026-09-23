@@ -13,6 +13,7 @@ interface AudioPlayerProps {
     };
   };
   basePath?: string;
+  isEn?: boolean;
 }
 
 export default function AudioPlayer({
@@ -21,6 +22,7 @@ export default function AudioPlayer({
   audioStructure,
   sectionTitles,
   basePath = "/audio",
+  isEn = false,
 }: AudioPlayerProps) {
   const [selectedChapter, setSelectedChapter] = useState(chapters[0]);
   const currentlyPlayingRef = useRef<HTMLAudioElement | null>(null);
@@ -45,7 +47,7 @@ export default function AudioPlayer({
             htmlFor="chapter-select"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Kapitel
+            {isEn ? "Chapter" : "Kapitel"}
           </label>
           <select
             id="chapter-select"
@@ -96,7 +98,7 @@ export default function AudioPlayer({
                 (exercise) => (
                   <div key={exercise} className="space-y-3">
                     <h4 className="font-semibold text-md">
-                      {exercise.replace("opg", "Opgave ")}
+                      {exercise.replace("opg", isEn ? "Exercise " : "Opgave ")}
                     </h4>
 
                     <div className="space-y-2 sm:ml-4">
