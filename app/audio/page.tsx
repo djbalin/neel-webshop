@@ -128,6 +128,7 @@ export default function AudioPage() {
     },
     chp4: {
       secA: "A: LÆSNING",
+      secC: "C: MUNDTLIG KOMMUNIKATION",
     },
   };
 
