@@ -14,7 +14,7 @@ const config: Config = {
         ditBlue: "#00415D",
         green: "#6C8420",
         greenContrast: "#214A31",
-        orange: "#F58354",
+        orange: "#ef7f30",
         greenPale: "#449965",
         greenBlue: "#43BCCD",
         yellow: "#F9C80E",

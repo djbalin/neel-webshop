@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONSTANTS } from "@/app/constants";
 import NyhedBurst from "@/app/components/NyhedBurst";
+import { Testimonials } from "@/components/Testimonials";
 
 export default async function HomePage() {
   return (
@@ -95,43 +96,45 @@ export default async function HomePage() {
         </article>
       </section>
 
+      <Testimonials />
+
       {/* Full-width green section */}
       <div className="full-bleed bg-green px-8 sm:px-8 lg:px-20 mx-auto flex w-full justify-center py-4">
         <div className="max-w-4xl w-full grid gap-4 md:grid-cols-2">
-            <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
-              <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
-                Læseprøve – Komplet
-              </h2>
-              <p className="mb-4 md:mb-6">
-                Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
-                sider af kapitel 1.
-              </p>
-              <div className="flex justify-center">
-                <Link
-                  href={CONSTANTS.LINKS.PREVIEW_KOMPLET.da}
-                  className="clickable inline-block rounded-xl bg-ditBlue text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
-                >
-                  Læs læseprøven her
-                </Link>
-              </div>
+          <div className="bg-orange rounded-xl text-white p-4 sm:p-6">
+            <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
+              Læseprøve – Komplet
+            </h2>
+            <p className="mb-4 md:mb-6">
+              Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
+              sider af kapitel 1.
+            </p>
+            <div className="flex justify-center">
+              <Link
+                href={CONSTANTS.LINKS.PREVIEW_KOMPLET.da}
+                className="clickable inline-block rounded-xl bg-ditBlue text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
+              >
+                Læs læseprøven her
+              </Link>
             </div>
-            <div className="bg-ditBlue rounded-xl text-white p-4 sm:p-6">
-              <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
-                Læseprøve – Facet
-              </h2>
-              <p className="mb-4 md:mb-6">
-                Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
-                sider af kapitel 1.
-              </p>
-              <div className="flex justify-center">
-                <Link
-                  href={CONSTANTS.LINKS.PREVIEW.da}
-                  className="clickable inline-block rounded-xl bg-orange text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
-                >
-                  Læs læseprøven her
-                </Link>
-              </div>
+          </div>
+          <div className="bg-ditBlue rounded-xl text-white p-4 sm:p-6">
+            <h2 className="text-xl md:text-2xl font-normal mb-3 md:mb-4">
+              Læseprøve – Facet
+            </h2>
+            <p className="mb-4 md:mb-6">
+              Få et smugkig i bogen - se indholdsfortegnelsen og læs de første
+              sider af kapitel 1.
+            </p>
+            <div className="flex justify-center">
+              <Link
+                href={CONSTANTS.LINKS.PREVIEW.da}
+                className="clickable inline-block rounded-xl bg-orange text-white py-2 md:py-3 px-6 md:px-8 text-base md:text-lg"
+              >
+                Læs læseprøven her
+              </Link>
             </div>
+          </div>
         </div>
       </div>
 
