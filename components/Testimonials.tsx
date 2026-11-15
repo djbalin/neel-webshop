@@ -71,7 +71,7 @@ export function Testimonials() {
 
   return (
     <section className="mb-16 md:mb-20">
-      <h2 className="text-4xl md:text-5xl mb-6 md:mb-8">Det siger brugerne:</h2>
+      <h2 className="text-2xl md:text-3xl mb-4 md:mb-6">Det siger brugerne:</h2>
 
       <div className="md:grid md:grid-cols-12">
         <div className="relative hidden md:block col-start-1 col-span-8 row-start-1 overflow-hidden rounded-xl">
